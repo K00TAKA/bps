@@ -23,9 +23,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+#画像処理補完するためのライブラリ
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+#railsの起動処理短縮
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
@@ -54,3 +56,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#ペジネーション用
+gem 'kaminari'
+gem 'bootstarp4-kaminari-views'
+
+#ログイン機能用
+gem 'devise'
+
+#enum導入用
+gem 'enum_help'
+
+#日本語化用
+gem 'rails-i18n'
+
+#項目を三に納める用
+gem 'jquery-rails'
