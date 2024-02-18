@@ -59,7 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #ペジネーション用
 gem 'kaminari'
-gem 'bootstarp4-kaminari-views'
 
 #ログイン機能用
 gem 'devise'
