@@ -1,24 +1,40 @@
-# README
+# businesspartners
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+・ 企業検索、企業情報（仕事内容や実績など）や繋がった企業同士のコメント投稿、閲覧ができるコミュニティサイト
 
-* Ruby version
 
-* System dependencies
+### テーマを選んだ理由
+これまでの職務経験で、「こんな事できる企業ないかな？」「あるモノを探してるんだけど、どこかいいところ知らない？」と相談される事が多くありました。
+同業、異業種関係なく繋がりを必要としている企業は多く、「どうやって探せばばいいのか」、「どうすれば繋がる切っ掛けを持てるのか」と悩まれています。
+その中でも、企業の質（人材やレスポンスの早さ、仕事の質）も気にされる方が多い傾向にあります。
+そんな悩みを持つ企業や人に、「繋がりたい」を見つけ、「繋がる」切っ掛けとなる場を作りたいと考えました。
 
-* Configuration
+### ターゲットユーザー
+・新たに企業と繋がりを持ちたい企業、人
 
-* Database creation
+### 主な利用シーン
+・ HPだけでは知ることのできない企業の質や評価を知りたい時
+・ 今取り組んでいることに力を借りたい時
+・ 新しく挑戦することに力やを借りたい時
 
-* Database initialization
+## 設計書
+後ほど作成予定
 
-* How to run the test suite
+## 開発環境
+・ フレームワーク ： Ruby on Rails
+・ IDE ： Cloud9
+・ 言語 ： Ruby, HTML, CSS, SQL,
+・ OS ： Windows
+他、後ほど追記予定
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使用素材
+・
+他、後ほど追記予定
 
-* Deployment instructions
+## 実装機能リスト
+https://docs.google.com/spreadsheets/d/1u-rotSV9GYEGJIVT0jke0gpbmaPzDxBjcLdeObUn9N4/edit#gid=885378170
 
-* ...
+
