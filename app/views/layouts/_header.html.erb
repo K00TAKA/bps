@@ -18,45 +18,44 @@
            </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item mr-3">
-              <%= link_to 'マイページ', members_path(current_member), class: 'btn btn-light' %>
+              <a class="nav-link" href="members_path(current_member)" >マイページ</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "企業一覧", companies_path, class: 'btn btn-light' %>
+              <a class="nav-link" href="companies_path" >企業一覧</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-light' %>
+              <a class="nav-link" href="destroy_member_session_path" >ログアウト</a>
             </li>
           <% elsif admin_signed_in? %>
             <li class="nav-item mr-3">
-              <%= link_to "企業一覧", admin_companies_path, class: 'btn btn-light' %>
+              <a class="nav-link" href="admin_companies_path" >企業一覧</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "会員一覧", admin_members_path, class: 'btn btn-light' %>
+              <a class="nav-link" href="admin_members_path" >会員一覧</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "業種一覧", admin_genres_path, class: 'btn btn-light' %>
+              <a class="nav-link" href="admin_genres_path" >業種一覧</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "お知らせ投稿", admin_comments_path, class: 'btn btn-light' %>
+              <a class="nav-link" href="admin_comments_path" >お知らせ投稿</a>
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="new_member_registration_path" >会員登録</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "会員登録", new_member_egistration_path, class: 'btn btn-light' %>
-            </li>
-            <li class="nav-item mr-3">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-light' %>
+              <a class="nav-link" href="destroy_admin_session_path" >ログアウト</a>
             </li>
           <% else %>
             <li class="nav-item mr-3">
-              <%= link_to "登録方法", about_path, class: 'btn btn-light' %>
+              <a class="nav-item" href="about_path" >登録方法</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "企業一覧", companies_path, class: 'btn btn-light' %>
+              <a class="nav-item" href="companies_path" >企業一覧</a>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "会員登録", new_member_registration_path, class: 'btn btn-light' %>
+              <a class="nav-item" href="new_member_registration_path" >会員登録</a>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_member_session_path, class: 'btn btn-light' %>
+              <a class="nav-item" href="new_member_session_path" >ログイン</a>
             </li>
           <% end %>
         </ul>

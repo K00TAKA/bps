@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'homes#top'
+
   #会員用
   # URL /members/sign_in ...
   devise_for :members, skip: [:passwords], controllers: {
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   #管理者用
   # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
@@ -22,7 +24,6 @@ Rails.application.routes.draw do
 
   # namespaceを使うとURLにmemberが付くためscopeを使用
   scope module: :member do
-    root to: 'homes#top'
     get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
     resources :companies, only: [:index, :show, :edit]

@@ -1,6 +1,6 @@
-<section class="inner">
+<div class="container">
   <h2>新規会員登録</h2>
-  <%= form_with @member, url:member_registration_path do |f| %>
+  <%= form_with model: @member, url:new_member_registration_path do |f| %>
     <%= render "member/shared/error_messages", resource: resource %>
     <table class="member_info member_form">
       <thead>
