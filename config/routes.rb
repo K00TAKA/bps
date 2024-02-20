@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :companies, :genres, :comments
+    resources :companies, :genres, :comments, :members
   end
 
   # namespaceを使うとURLにmemberが付くためscopeを使用

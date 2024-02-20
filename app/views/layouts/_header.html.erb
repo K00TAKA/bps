@@ -1,0 +1,66 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <% if admin_signed_in? %>
+      <!--ここではLOGOマークを文字で代用することにした-->
+        <%= link_to "Bussiness Partners", root_path %>
+      <% else %>
+        <%= link_to "Bussiness Partners", root_path %>
+      <% end %>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto" >
+          <% if member_signed_in? %>
+            <li class="member-name text-light">
+            ようこそ、<%= current_member.first_name %><%= current_member.last_name %>さん！
+           </li>
+          <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
+            <li class="nav-item mr-3">
+              <%= link_to 'マイページ', members_path(current_member), class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "企業一覧", companies_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-light' %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li class="nav-item mr-3">
+              <%= link_to "企業一覧", admin_companies_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "会員一覧", admin_members_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "業種一覧", admin_genres_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "お知らせ投稿", admin_comments_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "会員登録", new_member_egistration_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-light' %>
+            </li>
+          <% else %>
+            <li class="nav-item mr-3">
+              <%= link_to "登録方法", about_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "企業一覧", companies_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "会員登録", new_member_registration_path, class: 'btn btn-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_member_session_path, class: 'btn btn-light' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
