@@ -1,6 +1,28 @@
 # frozen_string_literal: true
 
 class Member::RegistrationsController < Devise::RegistrationsController
+
+  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
+
+  def update
+    @member = current_member
+    if current_member.update(member_params)
+    flash[:notice] = "会員情報の更新に成功しました。"
+    redirect_to members_path(@member)
+    else
+    render :edit
+    end
+  end
+
+
+
+  private
+
+  def member_params
+    params.require(:member).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email)
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

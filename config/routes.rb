@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   scope module: :member do
     root to: 'homes#top'
     get 'members/check' => 'members#check'
-    resources :companies, :comments
+    resources :companies, :comments, :members
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

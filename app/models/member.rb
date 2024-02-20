@@ -3,4 +3,17 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def full_name
+    first_name + last_name
+  end
+
+  def customer_status
+    if is_active == true
+      "入会中"
+    else
+      "退会済み"
+    end
+  end
+
 end
