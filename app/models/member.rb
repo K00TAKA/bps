@@ -8,7 +8,7 @@ class Member < ApplicationRecord
     first_name + last_name
   end
 
-  def customer_status
+  def member_status
     if is_active == true
       "入会中"
     else

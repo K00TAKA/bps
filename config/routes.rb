@@ -14,14 +14,20 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :companies, :genres, :comments, :members
+    resources :companies, only: [:index, :show]
+    resources :genres, only: [:index]
+    resources :comments, only: [:index, :show]
+    resources :members, only: [:index]
   end
 
   # namespaceを使うとURLにmemberが付くためscopeを使用
   scope module: :member do
     root to: 'homes#top'
+    get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
-    resources :companies, :comments, :members
+    resources :companies, only: [:index, :show, :edit]
+    resources :comments, only: [:index, :show]
+    resources :members, only: [:show, :edit]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
