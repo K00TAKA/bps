@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>コメント投稿</h2>
+  <div class="row">
+    <%= form_with model: Comment do |f| %>
+      <p>コメント</p>
+      <%= f.text_area :comment %>
+      <%= f.submit "コメント投稿", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
