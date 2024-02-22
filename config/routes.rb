@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
+    get "search" => "searches#search"
     resources :companies, only: [:index, :show]
     resources :genres, only: [:index]
     resources :comments, only: [:index, :show]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
 
   # namespaceを使うとURLにmemberが付くためscopeを使用
   scope module: :member do
+    get "search" => "searches#search"
     get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
     resources :companies, only: [:index, :show, :edit]
