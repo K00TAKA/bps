@@ -1,13 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  def search
-    #検索機能
-    @q = Company.ransack(params[:q])
-    @company = @q.result(distinct: true).page(params[:page]).order("created_at desc")
-    @result = params[:q]&.values&.reject(&:blank?)
-  end
-
-
   protected
 
   def after_sign_in_path_for(resource)
