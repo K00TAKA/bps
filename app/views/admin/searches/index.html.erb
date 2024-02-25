@@ -1,31 +1,4 @@
-<div class="container">
-  <div class='row'>
-    <table class="table border table-hover table-inverse">
-      <% if @result == [] %>
-        <h3 class="mt-3 text-center">検索結果がありません。</h3>
-      <% elsif @company.present? %>
-      <% search_word = @q.company_orcompany_kana_cont %>
-    <h2 class="mt-3">検索結果 "<%= search_word %>"</h2>
-      <thead>
-        <tr>
-          <th></th>
-          <th>企業名</th>
-          <th></th>
-          <th>業種</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @company.each do |f| %>
-          <td><企業写真></td>
-          <td><%= link_to f.company, companies_path(f.id) %></td>
-          <td><%= company_kana %></td>
-          <td><業種></td>
-        </tr>
-        <% end %>
-      <% else %>
-        <h3 class="mt-3 text-center">検索結果がありません。</h3>
-      <% end %>
-    </table>
-  </div>
-</div>
+<% if @model == 'company' %>
+    <h3>検索結果 "<%= @content %>"</h3>
+  <%= render 'companies/index', companies: @records %>
+<% end %>

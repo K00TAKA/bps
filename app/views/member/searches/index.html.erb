@@ -1,0 +1,4 @@
+<% if @model == 'company' %>
+    <h3>検索結果 "<%= @content %>"</h3>
+  <%= render 'companies/index', companies: @records %>
+<% end %>
