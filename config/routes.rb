@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   #会員用
   # URL /members/sign_in ...
   devise_for :members, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
+    registrations: "member/registrations",
+    sessions: 'member/sessions'
   }
 
   #管理者用
