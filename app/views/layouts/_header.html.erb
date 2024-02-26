@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container">
       <% if admin_signed_in? %>
       <!--ここではLOGOマークを文字で代用することにした-->
@@ -15,47 +15,50 @@
           <% if member_signed_in? %>
             <li class="member-name text-light">
             ようこそ、<%= current_member.first_name %><%= current_member.last_name %>さん！
-           </li>
+            </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item mr-3">
-              <a class="nav-link" href="members_path(current_member)" >マイページ</a>
+              <%= link_to "マイページ", members_path(current_member), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="companies_path" >企業一覧</a>
+              <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="destroy_member_session_path" >ログアウト</a>
+              <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
           <% elsif admin_signed_in? %>
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="admin_companies_path" >企業一覧</a>
+            <li class="admin-name text-light">
+            管理者ログイン中
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="admin_members_path" >会員一覧</a>
+              <%= link_to "企業一覧", admin_companies_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="admin_genres_path" >業種一覧</a>
+              <%= link_to "会員一覧", admin_members_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="admin_comments_path" >お知らせ投稿</a>
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="new_member_registration_path" >会員登録</a>
+              <%= link_to "業種一覧", admin_genres_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-link" href="destroy_admin_session_path" >ログアウト</a>
+              <%= link_to "お知らせ投稿", admin_comments_path, class: 'nav-link text-dark' %>
+            <li class="nav-item mr-3">
+              <%= link_to "会員登録", new_member_registration_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
           <% else %>
             <li class="nav-item mr-3">
-              <a class="nav-item" href="about_path" >登録方法</a>
+              <%= link_to "登録方法", about_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-item" href="companies_path" >企業一覧</a>
+              <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <a class="nav-item" href="new_member_registration_path" >会員登録</a>
+              <%= link_to "会員登録", new_member_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <a class="nav-item" href="new_member_session_path" >ログイン</a>
+              <%= link_to "ログイン", new_member_session_path, class: 'nav-link text-dark' %>
             </li>
           <% end %>
         </ul>
