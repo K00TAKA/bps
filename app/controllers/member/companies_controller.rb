@@ -2,6 +2,10 @@ class Member::CompaniesController < ApplicationController
 
   before_action :authenticate_member!
 
+  def new
+    @company = Company.new
+  end
+
   def create
     @company = Company.new(company_params)
     if @company.save

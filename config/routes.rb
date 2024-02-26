@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
-    resources :companies, only: [:index, :show, :edit]
+    resources :companies, only: [:new, :index, :show, :edit]
     resources :comments, only: [:index, :show]
     resources :members, only: [:show, :edit]
   end
