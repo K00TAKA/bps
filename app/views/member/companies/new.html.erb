@@ -3,42 +3,46 @@
 
   ここに企業検索＋企業検索結果出したい
 
-  <%= form_with model: @company, url:company_path, method: :post do |f| %>
-    <table class="company_info company_form">
-      <tbody>
-        <tr>
-          <td>企業写真</td>
-          <td><写真添付></td>
-        </tr>
-        <tr>
-          <td>企業名</td>
-          <td><%= f.label :company, :placeholder =>"企業名" %></td>
-        </tr>
-        <tr>
-          <td>企業名(カナ)</td>
-          <td><%= f.label :company_kana, :placeholder =>"キギョウメイ" %></td>
-        </tr>
-        <tr>
-          <td>郵便番号(ハイフンなし)</td>
-          <td><%= f.label :post_code, :placeholder =>"ハイフンなし" %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= f.label :address %></td>
-        </tr>
-        <tr>
-          <td>電話番号(ハイフンなし)</td>
-          <td><%= f.label :tel %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
-</section>
+  <table class="company_info company_form">
+    <thead>
+      <th></th>
+      <th></th>
+    </thead>
+    <%= form_with model: @company, url:company_path, method: :post do |f| %>
+    <tbody>
+      <tr>
+        <td>企業写真</td>
+        <td><写真添付></td>
+      </tr>
+      <tr>
+        <td>企業名</td>
+        <td><%= f.label :company, :placeholder =>"企業名" %></td>
+      </tr>
+      <tr>
+        <td>企業名(カナ)</td>
+        <td><%= f.label :company_kana, :placeholder =>"キギョウメイ" %></td>
+      </tr>
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td><%= f.label :post_code, :placeholder =>"ハイフンなし" %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= f.label :address %></td>
+      </tr>
+      <tr>
+        <td>電話番号(ハイフンなし)</td>
+        <td><%= f.label :tel %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :email, "メールアドレス" %></td>
+        <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>

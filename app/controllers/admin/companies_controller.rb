@@ -14,10 +14,10 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.find([:id])
     if @company.update(company_params)
       flash[:notice] = "ステータス更新に成功しました"
-      redirect_to _________
+      redirect_to admin_company_path
     else
       flash[:notice] = "ステータス更新に失敗しました"
-      render :________
+      render :show
     end
   end
 

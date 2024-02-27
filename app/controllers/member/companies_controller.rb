@@ -10,10 +10,10 @@ class Member::CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.member_id = current_company.id
     if @company.save
-      flash[:notice] = "企業登録に成功しました。"
+      flash[:notice] = "企業の登録に成功しました。"
       redirect_to company_path(params[:id])
     else
-      flash[:notice] = "企業登録に失敗しました。"
+      flash[:notice] = "企業の登録に失敗しました。"
       render :new
     end
   end

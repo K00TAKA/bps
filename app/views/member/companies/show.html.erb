@@ -1,0 +1,69 @@
+<div class="container py-3">
+
+  <h2>
+    企業情報
+  </h2>
+
+  <table class="table table-borderless">
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>企業ID</th>
+      <td><%= @company.id %></td>
+    </tr>
+    <tr>
+      <th>企業名</th>
+      <td><%= @company %></td>
+    </tr>
+    <tr>
+      <th>企業名(カナ)</th>
+      <td><%= @company_kana %></td>
+    </tr>
+    <tr>
+      <th>業種</th>
+      <td><%= @company.genre %></td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <td><%= @company.post_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @company.address %></td>
+    </tr>
+    <tr>
+      <th>設立年月日</th>
+      <td><%= @company.date_of_establishment %></td>
+    </tr>
+    <tr>
+      <th>紹介</th>
+      <td><%= @company.introduction %></td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td><%= @company.tel %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @company.email %></td>
+    </tr>
+    <%= form_with model: @company, url: company_path(@company.id), method: :patch do |f| %>
+    <tr>
+      <th>ステータス</th>
+      <td><%= @company.company_status %></td>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "表示", value: :false, class: 'active' %>
+          <%= f.radio_button :is_deleted, :true %>
+          <%= f.label :is_active, "非表示", value: :true, class: 'inactive' %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>%= f.submit 'ステータスを保存', class: 'btn btn-success' %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

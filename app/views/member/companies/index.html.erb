@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>企業一覧</h2>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <th></th>
+        <th>企業＃</th>
+        <th>企業名</th>
+        <th>業種</th>
+      </thead>
+      <tbody>
+      <% @companies.each do |company| %>
+        <td><企業写真></td>
+        <td><%= company_id %></td>
+        <td><%= link_to company, company_path(company.id) %></td>
+        <td><%= company.genre %></td>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

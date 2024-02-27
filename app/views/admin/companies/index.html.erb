@@ -7,13 +7,13 @@
         <th>企業＃</th>
         <th>企業名</th>
         <th>業種</th>
-        <th>会員ステータス</th>
+        <th>ステータス</th>
       </thead>
       <tbody>
       <% @companies.each do |company| %>
         <td><企業写真></td>
         <td><%= company_id %></td>
-        <td><%= link_to company, company_path(company.id) %></td>
+        <td><%= link_to company, admin_company_path(company.id) %></td>
         <td><%= company.genre %></td>
         <td>
           <% if company.is_active %>
