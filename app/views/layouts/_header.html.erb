@@ -18,7 +18,7 @@
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item mr-3">
-              <%= link_to "マイページ", members_path(current_member), class: 'nav-link text-dark' %>
+              <%= link_to "マイページ", member_path(current_member), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
               <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>

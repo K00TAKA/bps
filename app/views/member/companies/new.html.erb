@@ -3,7 +3,7 @@
 
   ここに企業検索＋企業検索結果出したい
 
-  <%= form_with model: @company, url:new_company_path do |f| %>
+  <%= form_with model: @company, url:company_path, method: :post do |f| %>
     <table class="company_info company_form">
       <tbody>
         <tr>

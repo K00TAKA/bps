@@ -1,6 +1,6 @@
 <div class="container">
   <h2>新規会員登録</h2>
-  <%= form_with model: @member, url:new_member_registration_path do |f| %>
+  <%= form_with model: @member, url:member_registration_path, method: :post do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
     <table class="member_info member_form">
       <thead>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <td></td>
-          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %>を行った後、次は<strong>企業登録</strong>に進みます。</td>
         </tr>
       </tbody>
     </table>
