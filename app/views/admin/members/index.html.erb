@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>会員一覧</h2>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <th>会員＃</th>
+        <th>会員名</th>
+        <th>会員ステータス</th>
+        <th></th>
+      </thead>
+      <tbody>
+      <% @members.each do |member| %>
+        <td><%= member_id %></td>
+        <td><%= member.first_name %><%= member.last_name %></td>
+        <%= form_with model: @member, url: admin_members_path, method: :patch do |f| %>
+        <td>
+          <%= f.radio_button :member_status, :true %>
+          <%= f.label :member_status, "入会中", value: :true, class: 'active' %>
+          <%= f.radio_button :member_status, :false %>
+          <%= f.label :member_status, "退会済み", value: :false, class: 'inactive' %>
+        </td>
+        <th>
+          <%= f.submit "ステータス変更", class:"btn btn-sm btn-success"%>
+        </th>
+        <% end %>
+        </td>
+      </tbody>
+    </table>
+  </div>
+
+</div>
