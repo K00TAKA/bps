@@ -17,10 +17,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "search" => "searches#search"
-    resources :companies, only: [:index, :show, :edit]
-    resources :genres, only: [:index]
-    resources :comments, only: [:index, :show]
-    resources :members, only: [:index]
+    resources :companies, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :edit, :update]
+    resources :comments, only: [:index, :show, :edit, :update]
+    resources :members, only: [:index, :show, :edit, :update, :destroy]
   end
 
   # namespaceを使うとURLにmemberが付くためscopeを使用
@@ -28,9 +28,11 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
-    resources :companies, only: [:new, :index, :show, :edit]
-    resources :comments, only: [:index, :show]
-    resources :members, only: [:show, :edit]
+    resources :companies, only: [:new, :index, :show, :edit, :update]
+    resources :comments, only: [:index, :show, :edit, :update] do
+      resource :favorites, only: [:create, :destroy]
+    end
+    resources :members, only: [:show, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

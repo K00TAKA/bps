@@ -10,6 +10,10 @@
       <th></th>
     </tr>
     <tr>
+      <th></th>
+      <td><企業写真載せたい></td>
+    </tr>
+    <tr>
       <th>企業ID</th>
       <td><%= @company.id %></td>
     </tr>
@@ -50,19 +54,10 @@
       <th>メールアドレス</th>
       <td><%= @company.email %></td>
     </tr>
-    <%= form_with model: @company, url: company_path(@company.id), method: :patch do |f| %>
-    <tr>
-      <th>ステータス</th>
-      <td><%= @company.company_status %></td>
-          <%= f.radio_button :is_active, :false %>
-          <%= f.label :is_active, "表示", value: :false, class: 'active' %>
-          <%= f.radio_button :is_deleted, :true %>
-          <%= f.label :is_active, "非表示", value: :true, class: 'inactive' %>
-      </td>
-    </tr>
+    <% @comments.each do |comment| %>
     <tr>
       <th></th>
-      <td>%= f.submit 'ステータスを保存', class: 'btn btn-success' %></td>
+      <td><%= @comment.comment %></td>
     </tr>
     <% end %>
   </table>
