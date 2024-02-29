@@ -8,7 +8,7 @@ class Member::CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.member_id = current_company.id
+    # @company.member_id = current_member.id
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"
       redirect_to company_path(params[:id])
@@ -23,7 +23,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    # @company = Company.find(params[:id])
     @comments = Comment.all
   end
 

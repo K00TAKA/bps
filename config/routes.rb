@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
-    resources :companies, only: [:new, :index, :show, :edit, :update]
+    resources :companies, except: [:destroy]
     resources :comments, only: [:index, :show, :edit, :update] do
       resource :favorites, only: [:create, :destroy]
     end

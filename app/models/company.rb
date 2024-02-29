@@ -1,5 +1,7 @@
 class Company < ApplicationRecord
 
+  belongs_to :member
+
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)

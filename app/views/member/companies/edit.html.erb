@@ -12,19 +12,19 @@
     </tr>
     <tr>
       <th>企業名</th>
-      <td><%= @company %></td>
+      <td><%= f.text_field :company, autofocus: true %></td>
     </tr>
     <tr>
       <th>企業名(カナ)</th>
-      <td><%= @company_kana %></td>
+      <td><%= f.text_field :company_kana %></td>
     </tr>
     <tr>
       <th>業種</th>
-      <td><%= @company.genre %></td>
+      <td><%= f.text_field :company.genre %></td>
     </tr>
     <tr>
       <th>郵便番号</th>
-      <td><%= @company.post_code %></td>
+      <td><%= f.text_field :post_code %></td>
     </tr>
     <tr>
       <th>住所</th>
