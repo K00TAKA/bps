@@ -1,8 +1,5 @@
 <div class="container py-3">
-
-  <h2>
-    企業情報
-  </h2>
+  <h2>企業情報</h2>
 
   <table class="table table-borderless">
     <tr>
@@ -10,48 +7,47 @@
       <th></th>
     </tr>
     <tr>
-      <th></th>
+      <td></td>
       <td><企業写真載せたい></td>
     </tr>
     <tr>
-      <th>企業ID</th>
+      <td>企業ID</td>
       <td><%= @company.id %></td>
     </tr>
     <tr>
-      <th>企業名</th>
+      <td>企業名</td>
       <td><%= @company %></td>
     </tr>
     <tr>
-      <th>企業名(カナ)</th>
+      <td>企業名(カナ)</td>
       <td><%= @company_kana %></td>
     </tr>
     <tr>
-      <th>業種</th>
+      <td>業種</td>
       <td><%= @company.genre %></td>
     </tr>
     <tr>
-      <th>郵便番号</th>
+      <td>郵便番号</td>
       <td><%= @company.post_code %></td>
     </tr>
     <tr>
-      <th>住所</th>
+      <td>住所</td>
       <td><%= @company.address %></td>
     </tr>
     <tr>
-      <th>設立年月日</th>
+      <td>設立年月日</td>
       <td><%= @company.date_of_establishment %></td>
     </tr>
     <tr>
-      <th>紹介</th>
+      <td>紹介</td>
       <td><%= @company.introduction %></td>
     </tr>
-
     <tr>
-      <th>電話番号</th>
+      <td>電話番号</td>
       <td><%= @company.tel %></td>
     </tr>
     <tr>
-      <th>メールアドレス</th>
+      <td>メールアドレス</td>
       <td><%= @company.email %></td>
     </tr>
     <% @comments.each do |comment| %>
@@ -69,8 +65,8 @@
           <%= link_to comment_favorites_path(@comment), method: :post do %>
             <%= @comment.favorites.count %> いいね
           <% end %>
+        <% end %>
         </p>
-      <% end %>
       </td>
     </tr>
     <% end %>

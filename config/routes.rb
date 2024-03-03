@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   #会員用
   # URL /members/sign_in ...
-  devise_for :members, skip: [:passwords], controllers: {
+  devise_for :members, controllers: {
     registrations: "member/registrations",
     sessions: 'member/sessions'
   }
 
   #管理者用
   # URL /admin/sign_in ...
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  devise_for :admins, controllers: {
     sessions: "admin/sessions"
   }
 

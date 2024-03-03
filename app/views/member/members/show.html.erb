@@ -3,7 +3,7 @@
 
   <div class="row">
      <h3 class="col-sm-2">企業情報</h3>
-     <%= link_to "企業情報を編集する", edit_company_path(company_id), class: 'btn btn-success' %>
+     <%= link_to "企業情報を編集する", edit_company_path, class: 'btn btn-success' %>
   </div>
 
   <table class="table table-borderless">
@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <th>企業ID</th>
-      <td><%= @company.id %></td>
+      <td><%= @company_id %></td>
     </tr>
     <tr>
       <th>企業名</th>
@@ -25,32 +25,32 @@
     </tr>
     <tr>
       <th>業種</th>
-      <td><%= @company.genre %></td>
+      <td><%= @company_genre %></td>
     </tr>
     <tr>
       <th>郵便番号</th>
-      <td><%= @company.post_code %></td>
+      <td><%= @company_post_code %></td>
     </tr>
     <tr>
       <th>住所</th>
-      <td><%= @company.address %></td>
+      <td><%= @company_address %></td>
     </tr>
     <tr>
       <th>設立年月日</th>
-      <td><%= @company.date_of_establishment %></td>
+      <td><%= @company_date_of_establishment %></td>
     </tr>
     <tr>
       <th>紹介</th>
-      <td><%= @company.introduction %></td>
+      <td><%= @company_introduction %></td>
     </tr>
 
     <tr>
       <th>電話番号</th>
-      <td><%= @company.tel %></td>
+      <td><%= @company_tel %></td>
     </tr>
     <tr>
       <th>メールアドレス</th>
-      <td><%= @company.email %></td>
+      <td><%= @company_email %></td>
     </tr>
   </table>
 
@@ -76,19 +76,6 @@
         <td class="col-sm-5"><%= @member.first_name_kana %></td>
         <td class="col-sm-5"><%= @member.last_name_kana %></td>
       </tr>
-      <tr>
-        <th class="col-sm-2">郵便番号:</th>
-        <td class="col-sm-10"><%= @member.post_code %></td>
-      </tr>
-      <tr>
-        <th class="col-sm-2">住所:</th>
-        <td class="col-sm-10"><%= @member.address %></td>
-      </tr>
-      <tr>
-        <th class="col-sm-2">電話番号:</th>
-        <td class="col-sm-10"><%= @member.tel %></td>
-      </tr>
-      <tr>
         <th class="col-sm-2">メールアドレス:</th>
         <td class="col-sm-10"><%= @member.email %></td>
       </tr>
