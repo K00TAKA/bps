@@ -2,7 +2,7 @@
   <h2>マイページ</h2>
 
   <div class="row">
-     <h3 class="col-sm-2">企業情報</h3>
+     <h3>企業情報</h3>
      <%= button_to "コメントを見る", comments_path, method: :get,  class: 'btn btn-primary' %>
   </div>
 
@@ -15,8 +15,8 @@
       <tr>
         <td>企業写真</td>
         <td>
-          <% if company.image.attached? %>
-            <%= image_tag company.image, size: "200x200" %>
+          <% if @company.image.attached? %>
+            <%= image_tag @company.image, size: "200x200" %>
           <% else %>
             <%= image_tag 'company_free', size: "200x200" %>
           <% end %>
@@ -24,11 +24,11 @@
       </tr>
       <tr>
         <td>企業名</td>
-        <td><%= @company %></td>
+        <td><%= @company.company %></td>
       </tr>
       <tr>
         <td>企業名(カナ)</td>
-        <td><%= @company_kana %></td>
+        <td><%= @company.company_kana %></td>
       </tr>
       <tr>
         <td>業種</td>
@@ -36,29 +36,30 @@
       </tr>
       <tr>
         <td>郵便番号</td>
-        <td><%= @company_post_code %></td>
+        <td><%= @company.post_code %></td>
       </tr>
       <tr>
         <td>住所</td>
-        <td><%= @company_address %></td>
+        <td><%= @company.address %></td>
       </tr>
       <tr>
         <td>設立年月日</td>
-        <td><%= @company_date_of_establishment %></td>
+        <td><%= @company.date_of_establishment %></td>
       </tr>
       <tr>
         <td>紹介</td>
-        <td><%= @company_introduction %></td>
+        <td><%= @company.introduction %></td>
       </tr>
       <tr>
         <td>電話番号</td>
-        <td><%= @company_tel %></td>
+        <td><%= @company.tel %></td>
       </tr>
       <tr>
         <td>メールアドレス</td>
-        <td><%= @company_email %></td>
+        <td><%= @company.email %></td>
       </tr>
       <tr>
+        <td></td>
         <td><%= button_to "企業情報を編集する", edit_company_path, class: 'btn btn-success' %></td>
         <td></td>
       </tr>
@@ -66,33 +67,29 @@
   </table>
 
   <div class="row">
-     <h3 class="col-sm-2">会員情報</h3>
+     <h3>会員情報</h3>
   </div>
 
-  <table class="table table-bordered">
+  <table class="table table-borderless">
     <thead>
-      <th></th>
       <th></th>
       <th></th>
     </thead>
     <tbody>
       <tr>
-        <td class="col-sm-2">名前</td>
-        <td class="col-sm-5"><%= @member.first_name %></td>
-        <td class="col-sm-5"><%= @member.last_name %></td>
+        <td >名前</td>
+        <td><%= @member.first_name %><%= @member.last_name %></td>
       </tr>
       <tr>
-        <td class="col-sm-2">名前(カナ)</td>
-        <td class="col-sm-5"><%= @member.first_name_kana %></td>
-        <td class="col-sm-5"><%= @member.last_name_kana %></td>
+        <td>名前(カナ)</td>
+        <td><%= @member.first_name_kana %><%= @member.last_name_kana %></td>
       </tr>
-        <td class="col-sm-2">メールアドレス</td>
-        <td class="col-sm-10"><%= @member.email %></td>
+        <td>メールアドレス</td>
+        <td><%= @member.email %></td>
       </tr>
       <tr>
+        <td></td>
         <td><%= button_to "会員情報を編集する", edit_member_registration_path, class: 'btn btn-success' %></td>
-        <td></td>
-        <td></td>
       </tr>
     </tbody>
   </table>

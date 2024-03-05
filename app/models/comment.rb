@@ -1,7 +1,8 @@
 class Comment < ApplicationRecord
-  
+
   has_many :favorites, dependent: :destroy
-  
+  has_one :company
+
   def favorited_by?(member)
     favorites.exists?(member_id: member.id)
   end

@@ -6,6 +6,10 @@ class Member::CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def index
+    @comments = Comment.all
+  end
+
   def create
     @member = current_member
     @comment = Comment.new(comment_params)
