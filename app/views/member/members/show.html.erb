@@ -13,8 +13,14 @@
     </thead>
     <tbody>
       <tr>
-        <td>企業ID</td>
-        <td><%= @company_id %></td>
+        <td>企業写真</td>
+        <td>
+          <% if company.image.attached? %>
+            <%= image_tag company.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'company_free', size: "200x200" %>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td>企業名</td>

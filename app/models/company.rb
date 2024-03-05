@@ -2,6 +2,7 @@ class Company < ApplicationRecord
 
   belongs_to :member
   belongs_to :genre
+  has_one_attached :image
 
   def self.search_for(content, method)
     if method == 'perfect'
