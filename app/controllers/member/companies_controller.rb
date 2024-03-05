@@ -23,7 +23,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    # @company = Company.find(params[:id])
     @comments = Comment.all
   end
 
