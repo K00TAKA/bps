@@ -9,11 +9,19 @@ Rails.application.routes.draw do
     sessions: 'member/sessions'
   }
 
+  devise_scope :member do
+    get '/members/sign_out' => 'devise/sessions#destroy'
+  end
+
   #管理者用
   # URL /admin/sign_in ...
   devise_for :admins, controllers: {
     sessions: "admin/sessions"
   }
+
+  devise_scope :admin do
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+  end
 
   namespace :admin do
     get "search" => "searches#search"
@@ -32,7 +40,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :show, :edit, :update] do
       resource :favorites, only: [:create, :destroy]
     end
-    resources :members, only: [:show, :edit, :update, :destroy]
+    resources :members, only: [:show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
