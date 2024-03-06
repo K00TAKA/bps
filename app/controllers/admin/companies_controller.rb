@@ -11,10 +11,10 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find([:id])
+    @company = Company.find(params[:id])
     if @company.update(company_params)
       flash[:notice] = "ステータス更新に成功しました"
-      redirect_to admin_company_path
+      redirect_to admin_company_path(@company.id)
     else
       flash[:notice] = "ステータス更新に失敗しました"
       render :show
@@ -24,7 +24,7 @@ class Admin::CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:is_active)
+    params.require(:company).permit(:company_status)
   end
 
 end

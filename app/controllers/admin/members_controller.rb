@@ -3,6 +3,7 @@ class Admin::MembersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    @member = Member.new
     @members = Member.all
   end
 
@@ -10,7 +11,7 @@ class Admin::MembersController < ApplicationController
     @member = Member.find(params[:id])
     if @member.update(member_params)
       flash[:notice] = "会員ステータスを更新しました"
-      redirect_to admin_member_path(@member)
+      redirect_to admin_members_path
     else
       flash[:notice] = "会員ステータスの更新に失敗しました"
       render :index
@@ -20,7 +21,7 @@ class Admin::MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:is_active)
+    params.permit(:member_status)
   end
 
 end

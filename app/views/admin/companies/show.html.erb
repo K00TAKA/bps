@@ -1,8 +1,7 @@
 <div class="container py-3">
 
-  <h2>
-    企業情報
-  </h2>
+  <h2>企業情報</h2>
+  <div><%= flash[:notice] %></div>
 
   <table class="table table-borderless">
     <tr>
@@ -10,8 +9,14 @@
       <th></th>
     </tr>
     <tr>
-      <th></th>
-      <th><企業写真載せたい></th>
+      <td></td>
+      <td>
+        <% if @company.image.attached? %>
+          <%= image_tag company.image, size: "200x200" %>
+        <% else %>
+          <%= image_tag 'company_free', size: "200x200" %>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <th>企業ID</th>
@@ -19,11 +24,11 @@
     </tr>
     <tr>
       <th>企業名</th>
-      <td><%= @company %></td>
+      <td><%= @company.company %></td>
     </tr>
     <tr>
       <th>企業名(カナ)</th>
-      <td><%= @company_kana %></td>
+      <td><%= @company.company_kana %></td>
     </tr>
     <tr>
       <th>業種</th>
@@ -57,16 +62,16 @@
     <%= form_with model: @company, url: admin_company_path(@company.id), method: :patch do |f| %>
     <tr>
       <th>ステータス</th>
-      <td><%= @company.company_status %></td>
-          <%= f.radio_button :is_active, :false %>
-          <%= f.label :is_active, "表示", value: :false, class: 'active' %>
-          <%= f.radio_button :is_deleted, :true %>
-          <%= f.label :is_active, "非表示", value: :true, class: 'inactive' %>
+      <td>
+          <%= f.radio_button :company_status, :true %>
+          <%= f.label :company_status, "表示", value: :true, class: 'active' %>
+          <%= f.radio_button :company_status, :false %>
+          <%= f.label :company_status, "非表示", value: :false, class: 'inactive' %>
       </td>
     </tr>
     <tr>
       <th></th>
-      <td>%= f.submit 'ステータスを保存', class: 'btn btn-success' %></td>
+      <td><%= f.submit 'ステータスを保存', class: 'btn btn-success' %></td>
     </tr>
     <% end %>
   </table>

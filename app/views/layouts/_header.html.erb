@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto" >
           <% if member_signed_in? %>
-            <li class="member-name text-light">
+            <li class="member-name text-dark">
             ようこそ、<%= current_member.first_name %><%= current_member.last_name %>さん！
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
@@ -27,7 +27,7 @@
               <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'nav-link text-dark', data: { confirm: '本当にログアウトしますか？' } %>
             </li>
           <% elsif admin_signed_in? %>
-            <li class="admin-name text-light">
+            <li class="admin-name text-dark">
             管理者ログイン中
             </li>
             <li class="nav-item mr-3">
@@ -41,8 +41,6 @@
             </li>
             <li class="nav-item mr-3">
               <%= link_to "お知らせ投稿", admin_comments_path, class: 'nav-link text-dark' %>
-            <li class="nav-item mr-3">
-              <%= link_to "会員登録", new_member_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>

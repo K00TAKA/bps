@@ -8,14 +8,22 @@
         <th>企業名</th>
         <th>業種</th>
       </thead>
-      <tbody>
       <% @companies.each do |company| %>
-        <td><企業写真></td>
-        <td><%= company_id %></td>
-        <td><%= link_to company, company_path(company.id) %></td>
-        <td><%= company.genre %></td>
-      <% end %>
+      <tbody>
+        <tr>
+          <td>
+            <% if company.image.attached? %>
+              <%= image_tag company.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag 'company_free', size: "200x200" %>
+            <% end %>
+          </td>
+          <td><%= company.id %></td>
+          <td><%= link_to company.company, company_path(company.id) %></td>
+          <td><%= company.genre %></td>
+        </tr>
       </tbody>
+      <% end %>
     </table>
   </div>
 

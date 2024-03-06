@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table table-borderless">
         <thead>
           <th>新着登録企業</th>
           <th></th>
@@ -9,9 +9,15 @@
         </thead>
         <% @companies.each do |company| %>
           <tbody>
-            <td><企業写真入れる></td>
-            <td><企業名></td>
-            <td><業種></td>
+            <td>
+              <% if company.image.attached? %>
+                <%= image_tag company.image, size: "200x200" %>
+              <% else %>
+                <%= image_tag 'company_free', size: "200x200" %>
+              <% end %>
+            </td>
+            <td><%= link_to company.company, company_path(company) %></td>
+            <td><%= company.genre %></td>
           </tbody>
         <% end %>
       </table>
@@ -26,10 +32,6 @@
             <td><お知らせ></td>
           <% end %>
         </table>
-      </div>
-
-      <div class="row">
-        <企業検索機能＞
       </div>
     </div>
   </div>
