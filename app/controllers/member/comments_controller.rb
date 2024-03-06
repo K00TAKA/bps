@@ -13,14 +13,18 @@ class Member::CommentsController < ApplicationController
   def create
     @member = current_member
     @comment = Comment.new(comment_params)
-    @comment.member_id = current_member_id
-    if comment.save
+    @company = Company.find(params[:company_id])
+    if @comment.save
       flash[:notice] = "コメントの登録に成功しました。"
-      redirect_to company_path
+      redirect_to company_path(params[:id])
     else
       flash[:notice] = "コメントの登録に失敗しました。"
       render :index
     end
+  end
+
+  def comment_params
+    params.require(:comment).permit(:comment)
   end
 
 end
