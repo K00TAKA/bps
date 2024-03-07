@@ -28,7 +28,7 @@ class Member::CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @comments = Comment.all
+    @comment = Comment.new
   end
 
   def edit

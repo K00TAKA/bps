@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     !current_member.has_company?
   end
 
-  def after_sign_up_path_for(resource)
+  def after_member_sign_up_path_for(resource)
     if member_sign_up?
       new_company_path
     else

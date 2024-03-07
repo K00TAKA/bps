@@ -6,10 +6,10 @@
       <tr>
         <th></th>
         <th>コメント</th>
-        <th></th>
+        <th>コメント件数：<%= @company.comments.count %></th>
       </tr>
     </thead>
-    <% @comments.each do |comment| %>
+    <% @company.comments.each do |comment| %>
     <tbody>
       <tr>
         <td></td>

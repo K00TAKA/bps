@@ -1,7 +1,7 @@
 <div class="container">
   <h2>コメント投稿</h2>
   <%= form_with model: Comment do |f| %>
-    <%= hidden_field_tag :company_id, @company.id %>
+    <%= f.hidden_field :company_id, value: params[:company_id] %>
     <table class="table table-borderless">
       <tr>
         <th class="col-md-2"></th>
@@ -9,7 +9,7 @@
       </tr>
       <tr>
         <td><%= f.label:コメント入力 %></td>
-        <td><%= f.text_area :comment, class: "form-control", style: "width:100%", rows: "3" %></td>
+        <td><%= f.text_area :comment, class: "form-control", style: "width:100%", rows: "5" %></td>
       </tr>
       <tr>
         <td></td>
