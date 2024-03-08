@@ -3,11 +3,11 @@
 
   <div class="row">
      <h3>企業情報</h3>
-     <%= button_to "コメントを見る", comments_path, method: :get,  class: 'btn btn-primary' %>
   </div>
 
   <table class="table table-borderless">
     <thead>
+      <th></th>
       <th></th>
       <th></th>
     </thead>
@@ -61,7 +61,7 @@
       <tr>
         <td></td>
         <td><%= button_to "企業情報を編集する", edit_company_path, class: 'btn btn-success' %></td>
-        <td></td>
+        <td><%= button_to "コメントを見る", comments_path, method: :get,  class: 'btn btn-primary' %></td>
       </tr>
     </tbody>
   </table>
@@ -72,6 +72,7 @@
 
   <table class="table table-borderless">
     <thead>
+      <th></th>
       <th></th>
       <th></th>
     </thead>
@@ -90,6 +91,7 @@
       <tr>
         <td></td>
         <td><%= button_to "会員情報を編集する", edit_member_registration_path, class: 'btn btn-success' %></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

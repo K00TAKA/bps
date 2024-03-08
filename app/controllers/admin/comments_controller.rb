@@ -2,18 +2,18 @@ class Admin::CommentsController < ApplicationController
 
   before_action :authenticate_admin!
 
-  def index
-    @comments = Comment.all
+  def show
+    @company = Company.find(params[:id])
   end
 
   def update
-    @comment = Company.find([:id])
+    @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
       flash[:notice] = "ステータス更新に成功しました"
-      redirect_to _________
+      redirect_to admin_comment_path(@comment.company_id)
     else
       flash[:notice] = "ステータス更新に失敗しました"
-      render :________
+      render :show
     end
   end
 

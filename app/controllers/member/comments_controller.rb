@@ -3,8 +3,7 @@ class Member::CommentsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    @company = Company.find(params[:id])
-    @comment = PostComment.new
+    @company = current_member.company
   end
 
   def new
