@@ -60,10 +60,10 @@
     </tr>
     <tr>
       <td>投稿されたコメント</td>
-      <td>コメント件数：<%= @company.comments.count %></td>
+      <td>コメント件数：<%= @comments.count %></td>
       <td></td>
     </tr>
-    <% @company.comments.each do |comment| %>
+    <% @comments.each do |comment| %>
       <tr>
         <td></td>
         <td><%= comment.comment %></td>

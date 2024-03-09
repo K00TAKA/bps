@@ -1,6 +1,7 @@
 <div class="container py-5">
   <h2>コメント一覧</h2>
   コメント数：<%= @company.comments.count %>件
+  <div><%= flash[:notice] %></div>
 
   <table class="table table-bordered">
     <thead class="thead-dark">

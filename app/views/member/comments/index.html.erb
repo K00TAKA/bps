@@ -10,7 +10,8 @@
         <th></th>
       </tr>
     </thead>
-    <% @company.comments.each do |comment| %>
+    <% @comments.each do |comment| %>
+      <% if comment.is_active %>
       <tr>
         <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
         <td><%= comment.comment %></td>
@@ -30,6 +31,7 @@
           <% end %>
         </td>
       </tr>
+      <% end %>
     <% end %>
   </table>
 

@@ -29,6 +29,7 @@ class Member::CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @comment = Comment.new
+    @comments = @company.comments.where(is_active: true)
   end
 
   def edit
