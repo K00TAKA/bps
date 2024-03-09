@@ -8,6 +8,7 @@
           <th></th>
         </thead>
         <% @companies.each do |company| %>
+          <% if company.is_active %>
           <tbody>
             <td>
               <% if company.image.attached? %>
@@ -19,6 +20,7 @@
             <td><%= link_to company.company, company_path(company) %></td>
             <td><%= company.genre %></td>
           </tbody>
+          <% end %>
         <% end %>
       </table>
     </div>

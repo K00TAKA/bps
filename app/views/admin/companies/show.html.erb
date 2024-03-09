@@ -67,10 +67,10 @@
     <tr>
       <th>ステータス</th>
       <td>
-          <%= f.radio_button :company_status, :true %>
-          <%= f.label :company_status, "表示", value: :true, class: 'active' %>
-          <%= f.radio_button :company_status, :false %>
-          <%= f.label :company_status, "非表示", value: :false, class: 'inactive' %>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "表示", value: :true, class: 'active' %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "非表示", value: :false, class: 'inactive' %>
       </td>
     </tr>
     <tr>

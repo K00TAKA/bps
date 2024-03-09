@@ -9,20 +9,22 @@
         <th>業種</th>
       </thead>
       <% @companies.each do |company| %>
-      <tbody>
-        <tr>
-          <td>
-            <% if company.image.attached? %>
-              <%= image_tag company.image, size: "200x200" %>
-            <% else %>
-              <%= image_tag 'company_free', size: "200x200" %>
-            <% end %>
-          </td>
-          <td><%= company.id %></td>
-          <td><%= link_to company.company, company_path(company.id) %></td>
-          <td><%= company.genre %></td>
-        </tr>
-      </tbody>
+        <% if company.is_active %>
+        <tbody>
+          <tr>
+            <td>
+              <% if company.image.attached? %>
+                <%= image_tag company.image, size: "200x200" %>
+              <% else %>
+                <%= image_tag 'company_free', size: "200x200" %>
+              <% end %>
+            </td>
+            <td><%= company.id %></td>
+            <td><%= link_to company.company, company_path(company.id) %></td>
+            <td><%= company.genre %></td>
+          </tr>
+        </tbody>
+        <% end %>
       <% end %>
     </table>
   </div>

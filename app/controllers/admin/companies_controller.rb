@@ -24,7 +24,7 @@ class Admin::CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:company_status)
+    params.require(:company).permit(:is_active)
   end
 
 end
