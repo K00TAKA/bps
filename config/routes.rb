@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'admin/announcements'
+  get 'admin/index'
+  get 'admin/show'
+  get 'admin/create'
+  get 'admin/edit'
+  get 'admin/update'
+  get 'admin/destroy'
   root to: 'homes#top'
 
   #会員用
@@ -29,6 +36,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :update]
     resources :comments, only: [:index, :show, :create, :edit, :update]
     resources :members, only: [:index, :show, :edit, :update, :destroy]
+    resources :announcements
   end
 
   # namespaceを使うとURLにmemberが付くためscopeを使用
