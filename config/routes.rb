@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'admin/announcements'
-  get 'admin/index'
-  get 'admin/show'
-  get 'admin/create'
-  get 'admin/edit'
-  get 'admin/update'
-  get 'admin/destroy'
   root to: 'homes#top'
 
   #会員用

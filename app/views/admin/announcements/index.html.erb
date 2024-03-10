@@ -1,2 +1,42 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+      <div class="tabs d-flex justify-content-between align-items-center">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#published">公開中</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#draft">下書き</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#unpublished">非公開</a>
+          </li>
+        </ul>
+
+        <%= link_to "新規投稿", new_admin_announcement_path, class: "new-post-btn ml-auto" %>
+      </div>
+
+      <div class="tab-content">
+        <div id="published" class="tab-pane fade show active">
+          <% @published_announcements.each do |announcement| %>
+            <%= render "announcement", announcement: announcement %>
+          <% end %>
+        </div>
+
+        <div id="draft" class="tab-pane fade">
+          <% @draft_announcements.each do |announcement| %>
+            <%= render "announcement", announcement: announcement %>
+          <% end %>
+        </div>
+
+        <div id="unpublished" class="tab-pane fade">
+          <% @unpublished_announcements.each do |announcement| %>
+            <%= render "announcement", announcement: announcement %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
