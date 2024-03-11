@@ -1,42 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+  <h2>お知らせ一覧</h2>
+  <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-primary" %></div>
+  お知らせ数：<%= @announcements.count %>件
 
-      <div class="tabs d-flex justify-content-between align-items-center">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#published">公開中</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#draft">下書き</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#unpublished">非公開</a>
-          </li>
-        </ul>
+  <div><%= flash[:notice] %></div>
 
-        <%= link_to "新規投稿", new_admin_announcement_path, class: "new-post-btn ml-auto" %>
-      </div>
-
-      <div class="tab-content">
-        <div id="published" class="tab-pane fade show active">
-          <% @published_announcements.each do |announcement| %>
-            <%= render "announcement", announcement: announcement %>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>投稿日</th>
+        <th>内容</th>
+        <th>公開 / 非公開</th>
+        <th>編集 / 削除</th>
+      </tr>
+    </thead>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= announcement.body %></td>
+        <td>
+          <%= form_with model: announcement, url: admin_announcement_path(announcement.id), method: :patch do |f| %>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "公開", value: :true, class: 'active' %> /
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "非公開", value: :false, class: 'inactive' %><br>
+            <%= f.submit 'ステータスを保存', class: 'btn btn-success' %>
           <% end %>
-        </div>
-
-        <div id="draft" class="tab-pane fade">
-          <% @draft_announcements.each do |announcement| %>
-            <%= render "announcement", announcement: announcement %>
-          <% end %>
-        </div>
-
-        <div id="unpublished" class="tab-pane fade">
-          <% @unpublished_announcements.each do |announcement| %>
-            <%= render "announcement", announcement: announcement %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+        </td>
+        <td>
+          <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-success" %>
+          <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>

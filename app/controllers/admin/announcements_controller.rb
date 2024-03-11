@@ -2,6 +2,10 @@ class Admin::AnnouncementsController < ApplicationController
 
   before_action :authenticate_admin!
 
+  def index
+    @announcements = Announcement.all
+  end
+
   def new
     @announcement = Announcement.new
   end
@@ -11,21 +15,14 @@ class Admin::AnnouncementsController < ApplicationController
     @admin = current_admin
     @announcement.admin_id = @admin.id
 
-    if params[:draft].present?
-      @announcement.status = :draft
-    else
-      @announcement.status = :published
-    end
-
     if @announcement.save
-      if @announcement.draft?
-        redirect_to dashboard_posts_path, notice: '下書きが保存されました。'
-      else
-        redirect_to admin_announcements_path, notice: '投稿が公開されました。'
-      end
+      flash[:notice] = "お知らせの登録に成功しました。"
+      redirect_to admin_announcements_path
     else
+      flash[:notice] = "お知らせの登録に失敗しました。"
       render :new
     end
+
   end
 
   def edit
@@ -37,24 +34,9 @@ class Admin::AnnouncementsController < ApplicationController
     @admin = current_admin
     @announcement = Announcement.find(params[:id])
 
-    @announcement.assign_attributes(announcement_params)
-
-    if params[:draft].present?
-      @announcement.status = :draft
-      notice_message = "下書きを保存しました。"
-      redirect_path = dashboard_posts_path
-    elsif params[:unpublished].present?
-      @announcement.status = :unpublished
-      notice_message = "非公開にしました。"
-      redirect_path = dashboard_posts_path
-    else
-      @announcemenmt.status = :published
-      notice_message = "投稿を更新しました。"
-      redirect_path = post_path(@post)
-    end
 
     if @announcement.save
-      redirect_to redirect_path, notice: notice_message
+      redirect_to
     else
       render :edit
     end
@@ -63,7 +45,7 @@ class Admin::AnnouncementsController < ApplicationController
   private
 
   def announcement_params
-    params.require(:announcement).permit(:body, :status)
+    params.require(:announcement).permit(:body, :is_active)
   end
 
 end
