@@ -21,7 +21,7 @@
         <td>
           <%= form_with model: announcement, url: admin_announcement_path(announcement.id), method: :patch do |f| %>
             <%= f.radio_button :is_active, :true %>
-            <%= f.label :is_active, "公開", value: :true, class: 'active' %> /
+            <%= f.label :is_active, "公開", value: :true, class: 'active' %>
             <%= f.radio_button :is_active, :false %>
             <%= f.label :is_active, "非公開", value: :false, class: 'inactive' %><br>
             <%= f.submit 'ステータスを保存', class: 'btn btn-success' %>
@@ -29,7 +29,7 @@
         </td>
         <td>
           <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-success" %>
-          <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, class: "btn btn-danger" %>
+          <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>

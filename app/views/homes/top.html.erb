@@ -28,10 +28,19 @@
     <div class="col">
       <div class="row">
         <table>
-          <th>新着お知らせ</th>
+          <tr>
+            <th>新着お知らせ</th>
+            <th></th>
+          </tr>
           <% @announcements.each do |announcement| %>
-            <td><更新日付></td>
-            <td><お知らせ></td>
+          <tr>
+            <th><更新日付></th>
+            <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <th><お知らせ></th>
+            <td><%= announcement.body %></td>
+          </tr>
           <% end %>
         </table>
       </div>
