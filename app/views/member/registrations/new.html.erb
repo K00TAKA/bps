@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <h2>新規会員登録</h2>
   <%= form_with model: @member, url:member_registration_path, method: :post do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
@@ -10,35 +10,43 @@
       </thead>
       <tbody>
         <tr>
-          <td>名前</td>
-          <td><%= f.label :first_name, "(姓)", class: "member_name" %> <%= f.text_field :first_name, autofocus: true, :placeholder =>"石川" %></td>
-          <td><%= f.label :last_name, "(名)", class: "member_name" %> <%= f.text_field :last_name, :placeholder =>"太郎" %></td>
+          <td class="py-2">名前</td>
+          <td class="py-2"><%= f.label :first_name, "(姓)", class: "member_name" %></td>
+          <td class="py-2"><%= f.text_field :first_name, autofocus: true, :placeholder =>"石川" %></td>
+          <td class="py-2"><%= f.label :last_name, "(名)", class: "member_name" %></td>
+          <td class="py-2"><%= f.text_field :last_name, :placeholder =>"太郎" %></td>
         </tr>
         <tr>
-          <td>名前(カナ)</td>
-          <td><%= f.label :first_name_kana, "(セイ)" %> <%= f.text_field :first_name_kana, :placeholder =>"イシカワ" %></td>
-          <td><%= f.label :last_name_kana, "(メイ)" %> <%= f.text_field :last_name_kana, :placeholder =>"タロウ" %></td>
+          <td class="py-2">名前(カナ)</td>
+          <td class="py-2"><%= f.label :first_name_kana, "(セイ)" %></td>
+          <td class="py-2"><%= f.text_field :first_name_kana, :placeholder =>"イシカワ" %></td>
+          <td class="py-2"><%= f.label :last_name_kana, "(メイ)" %></td>
+          <td class="py-2"><%= f.text_field :last_name_kana, :placeholder =>"タロウ" %></td>
         </tr>
         <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+          <td class="py-2"><%= f.label :email, "メールアドレス" %></td>
+          <td class="py-2"></td>
+          <td class="py-2"><%= f.email_field :email, autocomplete: "email" %></td>
         </tr>
         <tr>
-          <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-          <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+          <td class="py-2"><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+          <td class="py-2"></td>
+          <td class="py-2"><%= f.password_field :password, autocomplete: "new-password" %></td>
         </tr>
         <tr>
-          <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-          <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          <td class="py-2"><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+          <td class="py-2"></td>
+          <td class="py-2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
         </tr>
         <tr>
-          <td></td>
-          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %>を行った後、次は<strong>企業登録</strong>に進みます。</td>
+          <td class="py-2"></td>
+          <td class="py-2"></td>
+          <td class="py-2"><%= f.submit "新規登録", class: "btn btn-success" %>を行った後、次は<strong>企業登録</strong>に進みます。</td>
         </tr>
       </tbody>
     </table>
   <% end %>
 
-  <h2 class="section-ttl">既に登録済みの方</h2>
+  <h2 class="py-2">既に登録済みの方</h2>
   <p><%= link_to "こちら", new_member_session_path, class: "underline" %>からログインしてください。</p>
-</section>
+</div>
