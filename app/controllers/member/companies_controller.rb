@@ -30,6 +30,26 @@ class Member::CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @comment = Comment.new
     @comments = @company.comments.where(is_active: true)
+    @member = @company.member # 会員情報を取得する
+    @currentmemberEntry = Entry.where(member_id: current_member.id)
+    @memberEntry = Entry.where(member_id: @member.id)
+    if @member.id == current_member.id
+      @msg = "他のユーザーとDMしてみよう！"
+    else
+      @currentmemberEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+
+      if @isRoom != true
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit

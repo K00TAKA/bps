@@ -89,5 +89,30 @@
       <td></td>
       <td><%= link_to "コメントする", new_comment_path(company_id: @company.id), method: :get,  class: 'btn btn-primary' %></td>
     </tr>
+    <tr>
+      <td>問い合わせ窓口</td>
+      <td><%= @member.first_name %><%= @member.last_name %></td>
+      <td><%= @member.first_name_kana %><%= @member.last_name_kana %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <% if @member.id == current_member.id %>
+            <%= @msg %>
+        <% else %>
+            <% if @isRoom == true %>
+                <p><%= link_to 'DMへ', room_path(@roomId) %></p>
+            <% else %>
+                <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e|%>
+                        <% e.hidden_field :member_id, value: @member.id %>
+                    <% end %>
+                <%= f.submit "DMを送る", class: "btn btn-success" %>
+                <% end %>
+            <% end %>
+        <% end %>
+      </td>
+      <td></td>
+    </tr>
   </table>
 </div>
