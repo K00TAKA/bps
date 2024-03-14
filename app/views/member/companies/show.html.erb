@@ -101,7 +101,7 @@
             <%= @msg %>
         <% else %>
             <% if @isRoom == true %>
-                <p><%= link_to 'DMへ', room_path(@roomId) %></p>
+                <p><%= link_to 'DMへ', room_path(@roomId), class: "btn btn-success" %></p>
             <% else %>
                 <%= form_for @room do |f| %>
                     <%= fields_for @entry do |e|%>

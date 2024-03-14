@@ -1,15 +1,15 @@
-class MessagesController < ApplicationController
+class Member::MessagesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_member!
 
   def create
-    if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
+    if Entry.where(member_id: current_member.id, room_id: params[:message][:room_id]).present?
       @message = Message.new(message_params)
       if @message.save
-          redirect_to "/rooms/#{@message.room_id}"
+        redirect_to "/rooms/#{@room.id}"
       end
     else
-      redirect_back(fallback_location: root_path)
+      redirect_to "/rooms/#{@room.id}"
     end
   end
 

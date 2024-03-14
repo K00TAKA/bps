@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class Member::RoomsController < ApplicationController
 
   before_action :authenticate_member!
 
@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
       @message = Message.new
       @entries = @room.entries
     else
-      redirect_back(fallback_location: root_path)
+      redirect_to "/rooms/#{@room.id}"
     end
   end
 end

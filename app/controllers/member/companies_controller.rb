@@ -34,10 +34,10 @@ class Member::CompaniesController < ApplicationController
     @currentmemberEntry = Entry.where(member_id: current_member.id)
     @memberEntry = Entry.where(member_id: @member.id)
     if @member.id == current_member.id
-      @msg = "他のユーザーとDMしてみよう！"
+      @msg = "他の企業の担当者とDMしてみよう！"
     else
       @currentmemberEntry.each do |cu|
-        @userEntry.each do |u|
+        @memberEntry.each do |u|
           if cu.room_id == u.room_id then
             @isRoom = true
             @roomId = cu.room_id

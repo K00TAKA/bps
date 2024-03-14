@@ -1,22 +1,33 @@
-<div class="user-in">
-  <% @entries.each do |e| %>
-    <h3><strong><a href="/members/<%= e.member.id %>"><%= e.member.email%></a></strong></h3>
+<div class="container py-5">
+  <div class="row">
+    <% @entries.each do |e| %>
+      <h3><strong><a href="/members/<%= e.member.id %>"><%= e.member.first_name %> <%= e.member.last_name %> さん</a></strong>と</h3>
+    <% end %>
+    <h3>のDM</h3>
+  </div>
+</div>
+
+<div class="container py-5">
+  <table class="table table-borderless" >
+    <tr>
+      <th>発言者</th>
+      <th>メッセージ内容</th>
+      <th></th>
+    </tr>
+    <% @messages.each do |m| %>
+    <tr>
+      <td><%= m.member.first_name %><%= m.member.last_name %>さん</td>
+      <td><%= m.body %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+  <%= form_with model: Message do |f| %>
+    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , class: "form-control", style: "width:100%", rows: "5" %>
+    <%= f.hidden_field :room_id, :value => @room.id %><br>
+    <%= f.submit "送信する" %>
   <% end %>
-  <p>2人のDM❤️</p>
-  </div>
+</div>
 
-  <div class="dmMain">
-      <% @messages.each do |m| %>
-          <strong><%= m.body %></strong>
-          <small><%= m.member.email %>さん</small><hr>
-      <% end %>
-
-      <%= form_for @message do |f| %>
-      <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
-      <%= f.hidden_field :room_id, :value => @room.id %>
-      <br>
-      <%= f.submit "送信する" %>
-      <% end %>
-  </div>
-
-  <%= link_to "企業一覧に戻る", compamies_path, class: "btn btn-success" %>
