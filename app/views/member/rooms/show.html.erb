@@ -19,7 +19,9 @@
     <tr>
       <td><%= m.member.first_name %><%= m.member.last_name %>さん</td>
       <td><%= m.body %></td>
-      <td></td>
+      <% if m.member_id == current_member.id %>
+      <td><%= link_to "削除", message_path(m.id, message: { id: m.id, room_id: @room.id }), method: :delete, class: 'btn btn-danger' %></td>
+      <% end %>
     </tr>
     <% end %>
   </table>

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :members, only: [:show, :edit, :update]
-    resources :messages, only: [:create]
+    resources :messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :show]
   end
 

@@ -6,15 +6,22 @@ class Member::MessagesController < ApplicationController
     if Entry.where(member_id: current_member.id, room_id: params[:message][:room_id]).present?
       @message = Message.new(message_params)
       if @message.save
-        flash[:notice] = "メッセージを送信しました。"
+        flash[:notice] = "送信しました。"
         @room = Room.find(params[:message][:room_id]) # 修正
         redirect_to room_path(@room.id)
       end
     else
-      flash[:notice] = "メッセージの送信に失敗しました。"
+      flash[:notice] = "送信に失敗しました。"
       @room = Room.find(params[:message][:room_id]) # 修正
       redirect_to room_path(@room.id)
     end
+  end
+
+  def destroy
+    message = Message.find(params[:message][:id])  # 修正
+    message.destroy
+    @room = Room.find(params[:message][:room_id])
+    redirect_to room_path(@room.id)
   end
 
   private
