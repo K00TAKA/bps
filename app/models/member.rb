@@ -7,6 +7,8 @@ class Member < ApplicationRecord
   has_one :company
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   def full_name
     first_name + last_name
