@@ -1,0 +1,20 @@
+<div class="container py-3">
+  <table class="table table-border">
+    <tr>
+      <th>企業名</th>
+      <th>企業名カナ</th>
+      <th>住所</th>
+      <th></th>
+    </tr>
+    <% companies.each do |company| %>
+      <% if company.is_active %>
+      <tr>
+        <td><%= company.company %></td>
+        <td><%= company.company_kana %></td>
+        <td><%= company.address %></td>
+        <td><%= link_to "企業詳細へ", company_path(company.id), class: "btn btn-success" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

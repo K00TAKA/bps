@@ -7,13 +7,13 @@ class Company < ApplicationRecord
 
   def self.search_for(content, method)
     if method == 'perfect'
-      User.where(name: content)
+      Company.where(company: content)
     elsif method == 'forward'
-      User.where('name LIKE ?', content + '%')
+      Company.where('company LIKE ?', content + '%')
     elsif method == 'backward'
-      User.where('name LIKE ?', '%' + content)
+      Compnay.where('company LIKE ?', '%' + content)
     else
-      User.where('name LIKE ?', '%' + content + '%')
+      Company.where('company LIKE ?', '%' + content + '%')
     end
   end
 

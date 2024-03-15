@@ -12,7 +12,9 @@
 
   <body>
     <%= render "layouts/header" %>
-    <%= render "layouts/search" %>
+    <div class="float-right mr-5" >
+      <%= render "layouts/search" %>
+    </div>
     <%= yield %>
   </body>
 </html>

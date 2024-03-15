@@ -1,11 +1,10 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-    <div class="col">
-      <table class="table table-borderless">
-        <thead>
+    <div class="col-md-5">
+      <table class="table table-borderbottom">
+        <thead class="thead-info">
           <th>新着登録企業</th>
-          <th></th>
-          <th></th>
+          <th>企業名</th>
         </thead>
         <% @companies.each do |company| %>
           <% if company.is_active %>
@@ -17,29 +16,38 @@
                 <%= image_tag 'company_free', size: "150x150" %>
               <% end %>
             </td>
-            <td><%= link_to company.company, company_path(company) %></td>
-            <td><%= company.genre %></td>
+            <td>
+              <% if member_signed_in? %>
+                <%= link_to company.company, company_path(company) %><br><%= company.genre %>
+              <% elsif admin_signed_in? %>
+                <%= link_to company.company, admin_company_path(company) %><br><%= company.genre %>
+              <% else %>
+                <%= link_to company.company, new_member_session_path %>
+              <% end %>
+            </td>
           </tbody>
           <% end %>
         <% end %>
       </table>
     </div>
 
-    <div class="col">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-6">
       <div class="row">
-        <table>
-          <tr>
+        <table class="table table-borderless">
+          <tr class="thead-warning" >
             <th>新着お知らせ</th>
             <th></th>
           </tr>
-          <% @announcements.each do |announcement| %>
-          <tr>
+          <tr class="border-bottom">
             <th><更新日付></th>
-            <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+            <th><内容></th>
           </tr>
-          <tr>
-            <th><お知らせ></th>
-            <td><%= announcement.body %></td>
+          <% @announcements.each do |announcement| %>
+          <tr class="border-bottom">
+            <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+            <td ><%= announcement.body %></td>
           </tr>
           <% end %>
         </table>
@@ -47,3 +55,15 @@
     </div>
   </div>
 </div>
+
+<style>
+  .thead-info th {
+    background-color: #17a2b8; /* 青色に設定 */
+    color: white; /* テキストの色を白色に設定 */
+  }
+
+  .thead-warning th {
+    background-color: #ffc107;
+    color: white;
+  }
+</style>

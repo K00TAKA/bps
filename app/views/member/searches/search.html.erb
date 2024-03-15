@@ -1,0 +1,7 @@
+<div class="container py-5">
+  <% if @model == 'company' %>
+    <h3>検索結果"<%= @content %>"</h3>
+  <%= render 'member/searches/companies', companies: @records %>
+  <% end %>
+</div>
+
