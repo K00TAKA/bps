@@ -63,7 +63,7 @@
       <th>投稿コメント</th>
       <td><%= button_to "コメントを見る", admin_comment_path, method: :get,  class: 'btn btn-primary' %></td>
     </tr>
-    <%= form_with model: @company, url: member_company_path(@company.id), method: :patch do |f| %>
+    <%= form_with model: @company, url: admin_company_path(@company.id), method: :patch do |f| %>
     <tr>
       <th>ステータス</th>
       <td>

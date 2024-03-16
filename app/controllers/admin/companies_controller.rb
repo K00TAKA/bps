@@ -8,7 +8,6 @@ class Admin::CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    render '/admin/companies/show'
   end
 
   def update
