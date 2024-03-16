@@ -41,12 +41,17 @@
         <tr>
           <td class="py-2"></td>
           <td class="py-2"></td>
-          <td class="py-2"><%= f.submit "新規登録", class: "btn btn-success" %>を行った後、次は<strong>企業登録</strong>に進みます。</td>
+          <td class="py-2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+        </tr>
+        <tr>
+          <td class="py-2"></td>
+          <td class="py-2"></td>
+          <td class="py-2">次は<strong>企業登録</strong>に進みます。</td>
         </tr>
       </tbody>
     </table>
   <% end %>
 
-  <h2 class="py-2">既に登録済みの方</h2>
+  <h2 class="pt-5">既に登録済みの方</h2>
   <p><%= link_to "こちら", new_member_session_path, class: "underline" %>からログインしてください。</p>
 </div>

@@ -1,44 +1,17 @@
 # frozen_string_literal: true
 
 class Member::RegistrationsController < Devise::RegistrationsController
-
   before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-
-  #deviseで用意してくれるため、定義しなくても良い
-  # def new
-  #   @member = Member.new
-  # end
-
-  def update
-    @member = current_member
-    if current_member.update(member_params)
-    flash[:notice] = "会員情報の更新に成功しました。"
-    redirect_to members_path(@member)
-    else
-    render :edit
-    end
-  end
-
-
-
-  private
-
-  def member_params
-    params.require(:member).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email)
-  end
-
-  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
-  #   super
+  #   # @customer = Customer.new
   # end
 
-  # POST /resource
+  # # POST /resource
   # def create
-  #   super
+  #   # @customer = Customer.new(create_users_params)
   # end
 
   # GET /resource/edit
@@ -65,11 +38,15 @@ class Member::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def after_sign_in_path_for(resource)
+    new_company_path
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :address, :tel, :email, :is_active, :password_confirmation])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -86,4 +63,6 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
 end

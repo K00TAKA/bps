@@ -14,7 +14,7 @@ class Member::CompaniesController < ApplicationController
     @genre = "業種を登録してください"
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"
-      redirect_to company_path(@company.id)
+      redirect_to member_path(member.id)
     else
       flash[:notice] = "企業の登録に失敗しました。"
       render :new
