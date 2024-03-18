@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <h2>新規企業登録</h2>
 
   <div><%= flash[:notice] %></div>
@@ -11,7 +11,7 @@
     </tr>
     <%= form_with model: @company do |f| %>
     <tr>
-      <td>企業写真</td>
+      <td class="">企業写真</td>
       <td></td>
       <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
@@ -24,6 +24,11 @@
       <td>企業名(カナ)</td>
       <td></td>
       <td><%= f.text_field :company_kana, :placeholder =>"カ）キギョウメイ" %></td>
+    </tr>
+    <tr>
+      <td>業種</td>
+      <td></td>
+      <td><%= f.select :genre, Company.genres.keys, { include_blank: '業種を選択してください' }, class: 'form-control' %></td>
     </tr>
     <tr>
       <td>郵便番号(ハイフンなし)</td>

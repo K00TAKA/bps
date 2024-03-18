@@ -4,7 +4,7 @@ class Member::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @company = current_member.company
+    # @company = current_member.company
   end
 
   def edit

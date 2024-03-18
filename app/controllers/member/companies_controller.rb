@@ -8,10 +8,9 @@ class Member::CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.member_id = current_member.id
+    @member = current_member
     @company.date_of_establishment = "設立年月日を入れてください"
     @company.introduction = "紹介文を入れてください"
-    @genre = "業種を登録してください"
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"
       redirect_to member_path(member.id)
@@ -22,7 +21,6 @@ class Member::CompaniesController < ApplicationController
   end
 
   def index
-    # @company = Company.find(params[:id])
     @companies = Company.all
   end
 
@@ -76,7 +74,7 @@ class Member::CompaniesController < ApplicationController
   private
 
   def company_params
-  params.require(:company).permit(:image, :company, :company_kana, :genre_id, :establish, :introduction, :post_code, :address, :tel, :email)
+  params.require(:company).permit(:image, :company, :company_kana, :genre_id, :establish, :introduction, :post_code, :address, :tel, :email, :genre)
   end
 
 end

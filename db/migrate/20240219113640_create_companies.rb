@@ -11,6 +11,7 @@ class CreateCompanies < ActiveRecord::Migration[6.1]
       t.string :email, null: false
       t.boolean :is_active, null: false, default: true
       t.timestamps
+      t.integer :genre, null: false, limit: 1
     end
   end
 end
