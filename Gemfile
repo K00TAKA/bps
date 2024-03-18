@@ -72,5 +72,5 @@ gem 'rails-i18n'
 #項目を三に納める用
 gem 'jquery-rails'
 
-#検索機能
-gem 'ransack'
+# デバッグ用
+gem 'pry-byebug'

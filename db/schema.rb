@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2024_03_14_041351) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "genre", limit: 1, null: false
+    t.integer "member_id", null: false
   end
 
   create_table "entries", force: :cascade do |t|

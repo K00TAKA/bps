@@ -32,7 +32,7 @@
       </tr>
       <tr>
         <td>業種</td>
-        <td><%= @company_genre %></td>
+        <td><%= @company.genre %></td>
       </tr>
       <tr>
         <td>郵便番号</td>
@@ -60,8 +60,8 @@
       </tr>
       <tr>
         <td></td>
-        <td><%= button_to "企業情報を編集する", edit_company_path, class: 'btn btn-success' %></td>
-        <td><%= button_to "コメントを見る", comments_path, method: :get,  class: 'btn btn-primary' %></td>
+        <td><%= link_to "企業情報を編集する", edit_company_path(@company.id), class: 'btn btn-success' %></td>
+        <td><%= link_to "コメントを見る", comments_path, method: :get, class: 'btn btn-primary' %></td>
       </tr>
     </tbody>
   </table>
@@ -78,7 +78,7 @@
     </thead>
     <tbody>
       <tr>
-        <td >名前</td>
+        <td>名前</td>
         <td><%= @member.first_name %><%= @member.last_name %></td>
       </tr>
       <tr>

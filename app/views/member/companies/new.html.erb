@@ -1,5 +1,5 @@
 <div class="container py-5">
-  <h2>新規企業登録</h2>
+  <h2 class="py-3">新規企業登録</h2>
 
   <div><%= flash[:notice] %></div>
 
@@ -11,49 +11,49 @@
     </tr>
     <%= form_with model: @company do |f| %>
     <tr>
-      <td class="">企業写真</td>
-      <td></td>
-      <td><%= f.file_field :image, accept: "image/*" %></td>
+      <td class="py-2">企業写真</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
     <tr>
-      <td>企業名</td>
-      <td></td>
-      <td><%= f.text_field :company, :placeholder =>"株式会社企業名" %></td>
+      <td class="py-2">企業名</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.text_field :company, :placeholder =>"株式会社企業名" %></td>
     </tr>
     <tr>
-      <td>企業名(カナ)</td>
-      <td></td>
-      <td><%= f.text_field :company_kana, :placeholder =>"カ）キギョウメイ" %></td>
+      <td class="py-2">企業名(カナ)</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.text_field :company_kana, :placeholder =>"キギョウメイ" %></td>
     </tr>
     <tr>
-      <td>業種</td>
-      <td></td>
-      <td><%= f.select :genre, Company.genres.keys, { include_blank: '業種を選択してください' }, class: 'form-control' %></td>
+      <td class="py-2">業種</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.select :genre, Company.genres.keys, { include_blank: '業種を選択してください' }, class: 'form-control' %></td>
     </tr>
     <tr>
-      <td>郵便番号(ハイフンなし)</td>
-      <td></td>
-      <td><%= f.text_field :post_code %></td>
+      <td class="py-2">郵便番号(ハイフンなし)</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.text_field :post_code %></td>
     </tr>
     <tr>
-      <td>住所</td>
-      <td></td>
-      <td><%= f.text_field :address %></td>
+      <td class="py-2">住所</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.text_field :address %></td>
     </tr>
     <tr>
-      <td>電話番号(ハイフンなし)</td>
-      <td></td>
-      <td><%= f.text_field :tel %></td>
+      <td class="py-2">電話番号(ハイフンなし)</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.text_field :tel %></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
-      <td></td>
-      <td><%= f.email_field :email, autocomplete: "email" %></td>
+      <td class="py-2">メールアドレス</td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.email_field :email, autocomplete: "email" %></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+      <td class="py-2"></td>
+      <td class="py-2"></td>
+      <td class="py-2"><%= f.submit '新規登録', class: "btn btn-success" %></td>
     </tr>
     <% end %>
   </table>

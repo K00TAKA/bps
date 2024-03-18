@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <th>業種</th>
-      <td>< later ></td>
+      <td><%= f.select :genre, Company.genres.keys, class: 'form-control' %></td>
     </tr>
     <tr>
       <th>郵便番号</th>
@@ -28,24 +28,24 @@
     </tr>
     <tr>
       <th>住所</th>
-      <td><%= @company.address %></td>
+      <td><%= f.text_field :address %></td>
     </tr>
     <tr>
       <th>設立年月日</th>
-      <td><%= @company.date_of_establishment %></td>
+      <td><%= f.text_field :date_of_establishment %></td>
     </tr>
     <tr>
       <th>紹介</th>
-      <td><%= @company.introduction %></td>
+      <td><%= f.text_area :introduction, class: "form-control", style: "width:100%", rows: "3" %></td>
     </tr>
 
     <tr>
       <th>電話番号</th>
-      <td><%= @company.tel %></td>
+      <td><%= f.text_field :tel %></td>
     </tr>
     <tr>
       <th>メールアドレス</th>
-      <td><%= @company.email %></td>
+      <td><%= f.text_field :email %></td>
     </tr>
     <tr>
       <th></th>

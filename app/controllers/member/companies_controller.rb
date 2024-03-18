@@ -8,12 +8,12 @@ class Member::CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @member = current_member
-    @company.date_of_establishment = "設立年月日を入れてください"
-    @company.introduction = "紹介文を入れてください"
+    @company.member_id = current_member.id
+    @company.date_of_establishment = "年/月/日"
+    @company.introduction = "紹介文"
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"
-      redirect_to member_path(member.id)
+      redirect_to member_path(@member.id)
     else
       flash[:notice] = "企業の登録に失敗しました。"
       render :new
@@ -26,7 +26,7 @@ class Member::CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @comment = Comment.new
+    # @comment = Comment.new
     @comments = @company.comments.where(is_active: true)
     @member = @company.member # 会員情報を取得する
     @currentmemberEntry = Entry.where(member_id: current_member.id)
@@ -74,7 +74,7 @@ class Member::CompaniesController < ApplicationController
   private
 
   def company_params
-  params.require(:company).permit(:image, :company, :company_kana, :genre_id, :establish, :introduction, :post_code, :address, :tel, :email, :genre)
+  params.require(:company).permit(:image, :company, :company_kana, :post_code, :address, :tel, :email, :genre, :date_of_establishment, :introduction)
   end
 
 end
