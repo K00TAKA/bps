@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get "search" => "searches#search"
     resources :companies, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :edit, :update]
     resources :comments, only: [:index, :show, :create, :edit, :update]
     resources :members, only: [:index, :show, :edit, :update, :destroy]
     resources :announcements
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
     get 'members/check' => 'members#check'
     patch 'members/withdraw' => 'members#withdraw'
     resources :companies, except: [:destroy]
-
     resources :comments, except: [:destroy] do
       resource :favorites, only: [:create, :destroy]
     end

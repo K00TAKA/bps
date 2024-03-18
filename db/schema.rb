@@ -63,8 +63,6 @@ ActiveRecord::Schema.define(version: 2024_03_14_041351) do
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "member_id"
-    t.integer "company_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -95,12 +93,6 @@ ActiveRecord::Schema.define(version: 2024_03_14_041351) do
   create_table "favorites", force: :cascade do |t|
     t.integer "member_id"
     t.integer "comment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
