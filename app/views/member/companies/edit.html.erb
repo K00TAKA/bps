@@ -1,11 +1,8 @@
 <div class="container py-3">
-
-  <h2>
-    企業情報編集
-  </h2>
+  <h2>企業情報編集</h2>
 
   <table class="table table-borderless">
-  <%= form_with model: @company, url: edit_company_path(@company.id), method: :patch do |f| %>
+  <%= form_with model: @company, url: company_path(company.id), method: :patch do |f| %>
     <tr>
       <th></th>
       <th></th>

@@ -55,7 +55,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find([:id])
+    @company = Company.find(params[:id])
     if @company.update(company_params)
       flash[:notice] = "ステータス更新に成功しました"
       redirect_to company_path(params[:id])
