@@ -9,5 +9,5 @@
 #管理者用ログイン情報
 Admin.create!(
   email: 'admin@admin',
-  password: 'admin111'
+  password: 'admin111admin'
 )

@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2024_03_14_041351) do
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "member_id"
+    t.integer "company_id"
   end
 
   create_table "companies", force: :cascade do |t|

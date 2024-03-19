@@ -1,6 +1,6 @@
 <div class="container">
   <h2>お知らせ一覧</h2>
-  <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-primary" %></div>
+  <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-success" %></div>
   お知らせ数：<%= @announcements.count %>件
 
   <div><%= flash[:notice] %></div>
@@ -24,7 +24,7 @@
             <%= f.label :is_active, "公開", value: :true, class: 'active' %>
             <%= f.radio_button :is_active, :false %>
             <%= f.label :is_active, "非公開", value: :false, class: 'inactive' %><br>
-            <%= f.submit 'ステータスを保存', class: 'btn btn-success' %>
+            <%= f.submit 'ステータスを保存', class: 'btn btn-primary' %>
           <% end %>
         </td>
         <td>

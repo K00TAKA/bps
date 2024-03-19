@@ -14,7 +14,7 @@
         <ul class="navbar-nav ml-auto" >
           <% if member_signed_in? %>
             <li class="member-name text-dark">
-            ようこそ、<%= current_member.first_name %><%= current_member.last_name %>さん！
+            ようこそ<%= current_member.first_name %><%= current_member.last_name %>さん！
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item mr-3">

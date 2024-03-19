@@ -25,9 +25,9 @@
           <td><%= member.member_status %></td>
           <%= form_with model: member, url: admin_member_path(member.id), method: :patch do |f| %>
           <td>
-            <%= f.radio_button :member_status, :true %>
+            <%= f.radio_button :is_active, :true %>
             <%= f.label :member_status, "入会中", value: :true, class: 'active' %>
-            <%= f.radio_button :member_status, :false %>
+            <%= f.radio_button :is_active, :false %>
             <%= f.label :member_status, "退会済み", value: :false, class: 'inactive' %><br>
             <%= f.submit "ステータス変更", class:"btn btn-sm btn-success" %>
           </td>
