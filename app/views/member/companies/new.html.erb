@@ -1,60 +1,118 @@
-<div class="container py-5">
-  <h2 class="py-3">新規企業登録</h2>
+<div class="box">
+  <div class="box-inner">
+    <h2>新規企業登録</h2>
 
-  <div><%= flash[:notice] %></div>
-
-  <table class="company_info company_form">
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
     <%= form_with model: @company do |f| %>
-    <tr>
-      <td class="py-2">企業写真</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.file_field :image, accept: "image/*" %></td>
-    </tr>
-    <tr>
-      <td class="py-2">企業名</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.text_field :company, :placeholder =>"株式会社企業名" %></td>
-    </tr>
-    <tr>
-      <td class="py-2">企業名(カナ)</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.text_field :company_kana, :placeholder =>"キギョウメイ" %></td>
-    </tr>
-    <tr>
-      <td class="py-2">業種</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.select :genre, Company.genres.keys, { include_blank: '業種を選択してください' }, class: 'form-control' %></td>
-    </tr>
-    <tr>
-      <td class="py-2">郵便番号(ハイフンなし)</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.text_field :post_code %></td>
-    </tr>
-    <tr>
-      <td class="py-2">住所</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.text_field :address %></td>
-    </tr>
-    <tr>
-      <td class="py-2">電話番号(ハイフンなし)</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.text_field :tel %></td>
-    </tr>
-    <tr>
-      <td class="py-2">メールアドレス</td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.email_field :email, autocomplete: "email" %></td>
-    </tr>
-    <tr>
-      <td class="py-2"></td>
-      <td class="py-2"></td>
-      <td class="py-2"><%= f.submit '新規登録', class: "btn btn-success" %></td>
-    </tr>
+    <div class="company_info box-image">
+      <strong>企業写真</strong><br>
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+    <div class="company-info box-company">
+      <strong>企業名</strong><br>
+      <%= f.text_field :company, :placeholder =>"株式会社企業名" %>
+    </div>
+    <div class="company-info box-company-kana">
+      <strong>企業名(カナ)</strong><br>
+      <%= f.text_field :company_kana, :placeholder =>"カ）キギョウメイ" %>
+    </div>
+    <div class="company-info box-genre">
+      <strong>業種</strong><br>
+      <%= f.select :genre, Company.genres.keys, { include_blank: '業種を選択してください' }, class: 'form-control',style: "width:36%" %>
+    </div>
+    <div class="company-info box-post-code">
+      <strong>郵便番号(ハイフンなし)</strong><br>
+      <%= f.text_field :post_code %>
+    </div>
+    <div class="company-info box-address">
+      <strong>住所</strong><br>
+      <%= f.text_field :address, style: "width:71%" %>
+    </div>
+    <div class="company-info box-tel">
+      <strong>電話番号(ハイフンなし)</strong><br>
+      <%= f.text_field :tel %>
+    </div>
+    <div class="company-info box-email">
+      <strong>メールアドレス</strong><br>
+      <%= f.email_field :email, autocomplete: "email", style: "width:71%" %>
+    </div>
+    <div class="box-action">
+      <%= f.submit '新規登録' %>
+    </div>
     <% end %>
-  </table>
+  </div>
 </div>
+
+<style>
+  .box {
+    width: 600px;
+    height: 730px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 5px #FFA500 solid;
+  }
+
+  .box-inner {
+    padding: 10px 10px;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 30px;
+    line-hight: 1.2;
+    margin: 20px;
+    padding: 10px;
+    color: #111111;
+    background-color: #FFFACD;
+  }
+
+  .box-image {
+    margin: 10px;
+  }
+
+  .box-company {
+    margin: 10px;
+  }
+
+  .box-company-kana {
+    margin: 10px;
+  }
+
+  .box-genre {
+    margin: 10px;
+  }
+
+  .box-post-code {
+    margin: 10px;
+  }
+
+  .box-address {
+    margin: 10px;
+  }
+
+  .box-tel {
+    margin: 10px;
+  }
+
+  .box-email {
+    margin: 10px;
+  }
+
+  .box-action {
+    margin: 20px;
+  }
+
+  .box-action input[type="submit"] {
+    border-style: none;
+    width: 100%;
+    height: 31px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
+  }
+
+  .box-action input[type="submit"]:hover {
+    cursor: pointer;
+    background: #f0c14b;
+  }
+
+</style>

@@ -8,8 +8,8 @@ class Member::CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.member_id = current_member.id
-    @company.date_of_establishment = "年/月/日"
+    @member = current_member
+    @company.date_of_establishment = "年/月"
     @company.introduction = "紹介文"
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"

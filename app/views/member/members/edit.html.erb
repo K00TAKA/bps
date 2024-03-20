@@ -1,44 +1,49 @@
-<div class="container py-3">
-  <h2 class="py-3">会員情報編集</h2>
-  <div><%= flash[:notice] %></div>
+<div class="container py-5">
+  <p><strong>会員情報編集</strong></h3>
 
   <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
-    <table class="table table-borderless">
-      <thead>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="py-2">名前</td>
-          <td class="py-2"><%= f.label :first_name, "(姓)", class: "member_name" %></td>
-          <td class="py-2"><%= f.text_field :first_name %></td>
-          <td class="py-2"><%= f.label :last_name, "(名)", class: "member_name" %></td>
-          <td class="py-2"><%= f.text_field :last_name %></td>
-        </tr>
-        <tr>
-          <td class="py-2">名前(カナ)</td>
-          <td class="py-2"><%= f.label :first_name_kana, "(セイ)" %></td>
-          <td class="py-2"><%= f.text_field :first_name_kana %></td>
-          <td class="py-2"><%= f.label :last_name_kana, "(メイ)" %></td>
-          <td class="py-2"><%= f.text_field :last_name_kana %></td>
-        </tr>
-        <tr>
-          <td class="py-2"><%= f.label :email, "メールアドレス" %></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.email_field :email, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.submit "更新する", class: "btn btn-primary" %></td>
-          <td class="py-2"><%= link_to "退会画面へ", members_check_path, class: 'btn btn-danger' %></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="member_info box-name">
+      <strong>名前</strong><br>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="member_info box-name">
+      <strong>名前(カナ)</strong><br>
+      <%= f.text_field :name_kana %>
+    </div>
+    <div class="member_info box-email">
+      <strong>メールアドレス</strong><br>
+      <%= f.email_field :email, style: "width:30%" %>
+    </div>
+    <div class="box-action">
+      <%= f.submit "更新する", class: "btn btn-primary" %>
+      <%= link_to "退会画面へ", members_check_path, class: 'btn btn-danger' %>
+    </div>
   <% end %>
 </div>
+
+<style>
+
+  p {
+    margin: 10px;
+    height: 40px;
+    padding: 7px;
+    background-color: #17a2b8;
+    color: white;
+  }
+
+  .box-name {
+    margin: 10px;
+  }
+
+  .box-email {
+    margin: 10px;
+  }
+
+  .box-action {
+    margin: 10px;
+    border-style: none;
+    height: 31px;
+  }
+
+</style>

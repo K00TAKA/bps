@@ -15,10 +15,8 @@ class Member::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      flash[:notice] = "会員情報更新に成功しました"
       redirect_to member_path(params[:id])
     else
-      flash[:notice] = "会員情報更新に失敗しました"
       render :edit
     end
   end
@@ -28,14 +26,24 @@ class Member::MembersController < ApplicationController
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @member.update(is_active: false)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
+  end
+
+  def destroy
+    @member = Member.find(params[:id])
+    @company = @member.company
+    if @member.destroy
+      @company.destroy if @company
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
 
   def member_params
-  params.require(:member).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email)
+  params.require(:member).permit(:name, :name_kana, :email)
   end
 
 end

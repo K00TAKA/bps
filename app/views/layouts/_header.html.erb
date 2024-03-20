@@ -13,42 +13,42 @@
         <ul class="navbar-nav ml-auto" >
           <% if member_signed_in? %>
             <li class="member-name text-dark">
-            ようこそ<%= current_member.first_name %><%= current_member.last_name %>さん！
+            ようこそ<%= current_member.name %>さん！
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "マイページ", member_path(current_member), class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'nav-link text-dark', data: { confirm: '本当にログアウトしますか？' } %>
             </li>
           <% elsif admin_signed_in? %>
             <li class="admin-name text-dark">
             管理者ログイン中
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "企業一覧", admin_companies_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "会員一覧", admin_members_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "お知らせ管理", admin_announcements_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
           <% else %>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "登録方法", about_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "お知らせ", announcements_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item mr-3">
+            <li class="nav-item">
               <%= link_to "会員登録", new_member_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
@@ -69,4 +69,9 @@
   .navbar-toggler-icon {
     background-color: light;
   }
+
+  .nav-item {
+    margin-right: 10px;
+  }
+
 </style>

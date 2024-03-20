@@ -5,10 +5,8 @@
       <%= render "member/shared/error_messages", resource: @member %>
       <div class="member_info box-name">
         <strong>名前</strong><br>
-        (姓)<%= f.text_field :first_name, autofocus: true, :placeholder =>"石川" %>
-        (名)<%= f.text_field :last_name, :placeholder =>"太郎" %><br>
-        (ｾｲ)<%= f.text_field :first_name_kana, :placeholder =>"イシカワ" %>
-        (ﾒｲ)<%= f.text_field :last_name_kana, :placeholder =>"タロウ" %>
+        (氏名)<%= f.text_field :name, autofocus: true, :placeholder =>"石川太郎" %>
+        (カナ)<%= f.text_field :name_kana, :placeholder =>"イシカワタロウ" %>
       </div>
       <div class="member-info box-email">
         <strong>メールアドレス</strong><br>
@@ -91,7 +89,5 @@
     cursor: pointer;
     background: #f0c14b;
   }
-
-
-
+  
 </style>
