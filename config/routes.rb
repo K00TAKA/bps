@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     resources :members, only: [:show, :edit, :update]
     resources :messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :show]
+    resources :announcements
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

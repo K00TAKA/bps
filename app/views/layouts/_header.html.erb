@@ -2,10 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container">
       <% if admin_signed_in? %>
-      <!--ここではLOGOマークを文字で代用することにした-->
         <a href="/"><%= image_tag 'logo', size: "130x70" %></a>
       <% else %>
-        <a href="/"><%= image_tag 'logo', size: "130x70" %></a>
+        <a href="/members/sign_in"><%= image_tag 'logo', size: "130x70" %></a>
       <% end %>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -47,7 +46,7 @@
               <%= link_to "登録方法", about_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
-              <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>
+              <%= link_to "お知らせ", announcements_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item mr-3">
               <%= link_to "会員登録", new_member_registration_path, class: 'nav-link text-dark' %>

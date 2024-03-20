@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2024_03_14_041351) do
   end
 
   create_table "announcements", force: :cascade do |t|
+    t.string "title", null: false
     t.string "body", null: false
     t.boolean "is_active", default: true, null: false
     t.integer "admin_id"
