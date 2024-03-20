@@ -5,14 +5,14 @@
       <%= render "member/shared/error_messages", resource: @member %>
       <div class="member_info box-name">
         <strong>名前</strong><br>
-        <%= f.text_field :first_name, autofocus: true, :placeholder =>"（姓）石川" %>
-        <%= f.text_field :last_name, :placeholder =>"（名）太郎" %><br>
-        <%= f.text_field :first_name_kana, :placeholder =>"(セイ)イシカワ" %>
-        <%= f.text_field :last_name_kana, :placeholder =>"(メイ)タロウ" %>
+        (姓)<%= f.text_field :first_name, autofocus: true, :placeholder =>"石川" %>
+        (名)<%= f.text_field :last_name, :placeholder =>"太郎" %><br>
+        (ｾｲ)<%= f.text_field :first_name_kana, :placeholder =>"イシカワ" %>
+        (ﾒｲ)<%= f.text_field :last_name_kana, :placeholder =>"タロウ" %>
       </div>
       <div class="member-info box-email">
         <strong>メールアドレス</strong><br>
-        <%= f.email_field :email, autocomplete: "email" %></td>
+        <%= f.email_field :email, autocomplete: "email", style: "width:71%" %></td>
       </div>
       <div class="member-info box-password">
         <strong><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></strong><br>
@@ -41,7 +41,7 @@
     height: 650px;
     margin: 60px auto 0;
     border-radius: 4px;
-    border: 1pc #add solid;
+    border: 5px #FFA500 solid;
   }
 
   .box-inner {
@@ -55,6 +55,7 @@
     margin: 20px;
     padding: 10px;
     color: #111111;
+    background-color: #FFFACD;
   }
 
   .box-name {
@@ -74,7 +75,7 @@
   }
 
   .box-sign-in {
-    margin: 10px;
+    margin: 20px;
   }
 
   .box-sign-in input[type="submit"] {

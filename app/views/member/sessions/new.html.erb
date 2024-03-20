@@ -1,31 +1,74 @@
-<div class="container py-5">
-  <h2>ログイン</h2>
-    <div class="row">
-      <div class="col">
-        <h3>会員の方はこちらからログイン</h3>
-        <%= form_with model: @member, url: member_session_path do |f| %>
-
-        <div class="row">
-          <div class="col-md-2 py-2"><%= f.label 'メールアドレス' %></div>
-          <div class="col-md-5 py-2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2 py-2"><%= f.label 'パスワード' %></div>
-          <div class="col-md-5 py-2"><%= f.password_field :password, autocomplete: "current-password" %></div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2 py-2"></div>
-          <div class="col-md-5 py-2"><%= f.submit "ログイン", class: 'btn btn-success' %></div>
-        </div>
-        <% end %>
-
-        <div>
-          <h3 class="py-2">会員登録がお済でない方</h3>
-          <%= link_to "こちら", new_member_registration_path, class: "underline" %>からログインしてください。
-        </div>
-
+<div class="box">
+  <div class="box-inner">
+    <h2>ログイン</h2>
+    <%= form_with model: @member, url: member_session_path do |f| %>
+      <div class="box-email">
+        <strong>メールアドレス</strong><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:71%" %>
       </div>
+      <div class="box-password">
+        <strong>パスワード</strong><br>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <div class="box-log-in">
+        <%= f.submit "ログイン"%>
+      </div>
+    <% end %>
+
+    <div>
+      <h2>会員登録がお済でない方</h2>
+      <p class="text-center"><%= link_to "こちら", new_member_registration_path, class: "underline" %>からログインしてください。</p>
     </div>
+  </div>
 </div>
+
+<style>
+  .box {
+    width: 500px;
+    height: 450px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 5px #FFA500 solid;
+  }
+
+  .box-inner {
+    padding: 10px 10px;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 30px;
+    line-hight: 1.2;
+    margin: 20px;
+    padding: 10px;
+    color: #111111;
+    background-color: #FFFACD;
+  }
+
+  .box-email {
+    margin: 10px;
+  }
+
+  .box-password {
+    margin: 10px;
+  }
+
+  .box-log-in {
+    margin: 20px;
+  }
+
+  .box-log-in input[type="submit"] {
+    border-style: none;
+    width: 100%;
+    height: 31px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
+  }
+
+  .box-log-in input[type="submit"]:hover {
+    cursor: pointer;
+    background: #f0c14b;
+  }
+
+</style>
