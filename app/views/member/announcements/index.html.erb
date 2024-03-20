@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>お知らせ一覧</h2>
+  お知らせ数：<%= @announcements.count %>件
+
+  <div><%= flash[:notice] %></div>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>投稿日</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <% @announcements.each do |announcement| %>
+      <% if announcement.is_active 
+      <tr>
+        <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+        <td>
+          <%= announcement.title %><br>
+          <%= announcement.body %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
