@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <h2>お知らせ一覧</h2>
   お知らせ数：<%= @announcements.count %>件
 
@@ -8,18 +8,21 @@
     <thead class="thead-dark">
       <tr>
         <th>投稿日</th>
-        <th>内容</th>
+        <th>件名 / 本文</th>
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
-      <% if announcement.is_active 
-      <tr>
-        <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
-        <td>
-          <%= announcement.title %><br>
-          <%= announcement.body %>
-        </td>
-      </tr>
+      <% if announcement.is_active %>
+      <tbody>
+        <tr>
+          <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            [件名]<strong><%= announcement.title %></strong><br>
+            <%= announcement.body %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
     <% end %>
   </table>
 </div>

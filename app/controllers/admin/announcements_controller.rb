@@ -41,10 +41,16 @@ class Admin::AnnouncementsController < ApplicationController
     end
   end
 
+  def destroy
+    announcement = Announcement.find(params[:id])
+    announcement.destroy
+    redirect_to admin_announcements_path
+  end
+
   private
 
   def announcement_params
-    params.require(:announcement).permit(:body, :is_active)
+    params.require(:announcement).permit(:title, :body, :is_active)
   end
 
 end

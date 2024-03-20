@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>お知らせ一覧</h2>
+<div class="container py-5">
+  <h2>お知らせ管理</h2>
   <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-success" %></div>
   お知らせ数：<%= @announcements.count %>件
 
@@ -8,18 +8,16 @@
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th>投稿日</th>
-        <th>内容</th>
+        <th>件名 / 本文</th>
         <th>公開 / 非公開</th>
         <th>編集 / 削除</th>
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
       <tr>
-        <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
-        <td>
-          <%= announcement.title %><br>
-          <%= announcement.body %>
+        <td class="pb-3">
+          件名[<strong><%= announcement.title %></strong>]<br>
+          <%= announcement.body %><br>
         </td>
         <td>
           <%= form_with model: announcement, url: admin_announcement_path(announcement.id), method: :patch do |f| %>
