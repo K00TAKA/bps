@@ -1,59 +1,96 @@
-<div class="container py-5">
-  <h2>新規会員登録</h2>
-  <%= form_with model: @member, url:member_registration_path, method: :post do |f| %>
-    <%= render "member/shared/error_messages", resource: @member %>
-    <table class="member_info member_form">
-      <thead>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="py-2">名前</td>
-          <td class="py-2"><%= f.label :first_name, "(姓)", class: "member_name" %></td>
-          <td class="py-2"><%= f.text_field :first_name, autofocus: true, :placeholder =>"石川" %></td>
-          <td class="py-2"><%= f.label :last_name, "(名)", class: "member_name" %></td>
-          <td class="py-2"><%= f.text_field :last_name, :placeholder =>"太郎" %></td>
-        </tr>
-        <tr>
-          <td class="py-2">名前(カナ)</td>
-          <td class="py-2"><%= f.label :first_name_kana, "(セイ)" %></td>
-          <td class="py-2"><%= f.text_field :first_name_kana, :placeholder =>"イシカワ" %></td>
-          <td class="py-2"><%= f.label :last_name_kana, "(メイ)" %></td>
-          <td class="py-2"><%= f.text_field :last_name_kana, :placeholder =>"タロウ" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"><%= f.label :email, "メールアドレス" %></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.email_field :email, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.password_field :password, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"></td>
-          <td class="py-2"></td>
-          <td class="py-2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
-        </tr>
-        <tr>
-          <td class="py-2"></td>
-          <td class="py-2"></td>
-          <td class="py-2">次は<strong>企業登録</strong>に進みます。</td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+<div class="box">
+  <div class="box-inner">
+    <h2>新規会員登録</h2>
+    <%= form_with model: @member, url:member_registration_path, method: :post do |f| %>
+      <%= render "member/shared/error_messages", resource: @member %>
+      <div class="member_info box-name">
+        <strong>名前</strong><br>
+        <%= f.text_field :first_name, autofocus: true, :placeholder =>"（姓）石川" %>
+        <%= f.text_field :last_name, :placeholder =>"（名）太郎" %><br>
+        <%= f.text_field :first_name_kana, :placeholder =>"(セイ)イシカワ" %>
+        <%= f.text_field :last_name_kana, :placeholder =>"(メイ)タロウ" %>
+      </div>
+      <div class="member-info box-email">
+        <strong>メールアドレス</strong><br>
+        <%= f.email_field :email, autocomplete: "email" %></td>
+      </div>
+      <div class="member-info box-password">
+        <strong><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></strong><br>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="member-info box-password_confirmation">
+        <strong>パスワード(確認用)</strong><br>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <div class="box-sign-in">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+    <div class="info-text text-center">
+      続いて<strong>企業情報の登録</strong>に進みます。
+    </div>
 
-  <h2 class="pt-5">既に登録済みの方</h2>
-  <p><%= link_to "こちら", new_member_session_path, class: "underline" %>からログインしてください。</p>
+    <h2>既に登録済みの方</h2>
+    <p class="text-center"><%= link_to "こちら", new_member_session_path, class: "underline" %>からログインしてください。</p>
+  </div>
 </div>
+
+<style>
+  .box {
+    width: 600px;
+    height: 650px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 1pc #add solid;
+  }
+
+  .box-inner {
+    padding: 10px 10px;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 30px;
+    line-hight: 1.2;
+    margin: 20px;
+    padding: 10px;
+    color: #111111;
+  }
+
+  .box-name {
+    margin: 10px;
+  }
+
+  .box-email {
+    margin: 10px;
+  }
+
+  .box-password {
+    margin: 10px;
+  }
+
+  .box-password_confirmation {
+    margin: 10px;
+  }
+
+  .box-sign-in {
+    margin: 10px;
+  }
+
+  .box-sign-in input[type="submit"] {
+    border-style: none;
+    width: 100%;
+    height: 31px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
+  }
+
+  .box-sign-in input[type="submit"]:hover {
+    cursor: pointer;
+    background: #f0c14b;
+  }
+
+
+
+</style>

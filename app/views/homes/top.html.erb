@@ -46,7 +46,7 @@
             <th><件名></th>
           </tr>
           <% @announcements.each do |announcement| %>
-            <% if announcement.is_active %>
+            <% if announcement.is_active == true %>
             <tr class="border-bottom">
               <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
               <td ><%= link_to announcement.title, announcements_path %></td>
