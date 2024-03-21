@@ -1,119 +1,135 @@
-<div class="container py-3">
-  <h2>企業情報</h2>
+<div class="container py-5">
+
   <div><%= flash[:notice] %></div>
 
   <table class="table table-borderless">
-    <tr>
+    <thead class="thead-info">
+      <th><strong>企業情報</strong></th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>企業写真</td>
-      <td>
-        <% if @company.image.attached? %>
-          <%= image_tag @company.image, size: "200x200" %>
-        <% else %>
-          <%= image_tag 'company_free', size: "200x200" %>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>企業ID</td>
-      <td><%= @company.id %></td>
-    </tr>
-    <tr>
-      <td>企業名</td>
-      <td><%= @company.company %></td>
-    </tr>
-    <tr>
-      <td>企業名(カナ)</td>
-      <td><%= @company.company_kana %></td>
-    </tr>
-    <tr>
-      <td>業種</td>
-      <td>< later ></td>
-    </tr>
-    <tr>
-      <td>郵便番号</td>
-      <td><%= @company.post_code %></td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td><%= @company.address %></td>
-    </tr>
-    <tr>
-      <td>設立年月日</td>
-      <td><%= @company.date_of_establishment %></td>
-    </tr>
-    <tr>
-      <td>紹介</td>
-      <td><%= @company.introduction %></td>
-    </tr>
-    <tr>
-      <td>電話番号</td>
-      <td><%= @company.tel %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= @company.email %></td>
-    </tr>
-    <tr>
-      <td>投稿されたコメント</td>
-      <td>コメント件数：<%= @comments.count %></td>
-      <td></td>
-    </tr>
-    <% @comments.each do |comment| %>
+    </thead>
+    <tbody>
       <tr>
-        <td></td>
-        <td><%= comment.comment %></td>
-        <td>投稿日：<%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        <th>企業写真</th>
         <td>
-          <% if comment.favorited_by?(current_member) %>
-            <p>
-              <%= link_to comment_favorites_path(comment), method: :delete do %>
-                <%= comment.favorites.count %> いいね
-              <% end %>
-            </p>
+          <% if @company.image.attached? %>
+            <%= image_tag @company.image, size: "200x200" %>
           <% else %>
-            <p>
-              <%= link_to comment_favorites_path(comment), method: :post do %>
-                <%= comment.favorites.count %> いいね
-              <% end %>
-            </p>
+            <%= image_tag 'company_free', size: "200x200" %>
           <% end %>
         </td>
       </tr>
-    <% end %>
-    <tr>
-      <td></td>
-      <td><%= link_to "コメントする", new_comment_path(company_id: @company.id), method: :get,  class: 'btn btn-primary' %></td>
-    </tr>
-    <tr>
-      <td>問い合わせ窓口</td>
-      <td><%= @member.first_name %><%= @member.last_name %></td>
-      <td><%= @member.first_name_kana %><%= @member.last_name_kana %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <% if @member.id == current_member.id %>
-            <%= @msg %>
-        <% else %>
-            <% if @isRoom == true %>
-                <p><%= link_to 'DMへ', room_path(@roomId), class: "btn btn-success" %></p>
-            <% else %>
-                <%= form_for @room do |f| %>
-                    <%= fields_for @entry do |e|%>
-                        <% e.hidden_field :member_id, value: @member.id %>
-                    <% end %>
-                <%= f.submit "DMを送る", class: "btn btn-success" %>
+      <tr>
+        <th>企業ID</th>
+        <td><%= @company.id %></td>
+      </tr>
+      <tr>
+        <th>企業名</th>
+        <td><%= @company.company %></td>
+      </tr>
+      <tr>
+        <th>企業名(カナ)</th>
+        <td><%= @company.company_kana %></td>
+      </tr>
+      <tr>
+        <th>業種</th>
+        <td><%= @company.genre %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= @company.post_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @company.address %></td>
+      </tr>
+      <tr>
+        <th>設立年月日</th>
+        <td><%= @company.date_of_establishment %></td>
+      </tr>
+      <tr>
+        <th>紹介</th>
+        <td><%= @company.introduction %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @company.tel %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @company.email %></td>
+      </tr>
+      <tr>
+        <th>投稿されたコメント</th>
+        <th>コメント件数：<%= @comments.count %></th>
+        <td></td>
+      </tr>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td></td>
+          <td><%= comment.comment %></td>
+          <td>投稿日：<%= comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            <% if comment.favorited_by?(current_member) %>
+              <p>
+                <%= link_to comment_favorites_path(comment), method: :delete do %>
+                  <%= comment.favorites.count %> いいね
                 <% end %>
+              </p>
+            <% else %>
+              <p>
+                <%= link_to comment_favorites_path(comment), method: :post do %>
+                  <%= comment.favorites.count %> いいね
+                <% end %>
+              </p>
             <% end %>
-        <% end %>
-      </td>
-      <td></td>
-    </tr>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td><%= link_to "コメントする", new_comment_path(company_id: @company.id), method: :get,  class: 'btn btn-primary' %></td>
+      </tr>
+      <tr>
+        <th>問い合わせ窓口</th>
+        <td><%= @member.name %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= @member.name_kana %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <% if @member.id == current_member.id %>
+              <%= @msg %>
+          <% else %>
+              <% if @isRoom == true %>
+                  <p><%= link_to 'DMへ', room_path(@roomId), class: "btn btn-success" %></p>
+              <% else %>
+                  <%= form_for @room do |f| %>
+                      <%= fields_for @entry do |e|%>
+                          <% e.hidden_field :member_id, value: @member.id %>
+                      <% end %>
+                  <%= f.submit "DMを送る", class: "btn btn-success" %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
   </table>
 </div>
+
+<style>
+  .thead-info th {
+    background-color: #17a2b8;
+    color: white;
+  }
+
+  .box-action {
+    border-style: none;
+    height: 31px;
+  }
+
+</style>

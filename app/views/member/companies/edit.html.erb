@@ -1,11 +1,11 @@
-<div class="container py-3">
+<div class="container py-5">
   <h2>企業情報編集</h2>
 
   <table class="table table-borderless">
-  <%= form_with model: @company, url: company_path(company.id), method: :patch do |f| %>
+  <%= form_with model: @company, url: company_path(@company.id), method: :patch do |f| %>
     <tr>
-      <th></th>
-      <th></th>
+      <th>企業写真</th>
+      <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
     <tr>
       <th>企業名</th>
