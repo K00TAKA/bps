@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      member:
+        name: 氏名
+        name_kana: カナ
+        email: メールアドレス
+        password: パスワード
+        encrypted_password: パスワード（確認用）
+

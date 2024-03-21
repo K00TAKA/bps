@@ -7,7 +7,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
+    @company = current_member.build_company(company_params)
     @member = current_member
     @company.date_of_establishment = "年/月"
     @company.introduction = "紹介文"
@@ -74,7 +74,7 @@ class Member::CompaniesController < ApplicationController
   private
 
   def company_params
-  params.require(:company).permit(:image, :company, :company_kana, :post_code, :address, :tel, :email, :genre, :date_of_establishment, :introduction)
+  params.require(:company).permit(:image, :company, :company_kana, :post_code, :address, :tel, :email, :genre, :date_of_establishment, :introduction, :member_id)
   end
 
 end
