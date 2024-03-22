@@ -23,7 +23,7 @@
               <% elsif admin_signed_in? %>
                 <%= link_to company.company, admin_company_path(company) %><br><%= company.genre %>
               <% else %>
-                <%= link_to company.company, new_member_session_path %>
+                <%= link_to company.company, new_member_session_path %><br><%= company.genre %>
               <% end %>
             </td>
           </tbody>

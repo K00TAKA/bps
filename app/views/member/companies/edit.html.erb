@@ -1,6 +1,8 @@
 <div class="container py-5">
   <h2>企業情報編集</h2>
 
+  <div><%= flash[:notice] %></div>
+
   <table class="table table-borderless">
   <%= form_with model: @company, url: company_path(@company.id), method: :patch do |f| %>
     <tr>
@@ -46,7 +48,7 @@
     </tr>
     <tr>
       <th></th>
-      <td><%= f.submit '変更を保存', class: 'btn btn-success' %></td>
+      <td><%= f.submit '変更を保存', class: 'btn btn-success' %> <%= link_to "戻る", member_path(@member.id), class: "btn btn-secondary" %></td>
     </tr>
   <% end %>
   </table>

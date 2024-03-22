@@ -1,7 +1,7 @@
 <div class="container py-5">
   <div class="row">
     <% @entries.each do |e| %>
-      <h3><strong><a href="/members/<%= e.member.id %>"><%= e.member.first_name %> <%= e.member.last_name %> さん</a></strong>と</h3>
+      <h3><strong><a href="/members/<%= e.member.id %>"><%= e.member.name %>さん</a></strong>と</h3>
     <% end %>
     <h3>のDM</h3>
   </div>
