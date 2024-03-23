@@ -3,14 +3,15 @@
   <div class="row">
     <table class="table table-borderbottom">
       <thead class="thead-info">
-        <th></th>
-        <th>企業＃</th>
-        <th>企業名</th>
-        <th>業種</th>
-        <th>ステータス</th>
+        <th style="width: 10%;">＜企業ID＞</th>
+        <th style="width: 30%;">＜写真＞</th>
+        <th style="width: 30%;">＜企業名＞</th>
+        <th style="width: 10%;">＜業種＞</th>
+        <th style="width: 10%;">＜ステータス＞</th>
       </thead>
       <% @companies.each do |company| %>
       <tbody>
+        <td><%= company.id %></td>
         <td>
           <% if company.image.attached? %>
             <%= image_tag company.image, size: "200x200" %>
@@ -18,7 +19,6 @@
             <%= image_tag 'company_free', size: "200x200" %>
           <% end %>
         </td>
-        <td><%= company.id %></td>
         <td><%= link_to company.company, admin_company_path(company.id) %></td>
         <td><%= company.genre %></td>
         <td>
@@ -36,7 +36,7 @@
 
 <style>
   .thead-info th {
-    background-color: #17a2b8; /* 青色に設定 */
+    background-color: #191970; /* 青色に設定 */
     color: white; /* テキストの色を白色に設定 */
   }
 </style>

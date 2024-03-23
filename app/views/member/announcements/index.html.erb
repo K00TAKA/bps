@@ -5,10 +5,11 @@
   <div><%= flash[:notice] %></div>
 
   <table class="table table-bordered">
-    <thead class="thead-dark">
+    <thead class="thead-info">
       <tr>
-        <th>投稿日</th>
-        <th>件名 / 本文</th>
+        <th style="width: 10%;">投稿日</th>
+        <th style="width: 20%;">件名</th>
+        <th style="width: 70%;">本文</th>
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
@@ -16,13 +17,18 @@
       <tbody>
         <tr>
           <td><%= announcement.created_at.strftime('%Y/%m/%d') %></td>
-          <td>
-            [件名]<strong><%= announcement.title %></strong><br>
-            <%= announcement.body %>
-          </td>
+          <td>[件名]<strong><%= announcement.title %></strong></td>
+          <td><%= announcement.body %></td>
         </tr>
       </tbody>
       <% end %>
     <% end %>
   </table>
 </div>
+
+<style>
+  .thead-info {
+    background-color: #FF8C00;
+    color: white;
+  }
+</style>

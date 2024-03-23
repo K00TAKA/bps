@@ -1,5 +1,5 @@
 <div class="container py-5">
-  <p><strong>会員情報編集</strong></h3>
+  <h3>会員情報編集</h3>
 
   <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
@@ -16,7 +16,7 @@
       <%= f.email_field :email, style: "width:30%" %>
     </div>
     <div class="box-action">
-      <%= f.submit "更新する", class: "btn btn-primary" %>
+      <%= f.submit "更新する", class: "btn btn-success" %>
       <%= link_to "退会画面へ", members_check_path, class: 'btn btn-danger' %>
     </div>
   <% end %>
@@ -24,12 +24,10 @@
 
 <style>
 
-  p {
-    margin: 10px;
-    height: 40px;
-    padding: 7px;
-    background-color: #17a2b8;
+  h3 {
+    background-color: #191970;
     color: white;
+    padding: 10px;
   }
 
   .box-name {

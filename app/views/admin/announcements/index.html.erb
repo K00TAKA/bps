@@ -1,22 +1,22 @@
 <div class="container py-5">
   <h2>お知らせ管理</h2>
-  <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-success" %></div>
+  <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-primary" %></div>
   お知らせ数：<%= @announcements.count %>件
 
   <div><%= flash[:notice] %></div>
 
   <table class="table table-bordered">
-    <thead class="thead-dark">
+    <thead class="thead-info">
       <tr>
-        <th>件名 / 本文</th>
-        <th>公開 / 非公開</th>
-        <th>編集 / 削除</th>
+        <th style="width: 75%;">[件名] 本文</th>
+        <th style="width: 10%;">公開 / 非公開</th>
+        <th style="width: 15%;">編集 / 削除</th>
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
       <tr>
         <td class="md-6">
-          件名[<strong><%= announcement.title %></strong>]<br>
+          [<strong><%= announcement.title %></strong>]<br>
           <%= announcement.body %><br>
         </td>
         <td>
@@ -25,14 +25,21 @@
             <%= f.label :is_active, "公開", value: :true, class: 'active' %>
             <%= f.radio_button :is_active, :false %>
             <%= f.label :is_active, "非公開", value: :false, class: 'inactive' %><br>
-            <%= f.submit 'ステータスを保存', class: 'btn btn-primary' %>
+            <%= f.submit 'ステータスを保存', class: 'btn btn-success' %>
           <% end %>
         </td>
         <td>
-          <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-success" %>
+          <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-warning" %>
           <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>
   </table>
 </div>
+
+<style>
+  .thead-info {
+    background-color: #FF8C00;
+    color: white;
+  }
+</style>

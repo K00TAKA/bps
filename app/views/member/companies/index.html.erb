@@ -1,17 +1,18 @@
 <div class="container py-5">
-  <h3 class="pb-3">企業一覧</h3>
+  <h3>企業一覧</h3>
   <div class="row">
     <table class="table table-borderbottom">
       <thead class="thead-info">
-        <th></th>
-        <th>企業ID</th>
-        <th>企業名</th>
-        <th>業種</th>
+        <th style="width: 20%;">＜企業ID＞</th>
+        <th style="width: 30%;">＜写真＞</th>
+        <th style="width: 30%;">＜企業名＞</th>
+        <th style="width: 20%;">＜業種＞</th>
       </thead>
       <% @companies.each do |company| %>
         <% if company.is_active %>
         <tbody>
           <tr>
+            <td><%= company.id %></td>
             <td>
               <% if company.image.attached? %>
                 <%= image_tag company.image, size: "150x150" %>
@@ -19,7 +20,6 @@
                 <%= image_tag 'company_free', size: "150x150" %>
               <% end %>
             </td>
-            <td><%= company.id %></td>
             <td><%= link_to company.company, company_path(company.id) %></td>
             <td><%= company.genre %></td>
           </tr>
@@ -32,7 +32,11 @@
 
 <style>
   .thead-info th {
-    background-color: #17a2b8; /* 青色に設定 */
+    background-color: #191970; /* 青色に設定 */
     color: white; /* テキストの色を白色に設定 */
+  }
+
+  .td {
+    padding-top: 20px; /* 適切な高さを指定 */
   }
 </style>

@@ -13,7 +13,7 @@
         <ul class="navbar-nav ml-auto" >
           <% if member_signed_in? %>
             <li class="member-name text-dark">
-            ようこそ<%= current_member.name %>さん！
+              <strong>ようこそ<%= current_member.name %>さん！</strong>
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item">
@@ -27,7 +27,7 @@
             </li>
           <% elsif admin_signed_in? %>
             <li class="admin-name text-dark">
-            管理者ログイン中
+              <strong>管理者ログイン中</strong>
             </li>
             <li class="nav-item">
               <%= link_to "企業一覧", admin_companies_path, class: 'nav-link text-dark' %>
@@ -64,7 +64,7 @@
 
 <style>
   .navbar-toggler {
-    background-color: black;
+    background-color: #9ACD32;
   }
   .navbar-toggler-icon {
     background-color: light;
@@ -72,6 +72,7 @@
 
   .nav-item {
     margin-right: 10px;
+    background-color: #9ACD32;
   }
 
 </style>

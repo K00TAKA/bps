@@ -11,6 +11,9 @@ module Bps
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # サーバー起動後、画面左上の数字を消す
+    config.middleware.delete(Rack::MiniProfiler)
+
     # Rails アプリケーションを日本語対応させる
     config.i18n.default_locale = :ja
 

@@ -4,8 +4,8 @@
     <div class="col-md-5">
       <table class="table table-borderbottom">
         <thead class="thead-info">
-          <th>新着企業</th>
-          <th>企業名</th>
+          <th style="width: 40%;">新着企業</th>
+          <th style="width: 60%;">企業名</th>
         </thead>
         <% @companies.each do |company| %>
           <% if company.is_active %>
@@ -32,7 +32,7 @@
       </table>
     </div>
 
-    <div class="col-md-1"></div>
+    <div class="offset-md-1"></div>
 
     <div class="col-md-6">
       <div class="row">
@@ -42,8 +42,8 @@
             <th></th>
           </tr>
           <tr class="border-bottom">
-            <th><更新日付></th>
-            <th><件名></th>
+            <th style="width: 40%;"><更新日付></th>
+            <th style="width: 60%;"><件名></th>
           </tr>
           <% @announcements.each do |announcement| %>
             <% if announcement.is_active == true %>
@@ -61,12 +61,12 @@
 
 <style>
   .thead-info th {
-    background-color: #17a2b8; /* 青色に設定 */
+    background-color: #191970; /* 青色に設定 */
     color: white; /* テキストの色を白色に設定 */
   }
 
   .thead-warning th {
-    background-color: #ffc107;
+    background-color: #FF8C00;
     color: white;
   }
 </style>

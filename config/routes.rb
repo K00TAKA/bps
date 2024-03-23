@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'homes#top'
-
+  get 'about' => 'homes#about'
   #会員用
   # URL /members/sign_in ...
   devise_for :members, controllers: {
@@ -34,7 +34,6 @@ Rails.application.routes.draw do
   # namespaceを使うとURLにmemberが付くためscopeを使用
   scope module: :member do
     get "search" => "searches#search"
-    get 'about' => 'homes#about'
     get 'members/check' => 'members#check'
     patch 'members/withdraw' => 'members#withdraw'
     resources :companies, except: [:destroy]

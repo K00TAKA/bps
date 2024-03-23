@@ -57,7 +57,7 @@
         <tr>
           <td></td>
           <td class="box-action">
-            <%= link_to "企業情報を編集", edit_company_path(@company.id), class: 'btn btn-success' %>
+            <%= link_to "企業情報を編集", edit_company_path(@company.id), class: 'btn btn-warning' %>
             <%= link_to "コメントを見る", comments_path, method: :get, class: 'btn btn-primary' %>
           </td>
         </tr>
@@ -81,7 +81,7 @@
         </tr>
         <tr>
           <td></td>
-          <td class="box-action"><%= link_to "会員情報を編集", edit_member_path(@member.id), class: 'btn btn-success' %></td>
+          <td class="box-action"><%= link_to "会員情報を編集", edit_member_path(@member.id), class: 'btn btn-warning' %></td>
         </tr>
       </tbody>
     </table>
@@ -90,12 +90,12 @@
 
 <style>
   .thead-info th {
-    background-color: #17a2b8;
+    background-color: #191970;
     color: white;
   }
 
   .thead-info2 th {
-    background-color: #17a2b8;
+    background-color: #191970;
     color: white;
     margin-top: 20px;
   }

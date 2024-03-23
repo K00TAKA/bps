@@ -1,6 +1,6 @@
 class Member::CompaniesController < ApplicationController
 
-  before_action :authenticate_member!
+  before_action :authenticate_member!, only: [:destroy]
 
   def new
     @company = Company.new

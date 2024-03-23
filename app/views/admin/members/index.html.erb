@@ -3,15 +3,12 @@
   <div><%= flash[:notice] %></div>
   <div class="row">
     <table class="table table-bordered">
-      <thead class="thead-dark">
-        <th>会員ID</th>
-        <th>
-          会員名<br>
-          会員名（カナ）
-        </th>
-        <th>メールアドレス</th>
-        <th>会員ステータス</th>
-        <th></th>
+      <thead class="thead-info">
+        <th style="width: 10%;">会員ID</th>
+        <th style="width: 20%;">会員名<br>会員名（カナ）</th>
+        <th style="width: 30%;">メールアドレス</th>
+        <th style="width: 20%;">会員ステータス</th>
+        <th style="width: 20%;"></th>
       </thead>
       <% @members.each do |member| %>
       <tbody>
@@ -38,3 +35,10 @@
     </table>
   </div>
 </div>
+
+<style>
+  .thead-info th {
+    background-color: #191970; /* 青色に設定 */
+    color: white; /* テキストの色を白色に設定 */
+  }
+</style>

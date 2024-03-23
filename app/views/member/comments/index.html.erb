@@ -1,21 +1,21 @@
 <div class="container py-5">
-  <h2>コメント一覧</h2>
+  <h3>コメント一覧</h3>
   コメント数：<%= @company.comments.count %>件
 
-  <table class="table table-bordered">
-    <thead class="thead-dark">
+  <table class="table table-borderbottom">
+    <thead class="thead-info">
       <tr>
-        <th>投稿日</th>
-        <th>コメント内容</th>
-        <th></th>
+        <th class="text-center" style="width: 20%;">投稿日</th>
+        <th style="width: 60%;">コメント内容</th>
+        <th class="text-center" style="width: 20%;">いいね</th>
       </tr>
     </thead>
     <% @comments.each do |comment| %>
       <% if comment.is_active %>
       <tr>
-        <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        <td class="text-center"><%= comment.created_at.strftime('%Y/%m/%d') %></td>
         <td><%= comment.comment %></td>
-        <td>
+        <td class="text-center">
           <% if comment.favorited_by?(current_member) %>
             <p>
               <%= link_to comment_favorites_path(comment), method: :delete do %>
@@ -34,5 +34,11 @@
       <% end %>
     <% end %>
   </table>
-
 </div>
+
+<style>
+  .thead-info {
+    background-color:#00CED1;
+  }
+
+</style>
