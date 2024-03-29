@@ -59,21 +59,22 @@
       <th>投稿コメント</th>
       <td><%= button_to "コメントを見る", admin_comment_path, method: :get,  class: 'btn btn-primary' %></td>
     </tr>
-    <%= form_with model: @company, url: admin_company_path(@company.id), method: :patch do |f| %>
     <tr>
       <th>ステータス</th>
       <td>
-          <%= f.radio_button :is_active, :true %>
-          <%= f.label :is_active, "表示", value: :true, class: 'active' %>
-          <%= f.radio_button :is_active, :false %>
-          <%= f.label :is_active, "非表示", value: :false, class: 'inactive' %>
+        <% if @company.is_active == true %>
+          <%= form_with model: @company, url: admin_company_path(@company), method: :patch do |f| %>
+            <%= f.hidden_field :is_active, value: false %>
+            <%= f.submit "非表示に変更", class: "btn btn-sm btn-danger" %>
+          <% end %>
+        <% else %>
+          <%= form_with model: @company, url: admin_company_path(@company), method: :patch do |f| %>
+            <%= f.hidden_field :is_active, value: true %>
+            <%= f.submit "表示に変更", class: "btn btn-sm btn-success" %>
+          <% end %>
+        <% end %>
       </td>
     </tr>
-    <tr>
-      <th></th>
-      <td><%= f.submit 'ステータスを保存', class: 'btn btn-success' %></td>
-    </tr>
-    <% end %>
   </table>
 </div>
 
