@@ -57,9 +57,9 @@ class Member::CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    if @company.update(company_params)
-      flash[:notice] = "ステータス更新に成功しました"
-      redirect_to member_path(current_member.id)
+    @member = current_member
+    if @company.update!(company_params)
+      redirect_to member_path(@member.id)
     else
       flash[:notice] = "編集されていません。編集しない場合は戻るを押してください。"
       render :edit
