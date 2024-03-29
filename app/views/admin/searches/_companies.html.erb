@@ -16,7 +16,9 @@
         </tr>
       <% end %>
     <% end %>
+    </tr>
   </table>
+  <div><%= paginate @records %></div>
 </div>
 
 <style>
@@ -30,5 +32,9 @@
   td {
     text-align: center;
     align-content: center;
+  }
+
+  .pagination {
+    justify-content: center;
   }
 </style>

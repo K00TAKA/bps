@@ -27,6 +27,7 @@
         <% end %>
       <% end %>
     </table>
+    <div><%= paginate @company %></div>
   </div>
 </div>
 
@@ -38,5 +39,9 @@
 
   .td {
     padding-top: 20px; /* 適切な高さを指定 */
+  }
+
+  .pagination {
+    justify-content: center;
   }
 </style>

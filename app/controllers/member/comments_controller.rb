@@ -4,7 +4,7 @@ class Member::CommentsController < ApplicationController
 
   def index
     @company = current_member.company
-    @comments = @company.comments.where(is_active: true)
+    @comments = @company.comments.where(is_active: true).page(params[:page]).per(10)
   end
 
   def new

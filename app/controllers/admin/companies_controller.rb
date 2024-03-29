@@ -3,7 +3,7 @@ class Admin::CompaniesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @companies = Company.all
+    @companies = Company.all.page(params[:page]).per(10)
   end
 
   def show

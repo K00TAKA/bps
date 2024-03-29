@@ -34,6 +34,7 @@
       <% end %>
     <% end %>
   </table>
+  <div><%= paginate @company %></div>
 </div>
 
 <style>
@@ -41,4 +42,7 @@
     background-color:#00CED1;
   }
 
+  .pagination {
+    justify-content: center;
+  }
 </style>

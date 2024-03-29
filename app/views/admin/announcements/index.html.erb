@@ -39,6 +39,7 @@
       </tr>
     <% end %>
   </table>
+  <div><%= paginate @announcements %></div>
 </div>
 
 <style>
@@ -50,5 +51,9 @@
   .position {
     text-align: center;
     align-content: center;
+  }
+
+  .pagination {
+    justify-content: center;
   }
 </style>

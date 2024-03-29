@@ -21,7 +21,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   def index
-    @companies = Company.all
+    @companies = Company.all.page(params[:page]).per(10)
   end
 
   def show

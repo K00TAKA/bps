@@ -20,19 +20,16 @@
 ・ 今取り組んでいることに力を借りたい時
 ・ 新しく挑戦することに力やを借りたい時
 
-## 設計書
-後ほど作成予定
-
 ## 開発環境
 ・ フレームワーク ： Ruby on Rails
 ・ IDE ： Cloud9
 ・ 言語 ： Ruby, HTML, CSS, SQL,
-・ OS ： Windows
-他、後ほど追記予定
+・ OS ： Windows, Mac
 
 ## 使用素材
-・
-他、後ほど追記予定
+・フリーイラスト
+https://www.ac-illust.com/
+
 
 ## 実装機能リスト
 https://docs.google.com/spreadsheets/d/1u-rotSV9GYEGJIVT0jke0gpbmaPzDxBjcLdeObUn9N4/edit#gid=885378170

@@ -24,11 +24,16 @@
       <% end %>
     <% end %>
   </table>
+  <div><%= paginate @company %></div>
 </div>
 
 <style>
   .thead-info {
     background-color: #FF8C00;
     color: white;
+  }
+
+  .pagination {
+    justify-content: center;
   }
 </style>

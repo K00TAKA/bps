@@ -31,6 +31,7 @@
       </tbody>
       <% end %>
     </table>
+    <div><%= paginate @company %></div>
   </div>
 </div>
 
@@ -43,5 +44,9 @@
   th, td {
     text-align: center;
     align-content: center;
+  }
+
+  .pagination {
+    justify-content: center;
   }
 </style>

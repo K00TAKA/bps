@@ -16,5 +16,25 @@
       </tr>
       <% end %>
     <% end %>
+    </tr>
+    <div><%= paginate @records %></div>
   </table>
 </div>
+
+<style>
+  th {
+    background-color: #191970; /* 青色に設定 */
+    color: white; /* テキストの色を白色に設定 */
+    text-align: center;
+    align-content: center;
+  }
+
+  td {
+    text-align: center;
+    align-content: center;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+</style>

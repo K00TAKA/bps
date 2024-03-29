@@ -7,7 +7,7 @@ class Admin::SearchesController < ApplicationController
     @content=params[:content]
     @method = params[:method]
     if @model == "company"
-      @records=Company.search_for(@content,@method)
+      @records = Company.search_for(@content,@method).page(params[:page]).per(10)
     end
   end
 
