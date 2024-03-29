@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
 
-  has_many :favorites, :dependent => :destroy
+  has_many :favorites, dependent: :destroy
   belongs_to :company
   belongs_to :member
 
