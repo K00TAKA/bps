@@ -2,6 +2,7 @@
 
 class Member::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
+  before_action :member_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -44,7 +45,7 @@ class Member::SessionsController < Devise::SessionsController
 
   # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
   def reject_member
-    @member = Member.find_by(full_name: params[:member][:full_name])
+    @member = Member.find_by(name: params[:member][:name])
     if @member
       if @member.valid_password?(params[:member][:password]) && (@member.is_active == false)
         flash[:notice] = "退会済みです。再度ご登録の上、ご利用ください。"

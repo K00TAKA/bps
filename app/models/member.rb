@@ -10,6 +10,10 @@ class Member < ApplicationRecord
   has_many :messages, :dependent => :destroy
   has_many :entries, :dependent => :destroy
 
+  def active_for_authentication?
+    super && (is_active == true)
+  end
+
   def member_status
     if is_active == true
       "入会中"

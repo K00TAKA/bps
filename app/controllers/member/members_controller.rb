@@ -23,7 +23,7 @@ class Member::MembersController < ApplicationController
 
   def withdraw
     @member = Member.find(current_member.id)
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    # is_activeカラムをtrueに変更することにより削除フラグを立てる
     @member.update(is_active: false)
     reset_session
     redirect_to root_path
@@ -44,6 +44,14 @@ class Member::MembersController < ApplicationController
 
   def member_params
   params.require(:member).permit(:name, :name_kana, :email)
+  end
+
+  def is_active_changed_to_false?
+    saved_change_to_attribute?(:is_active) && !is_active
+  end
+
+  def deactivate_company
+    company.update(is_active: false) if company
   end
 
 end

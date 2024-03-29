@@ -1,31 +1,46 @@
 <div class="container">
-  <h2>会員一覧</h2>
+  <h2>会員情報</h2>
   <div><%= flash[:notice] %></div>
   <div class="row">
     <table class="table table-bordered">
-      <thead>
-        <th>会員ID</th>
-        <th>会員名</th>
-        <th>会員名（カナ）</th>
-        <th>会員ステータス</th>
-        <th></th>
+      <thead class="thead-info">
+        <th style="width: 10%;">会員ID</th>
+        <th style="width: 20%;">会員名<br>会員名（カナ）</th>
+        <th style="width: 30%;">メールアドレス</th>
+        <th style="width: 20%;">会員ステータス</th>
+        <th style="width: 20%;"></th>
       </thead>
-      <% @members.each do |member| %>
       <tbody>
-        <td><%= member.id %></td>
-        <td><%= member.first_name %><%= member.last_name %></td>
-        <td><%= member.first_name_kana %><%= member.last_name_kana %></td>
-        <%= form_with model: member, url: admin_member_path(member.id), method: :patch do |f| %>
-        <td>
-          <%= f.radio_button :member_status, :true %>
-          <%= f.label :member_status, "入会中", value: :true, class: 'active' %><br>
-          <%= f.radio_button :member_status, :false %>
-          <%= f.label :member_status, "退会済み", value: :false, class: 'inactive' %>
-        </td>
-        <td><%= f.submit "ステータス変更", class:"btn btn-sm btn-success" %></td>
-        <% end %>
+        <tr>
+          <td><%= @member.id %></td>
+          <td>
+            <%= @member.name %><br>
+            <%= @member.name_kana %>
+          </td>
+          <td><%= @member.email %></td>
+          <td><%= @member.member_status %></td>
+          <td>
+            <% if @member.is_active == true %>
+              <%= form_with model: @member, url: admin_member_path(@member), method: :patch do |f| %>
+                <%= f.hidden_field :is_active, value: false %>
+                <%= f.submit "退会済みに変更", class: "btn btn-sm btn-danger" %>
+              <% end %>
+            <% else %>
+              <%= form_with model: @member, url: admin_member_path(@member), method: :patch do |f| %>
+                <%= f.hidden_field :is_active, value: true %>
+                <%= f.submit "入会中に変更", class: "btn btn-sm btn-success" %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
       </tbody>
-      <% end %>
     </table>
   </div>
 </div>
+
+<style>
+  .thead-info th {
+    background-color: #191970; /* 青色に設定 */
+    color: white; /* テキストの色を白色に設定 */
+  }
+</style>

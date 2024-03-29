@@ -7,11 +7,15 @@ class Admin::MembersController < ApplicationController
     @members = Member.all
   end
 
+  def show
+    @member = Member.find(params[:id])
+  end
+
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
       flash[:notice] = "会員ステータスを更新しました"
-      redirect_to admin_members_path(@customer)
+      redirect_to admin_members_path(@member)
     else
       flash[:notice] = "会員ステータスの更新に失敗しました"
       render :index

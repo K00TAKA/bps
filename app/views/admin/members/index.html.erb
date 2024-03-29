@@ -20,15 +20,7 @@
           </td>
           <td><%= member.email %></td>
           <td><%= member.member_status %></td>
-          <%= form_with model: member, url: admin_member_path(member.id), method: :patch do |f| %>
-          <td>
-            <%= f.radio_button :is_active, :true %>
-            <%= f.label :member_status, "入会中", value: :true, class: 'active' %>
-            <%= f.radio_button :is_active, :false %>
-            <%= f.label :member_status, "退会済み", value: :false, class: 'inactive' %><br>
-            <%= f.submit "ステータス変更", class:"btn btn-sm btn-success" %>
-          </td>
-          <% end %>
+          <td><%= link_to "詳細", admin_member_path(member.id), class: "btn btn-info" %></td>
         </tr>
       </tbody>
       <% end %>
