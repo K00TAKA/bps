@@ -5,15 +5,15 @@
 
   <%= form_with model: @announcement, url: admin_announcement_path(@announcement.id), method: :patch do |f| %>
     <div class="row p-3 form-label">
-      <div class="col-sm-2"><%= f.label:"件名" %></div>
+      <div class="col-sm-2"><strong><%= f.label:"件名" %></strong></div>
       <div class="col-md-5"><%= f.text_field :title, class: "form-control", style: "width:100%" %></div>
     </div>
     <div class="row p-3 form-label">
-      <div class="col-sm-2"><%= f.label:"内容" %></div>
+      <div class="col-sm-2"><strong><%= f.label:"内容" %></strong></div>
       <div class="col-md-5"><%= f.text_area :body, class: "form-control", style: "width:100%", rows: "5" %></div>
     </div>
     <div class="row p-3">
-      <div class="col-sm-2"><%= f.label:"公開/非公開" %></div>
+      <div class="col-sm-2"><strong><%= f.label:"公開/非公開" %></strong></div>
       <div class="col-md-5">
         <%= f.radio_button :is_active, :true %>
         <%= f.label :is_active, "公開", value: :true, class: 'active' %>

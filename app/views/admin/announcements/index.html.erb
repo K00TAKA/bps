@@ -8,9 +8,9 @@
   <table class="table table-bordered">
     <thead class="thead-info">
       <tr>
-        <th style="width: 75%;">[件名] 本文</th>
-        <th style="width: 10%;">公開 / 非公開</th>
-        <th style="width: 15%;">編集 / 削除</th>
+        <th style="width: 70%;">[件名] 本文</th>
+        <th class="position" style="width: 15%;">公開 / 非公開</th>
+        <th class="position" style="width: 15%;">編集 / 削除</th>
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
@@ -19,17 +19,21 @@
           [<strong><%= announcement.title %></strong>]<br>
           <%= announcement.body %><br>
         </td>
-        <td>
-          <%= form_with model: announcement, url: admin_announcement_path(announcement.id), method: :patch do |f| %>
-            <%= f.radio_button :is_active, :true %>
-            <%= f.label :is_active, "公開", value: :true, class: 'active' %>
-            <%= f.radio_button :is_active, :false %>
-            <%= f.label :is_active, "非公開", value: :false, class: 'inactive' %><br>
-            <%= f.submit 'ステータスを保存', class: 'btn btn-success' %>
+        <td class="position">
+          <% if announcement.is_active == true %>
+            <%= form_with model: announcement, url: admin_announcement_path(announcement), method: :patch do |f| %>
+              <%= f.hidden_field :is_active, value: false %>
+              <%= f.submit "非表示に変更", class: "btn btn-sm btn-secondary" %>
+            <% end %>
+          <% else %>
+            <%= form_with model: announcement, url: admin_announcement_path(announcement), method: :patch do |f| %>
+              <%= f.hidden_field :is_active, value: true %>
+              <%= f.submit "表示に変更", class: "btn btn-sm btn-info" %>
+            <% end %>
           <% end %>
         </td>
-        <td>
-          <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-warning" %>
+        <td class="position">
+          <%= link_to "編集", edit_admin_announcement_path(announcement.id), class: "btn btn-success" %>
           <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
         </td>
       </tr>
@@ -41,5 +45,10 @@
   .thead-info {
     background-color: #FF8C00;
     color: white;
+  }
+
+  .position {
+    text-align: center;
+    align-content: center;
   }
 </style>
