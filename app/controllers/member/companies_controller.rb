@@ -9,7 +9,7 @@ class Member::CompaniesController < ApplicationController
   def create
     @company = current_member.build_company(company_params)
     @member = current_member
-    @company.date_of_establishment = "年/月"
+    @company.date_of_establishment = "〇年〇月"
     @company.introduction = "紹介文"
     if @company.save
       flash[:notice] = "企業の登録に成功しました。"
@@ -61,7 +61,6 @@ class Member::CompaniesController < ApplicationController
     if @company.update!(company_params)
       redirect_to member_path(@member.id)
     else
-      flash[:notice] = "編集されていません。編集しない場合は戻るを押してください。"
       render :edit
     end
   end
