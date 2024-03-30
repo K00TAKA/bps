@@ -8,11 +8,11 @@
           <th style="width: 60%;">企業名</th>
         </thead>
         <% @companies.each do |company| %>
-          <% if company.is_active == true %>
+          <% if company.is_active? %>
           <tbody>
             <td class="position">
               <% if company.image.attached? %>
-                <%= image_tag company.image, size: "150x150" %>
+                <%= image_tag company.image.jpg, size: "150x150" %>
               <% else %>
                 <%= image_tag 'company_free.jpg', size: "150x150" %>
               <% end %>
