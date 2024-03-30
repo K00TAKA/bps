@@ -48,7 +48,7 @@
     </tr>
     <tr>
       <th></th>
-      <td><%= f.submit '変更を保存', class: 'btn btn-success' %> <%= link_to "戻る", member_path(@member.id), class: "btn btn-secondary" %></td>
+      <td><%= f.submit '変更を保存', class: 'btn btn-success' %> <%= link_to "戻る", member_path(current_member.id), class: "btn btn-secondary" %></td>
     </tr>
   <% end %>
   </table>
