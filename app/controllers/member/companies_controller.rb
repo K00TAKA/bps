@@ -74,7 +74,7 @@ class Member::CompaniesController < ApplicationController
   private
 
   def company_params
-  params.require(:company).permit(:image, :company, :company_kana, :post_code, :address, :tel, :email, :genre, :date_of_establishment, :introduction, :member_id)
+  params.require(:company).permit(:image, :company, :company_kana,:genre, :post_code, :address, :date_of_establishment, :introduction, :tel, :email, :member_id)
   end
 
 end
