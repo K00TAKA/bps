@@ -14,9 +14,16 @@ class Admin::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
+      # @company = Company.find(@member.company.id)
+      if @member.is_active?
+        @member.company.update(is_active: true)
+      else
+        @member.company.update(is_active: false)
+      end
       flash[:notice] = "会員ステータスを更新しました"
       redirect_to admin_members_path(@member)
     else
+
       flash[:notice] = "会員ステータスの更新に失敗しました"
       render :index
     end

@@ -25,6 +25,8 @@ class Member::MembersController < ApplicationController
     @member = Member.find(current_member.id)
     # is_activeカラムをtrueに変更することにより削除フラグを立てる
     @member.update(is_active: false)
+    # @company = Company.find(@member.company.id)
+    @member.company.update(is_active: false)
     reset_session
     redirect_to root_path
   end
