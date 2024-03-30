@@ -5,10 +5,10 @@
       <table class="table table-borderbottom">
         <thead class="thead-info">
           <th style="width: 40%;">新着企業</th>
-          <th style="width: 60%;">企業名</th>
+          <th style="width: 60%;"></th>
         </thead>
         <% @companies.each do |company| %>
-          <% if company.is_active? %>
+          <% if company.is_active == true %>
           <tbody>
             <td class="position">
               <% if company.image.attached? %>
