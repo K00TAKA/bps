@@ -4,7 +4,7 @@
   <div><%= flash[:notice] %></div>
 
   <table class="table table-borderless">
-    <%= form_with model: @company, url: company_path(@company.id), method: :patch do |f| %>
+    <%= form_with model: @company, url: company_path(@company.id), method: :patch, local: true do |f| %>
       <tr>
         <th>企業写真</th>
         <td><%= f.file_field :image, accept: "image/jpg" %></td>
