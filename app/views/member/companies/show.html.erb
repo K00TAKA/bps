@@ -75,9 +75,8 @@
     <% @comments.each do |comment| %>
       <div class="col-md-3"></div>
       <div class="col-offset-1"></div>
-      <div class="col-md-5"><%= comment.comment %></div>
-      <div class="col-md-2">投稿日：<%= comment.created_at.strftime('%Y/%m/%d') %></div>
-      <div class="col-md-1">
+      <div class="col-md-6"><%= comment.comment %></div>
+      <div class="col-md-2">
         <% if comment.favorited_by?(current_member) %>
           <p>
             <%= link_to comment_favorites_path(comment), method: :delete do %>
