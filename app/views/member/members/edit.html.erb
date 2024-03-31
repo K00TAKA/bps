@@ -3,19 +3,25 @@
 
   <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
-    <div class="member_info box-name">
-      <strong>名前</strong><br>
-      <%= f.text_field :name, autofocus: true %>
+    <div class="row py-2">
+      <div class="col-md-2"><strong>名前</strong></div>
+      <div class="col-offset-1"></div>
+      <div class="col-md"><%= f.text_field :name, autofocus: true %></div>
     </div>
-    <div class="member_info box-name">
-      <strong>名前(カナ)</strong><br>
-      <%= f.text_field :name_kana %>
+    <div class="row py-2">
+      <div class="col-md-2"><strong>名前(カナ)</strong></div>
+      <div class="col-offset-1"></div>
+      <div class="col-md"><%= f.text_field :name_kana %></div>
     </div>
-    <div class="member_info box-email">
-      <strong>メールアドレス</strong><br>
-      <%= f.email_field :email, style: "width:30%" %>
+    <div class="row py-2">
+      <div class="col-md-2"><strong>メールアドレス</strong></div>
+      <div class="col-offset-1"></div>
+      <div class="col-md"><%= f.email_field :email, style: "width:30%" %></div>
     </div>
-    <div class="box-action">
+    <div class="row py-2">
+      <div class="col-md-2"></div>
+      <div class="col-offset-1"></div>
+      <div class="col-md">
       <%= f.submit "更新する", class: "btn btn-success" %>
       <%= link_to "退会画面へ", members_check_path, class: 'btn btn-danger' %>
     </div>
@@ -30,18 +36,18 @@
     padding: 10px;
   }
 
-  .box-name {
-    margin: 10px;
-  }
+  /*.box-name {*/
+  /*  margin: 10px;*/
+  /*}*/
 
-  .box-email {
-    margin: 10px;
-  }
+  /*.box-email {*/
+  /*  margin: 10px;*/
+  /*}*/
 
-  .box-action {
-    margin: 10px;
-    border-style: none;
-    height: 31px;
-  }
+  /*.box-action {*/
+  /*  margin: 10px;*/
+  /*  border-style: none;*/
+  /*  height: 31px;*/
+  /*}*/
 
 </style>

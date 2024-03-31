@@ -3,58 +3,66 @@
 
   <div><%= flash[:notice] %></div>
 
-  <div class="table table-borderless">
-    <%= form_with model: @company, url: company_path(@company.id), method: :patch, local: true do |f| %>
-      <tr>
-        <th>企業写真</th>
-        <td><%= f.file_field :image, accept: "image/jpg" %></td>
-      </tr>
-      <tr>
-        <th>企業名</th>
-        <td><%= f.text_field :company, autofocus: true %></td>
-      </tr>
-      <tr>
-        <th>企業名(カナ)</th>
-        <td><%= f.text_field :company_kana %></td>
-      </tr>
-      <tr>
-        <th>業種</th>
-        <td><%= f.select :genre, Company.genres.keys, class: 'form-control' %></td>
-      </tr>
-      <tr>
-        <th>郵便番号</th>
-        <td><%= f.text_field :post_code %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <th>設立年月日</th>
-        <td><%= f.text_field :date_of_establishment %></td>
-      </tr>
-      <tr>
-        <th>紹介</th>
-        <td><%= f.text_area :introduction, class: "form-control", style: "width:100%", rows: "3" %></td>
-      </tr>
-
-      <tr>
-        <th>電話番号</th>
-        <td><%= f.text_field :tel %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= f.text_field :email %></td>
-      </tr>
-      <div>
-        <div></div>
-        <div>
-          <%= f.submit "変更を保存", class: "btn btn-success" %>
-          <%= link_to "戻る", member_path(@member.id), class: "btn btn-secondary" %>
-        </div>
-      </div>
-    <% end %>
+  <%= form_with model: @company, url: company_path(@company.id), method: :patch, local: true do |f| %>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>企業写真</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.file_field :image, accept: "image/jpg" %></div>
   </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>企業名</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :company, autofocus: true %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>企業名(カナ)</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :company_kana %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>業種</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.select :genre, Company.genres.keys, class: 'form-control' %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>郵便番号</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :post_code %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>住所</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :address %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>設立年月日</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :date_of_establishment %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>紹介</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_area :introduction, class: "form-control", style: "width:70%", rows: "3" %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>電話番号</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :tel %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"><strong>メールアドレス</strong></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md"><%= f.text_field :email %></div>
+  </div>
+  <div class="row py-2">
+    <div class="col-md-2"></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <%= link_to "戻る", member_path(@member.id), class: "btn btn-secondary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
 
 <style>

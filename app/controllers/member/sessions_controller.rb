@@ -33,7 +33,7 @@ class Member::SessionsController < Devise::SessionsController
     # [処理内容3]　取得したアカウントのパスワードと入力されたパスワードが一致していない場合、このメソッドを終了する
     return unless member.valid_password?(params[:member][:password])
     # 【処理内容4】 アクティブでない会員に対する処理
-    member.update(is_active: false)
+    member.update(is_active: true)
     # 今回、会員情報を削除せず、is_activeを使ってステータス管理する（trueは入会中、falseは退会済み）
   end
 
