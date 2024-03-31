@@ -2,127 +2,139 @@
 
   <div><%= flash[:notice] %></div>
 
-  <table class="table table-borderless">
-    <thead class="thead-info">
-      <th><strong>企業情報</strong></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr>
-        <th>企業写真</th>
-        <td>
-          <% if @company.image.attached? %>
-            <%= image_tag @company.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'company_free.jpg', size: "200x200" %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th>企業ID</th>
-        <td><%= @company.id %></td>
-      </tr>
-      <tr>
-        <th>企業名</th>
-        <td><%= @company.company %></td>
-      </tr>
-      <tr>
-        <th>企業名(カナ)</th>
-        <td><%= @company.company_kana %></td>
-      </tr>
-      <tr>
-        <th>業種</th>
-        <td><%= @company.genre %></td>
-      </tr>
-      <tr>
-        <th>郵便番号</th>
-        <td><%= @company.post_code %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= @company.address %></td>
-      </tr>
-      <tr>
-        <th>設立年月日</th>
-        <td><%= @company.date_of_establishment %></td>
-      </tr>
-      <tr>
-        <th>紹介</th>
-        <td><%= @company.introduction %></td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= @company.tel %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= @company.email %></td>
-      </tr>
-      <tr>
-        <th>投稿されたコメント</th>
-        <th>コメント件数：<%= @comments.count %></th>
-        <td></td>
-      </tr>
-      <% @comments.each do |comment| %>
-        <tr>
-          <td></td>
-          <td><%= comment.comment %></td>
-          <td>投稿日：<%= comment.created_at.strftime('%Y/%m/%d') %></td>
-          <td>
-            <% if comment.favorited_by?(current_member) %>
-              <p>
-                <%= link_to comment_favorites_path(comment), method: :delete do %>
-                  <%= comment.favorites.count %> いいね
-                <% end %>
-              </p>
-            <% else %>
-              <p>
-                <%= link_to comment_favorites_path(comment), method: :post do %>
-                  <%= comment.favorites.count %> いいね
-                <% end %>
-              </p>
-            <% end %>
-          </td>
-        </tr>
+  <div class="row p-3">
+    <div class="head"><strong>企業情報</strong></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">企業写真</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8">
+      <% if @company.image.attached? %>
+        <%= image_tag @company.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'company_free.jpg', size: "200x200" %>
       <% end %>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">企業ID</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.id %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">企業名</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.company %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">企業名(カナ)</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.company_kana %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">業種</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.genre %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">郵便番号</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.post_code %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">住所</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.address %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">設立年月日</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.date_of_establishment %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">紹介</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.introduction %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">電話番号</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.tel %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">メールアドレス</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @company.email %></div>
+  </div>
+
+  <div class="row p-2">
+    <div class="col-md-3">投稿されたコメント</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8">コメント件数：<%= @comments.count %></div>
+  </div>
+  <div class="row p-2">
+    <% @comments.each do |comment| %>
+    <table class="table table-borderless">
       <tr>
         <td></td>
-        <td><%= link_to "コメントする", new_comment_path(@company.id), method: :get,  class: 'btn btn-primary' %></td>
+        <td><%= comment.comment %></td>
+        <td>投稿日：<%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        <% if comment.favorited_by?(current_member) %>
+          <p>
+            <%= link_to comment_favorites_path(comment), method: :delete do %>
+              <%= comment.favorites.count %> いいね
+            <% end %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to comment_favorites_path(comment), method: :post do %>
+              <%= comment.favorites.count %> いいね
+            <% end %>
+          </p>
+        <% end %>
       </tr>
-      <tr>
-        <th>問い合わせ窓口</th>
-        <td><%= @member.name %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= @member.name_kana %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <% if @member.id == current_member.id %>
-              <%= @msg %>
-          <% else %>
-              <% if @isRoom == true %>
-                  <p><%= link_to 'DMへ', room_path(@roomId), class: "btn btn-success" %></p>
-              <% else %>
-                  <%= form_for @room do |f| %>
-                      <%= fields_for @entry do |e|%>
-                          <% e.hidden_field :member_id, value: @member.id %>
-                      <% end %>
-                  <%= f.submit "DMを送る", class: "btn btn-success" %>
-                  <% end %>
-              <% end %>
+    </table>
+    <% end %>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3"></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= link_to "コメントする", new_comment_path(@company.id), method: :get,  class: 'btn btn-primary' %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3">問い合わせ窓口</div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @member.name %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3"></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8"><%= @member.name_kana %></div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-3"></div>
+    <div class="col-offset-1"></div>
+    <div class="col-md-8">
+      <% if @member.id == current_member.id %>
+        <%= @msg %>
+      <% else %>
+        <% if @isRoom == true %>
+          <p><%= link_to 'DMへ', room_path(@roomId), class: "btn btn-success" %></p>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e|%>
+              <% e.hidden_field :member_id, value: @member.id %>
+            <% end %>
+              <%= f.submit "DMを送る", class: "btn btn-success" %>
           <% end %>
-        </td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <style>
-  .thead-info th {
+  .head {
     background-color: #191970;
     color: white;
   }
