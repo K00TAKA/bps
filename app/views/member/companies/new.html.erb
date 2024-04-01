@@ -1,6 +1,14 @@
 <div class="box">
   <div class="box-inner">
     <h3>新規企業登録</h3>
+    <% if @company.errors.any? %>
+      <%= @company.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
     <%= form_with model: @company do |f| %>
       <div class="company-info box-company">

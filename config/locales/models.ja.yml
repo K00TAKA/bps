@@ -7,4 +7,8 @@ ja:
         email: メールアドレス
         password: パスワード
         encrypted_password: パスワード（確認用）
+      company:
+        company: 企業名
+        company_kana: 企業名(カナ)
+        genre: 業種
 

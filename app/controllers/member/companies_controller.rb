@@ -15,7 +15,6 @@ class Member::CompaniesController < ApplicationController
       flash[:notice] = "企業の登録に成功しました。"
       redirect_to member_path(@member.id)
     else
-      flash[:notice] = "企業の登録に失敗しました。"
       render :new
     end
   end
