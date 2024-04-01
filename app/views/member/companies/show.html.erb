@@ -73,24 +73,27 @@
   </div>
   <div class="row p-2">
     <% @comments.each do |comment| %>
-      <div class="col-md-3"></div>
-      <div class="col-offset-1"></div>
-      <div class="col-md-6"><%= comment.comment %></div>
-      <div class="col-md-2">
-        <% if comment.favorited_by?(current_member) %>
-          <p>
-            <%= link_to comment_favorites_path(comment), method: :delete do %>
-              <%= comment.favorites.count %> いいね
-            <% end %>
-          </p>
-        <% else %>
-          <p>
-            <%= link_to comment_favorites_path(comment), method: :post do %>
-              <%= comment.favorites.count %> いいね
-            <% end %>
-          </p>
-        <% end %>
-      </div>
+    <table class="table table-light table-striped">
+      <tr>
+        <td class="col-md-3"></td>
+        <td class="col-md-7"><%= comment.comment %></td>
+        <td class="col-md-2">
+          <% if comment.favorited_by?(current_member) %>
+            <p>
+              <%= link_to comment_favorites_path(comment), method: :delete do %>
+                <%= comment.favorites.count %> いいね
+              <% end %>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to comment_favorites_path(comment), method: :post do %>
+                <%= comment.favorites.count %> いいね
+              <% end %>
+            </p>
+          <% end %>
+        </td>
+      </tr>
+    </table>
     <% end %>
   </div>
   <div class="row p-2">
