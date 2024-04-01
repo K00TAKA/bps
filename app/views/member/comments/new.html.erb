@@ -1,6 +1,6 @@
 <div class="container py-5">
   <h2>コメント投稿</h2>
-  <%= form_with model: Comment do |f| %>
+  <%= form_with model: @comment, url:company_comments_path(@company) do |f| %>
     <%= f.hidden_field :company_id, value: params[:company_id] %>
     <div class="row">
       <div class="col-md-2"></div>

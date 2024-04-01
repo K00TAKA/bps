@@ -36,8 +36,10 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'members/check' => 'members#check'
     patch 'members/withdraw' => 'members#withdraw'
-    resources :companies, except: [:destroy]
-    resources :comments, except: [:destroy] do
+    resources :companies, except: [:destroy] do
+      resources :comments, only: [:create, :new]
+    end
+    resources :comments, except: [:create, :new, :destroy] do
       resource :favorites, only: [:create, :destroy]
     end
     resources :members, only: [:show, :edit, :update]
