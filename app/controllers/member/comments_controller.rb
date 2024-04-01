@@ -14,7 +14,6 @@ class Member::CommentsController < ApplicationController
 
   def create
     @comment = current_member.comments.new(comment_params)
-    @company = company.find(params[:id])
     if @comment.save
       flash[:notice] = "コメントの登録に成功しました。"
       redirect_to company_path(@comment.company_id)
