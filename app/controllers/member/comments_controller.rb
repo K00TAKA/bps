@@ -3,7 +3,7 @@ class Member::CommentsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    @company = Company.find(params[:id])
+    @company = current_member.company
     @comments = @company.comments.where(is_active: true).page(params[:page]).per(10)
   end
 

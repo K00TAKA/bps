@@ -3,7 +3,8 @@ class Admin::CommentsController < ApplicationController
   before_action :authenticate_admin!
 
   def show
-    @company = Company.find(params[:id]).page(params[:page]).per(5)
+    @company = Company.find(params[:id])
+    @comments = Comment.all.page(params[:page]).per(10)
   end
 
   def update

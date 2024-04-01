@@ -58,7 +58,7 @@
           <td></td>
           <td class="box-action">
             <%= link_to "企業情報を編集", edit_company_path(@company.id), class: 'btn btn-warning' %>
-            <%= link_to "コメントを見る", comments_path, method: :get, class: 'btn btn-primary' %>
+            <%= link_to "コメントを見る", comments_path(@company.id), method: :get, class: 'btn btn-primary' %>
           </td>
         </tr>
       </tbody>
