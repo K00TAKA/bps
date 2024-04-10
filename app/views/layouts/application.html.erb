@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Business Partners</title>
+    <title>Business Partners1</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!--10行目、13行目は共存可能-->
+    <!--cssや画像の管理方法をapp/assets内で管理する場合は以下を使用する-->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--bootstrapを使用している場合はapp/javascript内で管理するので以下を使用する-->
+    <!--cssや画像の管理方法をbootstrapと一緒にapp/javascript内で管理する場合は以下のみで完結できる-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
