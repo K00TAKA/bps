@@ -4,7 +4,7 @@
   <div class="row">
     <table class="table table-bordered">
       <thead class="thead-info">
-        <th style="width: 10%;">会員ID</th>
+        <th style="width: 10%;">会員ID<br>(企業ID)</th>
         <th style="width: 20%;">会員名<br>会員名（カナ）</th>
         <th style="width: 30%;">メールアドレス</th>
         <th style="width: 20%;">会員ステータス</th>
@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= @member.id %></td>
+          <td><%= @member.id %><br>（ <%= link_to @member.company.id, admin_company_path(@member.company.id) %> ）</td>
           <td>
             <%= @member.name %><br>
             <%= @member.name_kana %>
@@ -37,10 +37,3 @@
     </table>
   </div>
 </div>
-
-<style>
-  .thead-info th {
-    background-color: #191970; /* 青色に設定 */
-    color: white; /* テキストの色を白色に設定 */
-  }
-</style>
