@@ -1,3 +1,35 @@
 // Place all the styles related to the admin/companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.thead-info th {
+  background-color: #191970; /* 青色に設定 */
+  color: white; /* テキストの色を白色に設定 */
+}
+
+h2, h3 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  background-color: #191970;
+  color: white;
+  padding: 10px;
+}
+
+
+th, td {
+  text-align: center;
+  align-content: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagination {
+  justify-content: center;
+}
+

@@ -3,10 +3,11 @@
   <h3>企業情報</h3>
   <div><%= flash[:notice] %></div>
 
-  <table class="table table-borderless">
+  <table class="table table-borderd">
     <tr>
-      <td></td>
-      <td>
+      <td style="width: 20%;"></td>
+      <td style="width: 20%;"></td>
+      <td style="width: 60%;">
         <% if @company.image.attached? %>
           <%= image_tag @company.image, size: "200x200" %>
         <% else %>
@@ -15,51 +16,62 @@
       </td>
     </tr>
     <tr>
+      <td></td>
       <th>企業ID</th>
       <td><%= @company.id %></td>
     </tr>
     <tr>
+      <td></td>
       <th>企業名</th>
       <td><%= @company.company %></td>
     </tr>
     <tr>
+      <td></td>
       <th>企業名(カナ)</th>
       <td><%= @company.company_kana %></td>
     </tr>
     <tr>
+      <td></td>
       <th>業種</th>
       <td><%= @company.genre %></td>
     </tr>
     <tr>
+      <td></td>
       <th>郵便番号</th>
       <td><%= @company.post_code %></td>
     </tr>
     <tr>
+      <td></td>
       <th>住所</th>
       <td><%= @company.address %></td>
     </tr>
     <tr>
+      <td></td>
       <th>設立年月日</th>
       <td><%= @company.date_of_establishment %></td>
     </tr>
     <tr>
+      <td></td>
       <th>紹介</th>
       <td><%= @company.introduction %></td>
     </tr>
-
     <tr>
+      <td></td>
       <th>電話番号</th>
       <td><%= @company.tel %></td>
     </tr>
     <tr>
+      <td></td>
       <th>メールアドレス</th>
       <td><%= @company.email %></td>
     </tr>
     <tr>
+      <td></td>
       <th>投稿コメント</th>
       <td><%= button_to "コメントを見る", admin_comment_path, method: :get,  class: 'btn btn-primary' %></td>
     </tr>
     <tr>
+      <td></td>
       <th>ステータス</th>
       <td>
         <% if @company.is_active == true %>
@@ -78,10 +90,3 @@
   </table>
 </div>
 
-<style>
-  h3 {
-    background-color: #191970;
-    color: white;
-    padding: 10px;
-  }
-</style>

@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto" >
           <% if member_signed_in? %>
-            <li class="member-name text-dark">
+            <li class="member-name text-dark text-center">
               <strong>ようこそ<%= current_member.name %>さん！</strong>
             </li>
           <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
@@ -26,7 +26,7 @@
               <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'nav-link text-dark', data: { confirm: '本当にログアウトしますか？' } %>
             </li>
           <% elsif admin_signed_in? %>
-            <li class="admin-name text-dark">
+            <li class="admin-name text-dark text-center">
               <strong>管理者ログイン中</strong>
             </li>
             <li class="nav-item">
@@ -60,19 +60,3 @@
     </div>
   </nav>
 </header>
-
-
-<style>
-  .navbar-toggler {
-    background-color: #9ACD32;
-  }
-  .navbar-toggler-icon {
-    background-color: light;
-  }
-
-  .nav-item {
-    margin-right: 10px;
-    background-color: #9ACD32;
-  }
-
-</style>
