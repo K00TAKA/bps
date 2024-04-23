@@ -5,15 +5,15 @@
 
   <%= form_with model: @announcement, url: admin_announcements_path do |f| %>
     <div class="row p-3 form-label">
-      <div class="col-sm-2 title">件名</div>
+      <div class="col-sm-2 title"><strong>件名</strong></div>
       <div class="col-md-5"><%= f.text_field :title, class: "form-control", style: "width:100%" %></div>
     </div>
     <div class="row p-3 form-label">
-      <div class="col-sm-2 title">内容</div>
+      <div class="col-sm-2 title"><strong>内容</strong></div>
       <div class="col-md-7"><%= f.text_area :body, class: "form-control", rows: "5" %></div>
     </div>
-    <div class="row p-3">
-      <div class="col-sm-2 title">公開/非公開</div>
+    <div class="row p-3 form-label">
+      <div class="col-sm-2 title"><strong>公開/非公開</strong></div>
       <div class="col-md-5">
         <%= f.radio_button :is_active, :true %>
         <%= f.label :is_active, "公開", value: :true, class: 'active' %>
@@ -24,9 +24,3 @@
     </div>
   <% end %>
 </div>
-
-<style>
-  .title {
-    font-weight: bold;
-  }
-</style>

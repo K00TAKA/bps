@@ -14,8 +14,9 @@
       </tr>
     </thead>
     <% @announcements.each do |announcement| %>
+    <tbody>
       <tr>
-        <td class="md-6">
+        <td class="md-6 text-position">
           [<strong><%= announcement.title %></strong>]<br>
           <%= announcement.body %><br>
         </td>
@@ -37,23 +38,8 @@
           <%= link_to "削除", admin_announcement_path(announcement.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
         </td>
       </tr>
+    </tbody>
     <% end %>
   </table>
   <div><%= paginate @announcements %></div>
 </div>
-
-<style>
-  .thead-info {
-    background-color: #FF8C00;
-    color: white;
-  }
-
-  .position {
-    text-align: center;
-    align-content: center;
-  }
-
-  .pagination {
-    justify-content: center;
-  }
-</style>
