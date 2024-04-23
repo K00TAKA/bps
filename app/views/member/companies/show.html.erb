@@ -80,13 +80,13 @@
         <td class="col-md-2">
           <% if comment.favorited_by?(current_member) %>
             <p>
-              <%= link_to comment_favorites_path(comment), method: :delete do %>
+              <%= link_to comment_favorites_path(comment), method: :delete, remote: true do %>
                 <%= comment.favorites.count %> いいね
               <% end %>
             </p>
           <% else %>
             <p>
-              <%= link_to comment_favorites_path(comment), method: :post do %>
+              <%= link_to comment_favorites_path(comment), method: :post, remote: true do %>
                 <%= comment.favorites.count %> いいね
               <% end %>
             </p>
