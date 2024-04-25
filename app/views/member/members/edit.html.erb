@@ -1,5 +1,5 @@
 <div class="container py-5">
-  <h3>会員情報編集</h3>
+  <h3 class="bg">会員情報編集</h3>
 
   <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
     <%= render "member/shared/error_messages", resource: @member %>
