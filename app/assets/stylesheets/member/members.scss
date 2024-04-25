@@ -1,3 +1,22 @@
-// Place all the styles related to the member/members controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+h3 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.thead-info th {
+  background-color: #191970;
+  color: white;
+}
+
+.thead-info2 th {
+  background-color: #191970;
+  color: white;
+  margin-top: 20px;
+}
+
+.box-action {
+  border-style: none;
+  height: 31px;
+}
