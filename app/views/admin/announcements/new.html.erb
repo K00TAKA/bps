@@ -5,11 +5,11 @@
 
   <%= form_with model: @announcement, url: admin_announcements_path do |f| %>
     <div class="row p-3 form-label">
-      <div class="col-sm-2 title"><strong>件名</strong></div>
+      <div class="col-sm-2"><strong>件名</strong></div>
       <div class="col-md-5"><%= f.text_field :title, class: "form-control", style: "width:100%" %></div>
     </div>
     <div class="row p-3 form-label">
-      <div class="col-sm-2 title"><strong>内容</strong></div>
+      <div class="col-sm-2"><strong>内容</strong></div>
       <div class="col-md-7"><%= f.text_area :body, class: "form-control", rows: "5" %></div>
     </div>
     <div class="row p-3 form-label">
@@ -24,3 +24,12 @@
     </div>
   <% end %>
 </div>
+
+<style>
+h2, .form-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
