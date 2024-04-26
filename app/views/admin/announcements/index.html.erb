@@ -1,8 +1,7 @@
 <div class="container py-5">
   <h2>お知らせ管理</h2>
   <div class="text-right"><%= link_to "新規投稿", new_admin_announcement_path, class: "btn btn-primary" %></div>
-  お知らせ数：<%= @announcements.count %>件
-
+  <p>お知らせ数：<%= @announcements.count %>件</p>
   <div><%= flash[:notice] %></div>
 
   <table class="table table-bordered">
@@ -45,7 +44,7 @@
 </div>
 
 <style>
-h2, .form-label {
+.container {
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

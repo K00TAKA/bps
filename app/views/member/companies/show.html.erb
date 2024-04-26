@@ -1,14 +1,13 @@
 <div class="container py-5">
-
   <div><%= flash[:notice] %></div>
-
   <div class="row p-3">
-    <div class="col head"><strong>企業情報</strong></div>
+    <div class="col head"><h2>企業情報</h2></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">企業写真</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8">
+    <div class="col-md-7">
       <% if @company.image.attached? %>
         <%= image_tag @company.image, size: "200x200" %>
       <% else %>
@@ -17,66 +16,77 @@
     </div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">企業ID</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.id %></div>
+    <div class="col-md-7"><%= @company.id %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">企業名</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.company %></div>
+    <div class="col-md-7"><%= @company.company %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">企業名(カナ)</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.company_kana %></div>
+    <div class="col-md-7"><%= @company.company_kana %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">業種</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.genre %></div>
+    <div class="col-md-7"><%= @company.genre %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">郵便番号</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.post_code %></div>
+    <div class="col-md-7"><%= @company.post_code %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">住所</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.address %></div>
+    <div class="col-md-7"><%= @company.address %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">設立年月日</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.date_of_establishment %></div>
+    <div class="col-md-7"><%= @company.date_of_establishment %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">紹介</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.introduction %></div>
+    <div class="col-md-7"><%= @company.introduction %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">電話番号</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.tel %></div>
+    <div class="col-md-7"><%= @company.tel %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">メールアドレス</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @company.email %></div>
+    <div class="col-md-7"><%= @company.email %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">投稿されたコメント</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8 title">コメント件数：<%= @comments.count %></div>
+    <div class="col-md-7 title">コメント件数：<%= @comments.count %></div>
   </div>
   <div class="row p-2">
     <% @comments.each do |comment| %>
     <table class="table table-light table-striped">
       <tr>
-        <td class="col-md-3"></td>
-        <td class="col-md-7"><%= comment.comment %></td>
+        <td class="col-md-2"></td>
+        <td class="col-md-8"><%= comment.comment %></td>
         <td class="col-md-2">
           <% if comment.favorited_by?(current_member) %>
             <p>
@@ -97,24 +107,28 @@
     <% end %>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3"></div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= link_to "コメントする", new_company_comment_path(@company.id), method: :get,  class: 'btn btn-primary' %></div>
+    <div class="col-md-7"><%= link_to "コメントする", new_company_comment_path(@company.id), method: :get,  class: 'btn btn-primary' %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3 title">問い合わせ窓口</div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @member.name %></div>
+    <div class="col-md-7"><%= @member.name %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3"></div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8"><%= @member.name_kana %></div>
+    <div class="col-md-7"><%= @member.name_kana %></div>
   </div>
   <div class="row p-2">
+    <div class="col-sm-1"></div>
     <div class="col-md-3"></div>
     <div class="col-offset-1"></div>
-    <div class="col-md-8">
+    <div class="col-md-7">
       <% if @member.id == current_member.id %>
         <%= @msg %>
       <% else %>
@@ -132,3 +146,12 @@
     </div>
   </div>
 </div>
+
+<style>
+.container {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>

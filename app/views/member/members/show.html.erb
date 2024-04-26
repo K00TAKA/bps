@@ -1,14 +1,14 @@
 <div class="container py-5">
   <div class="row">
-    <h4>マイページ</h4>
+    <h2>マイページ</h2>
     <table class="table table-borderless">
       <thead class="thead-info">
         <th><strong>企業情報</strong></th>
         <th></th>
       </thead>
-      <tbody>
+      <tbody class="tbody-info">
         <tr>
-          <td><strong>企業写真</strong></td>
+          <th><strong>企業写真</strong></th>
           <td>
             <% if @company && @company.image.attached? %>
               <%= image_tag @company.image, size: "200x200" %>
@@ -18,39 +18,39 @@
           </td>
         </tr>
         <tr>
-          <td><strong>企業名</strong></td>
+          <th><strong>企業名</strong></th>
           <td><%= @company.company %></td>
         </tr>
         <tr>
-          <td><strong>企業名(カナ)</strong></td>
+          <th><strong>企業名(カナ)</strong></th>
           <td><%= @company.company_kana %></td>
         </tr>
         <tr>
-          <td><strong>業種</strong></td>
+          <th><strong>業種</strong></th>
           <td><%= @company.genre %></td>
         </tr>
         <tr>
-          <td><strong>郵便番号</strong></td>
+          <th><strong>郵便番号</strong></th>
           <td><%= @company.post_code %></td>
         </tr>
         <tr>
-          <td><strong>住所</strong></td>
+          <th><strong>住所</strong></th>
           <td><%= @company.address %></td>
         </tr>
         <tr>
-          <td><strong>設立年</strong></td>
+          <th><strong>設立年</strong></th>
           <td><%= @company.date_of_establishment %></td>
         </tr>
         <tr>
-          <td><strong>紹介</strong></td>
+          <th><strong>紹介</strong></th>
           <td><%= @company.introduction %></td>
         </tr>
         <tr>
-          <td><strong>電話番号</strong></td>
+          <th><strong>電話番号</strong></th>
           <td><%= @company.tel %></td>
         </tr>
         <tr>
-          <td><strong>メールアドレス</strong></td>
+          <th><strong>メールアドレス</strong></th>
           <td><%= @company.email %></td>
         </tr>
         <tr>
@@ -67,14 +67,14 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>名前</strong></td>
+          <th><strong>名前</strong></th>
           <td><%= @member.name %></td>
         </tr>
         <tr>
-          <td><strong>名前(カナ)</strong></td>
+          <th><strong>名前(カナ)</strong></th>
           <td><%= @member.name_kana %></td>
         </tr>
-          <td><strong>メールアドレス</strong></td>
+          <th><strong>メールアドレス</strong></th>
           <td><%= @member.email %></td>
         </tr>
         <tr>
@@ -85,3 +85,23 @@
     </table>
   </div>
 </div>
+
+<style>
+.container {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.thead-info th {
+  background-color: #191970; /* 青色に設定 */
+  color: white; /* テキストの色を白色に設定 */
+}
+
+th, td {
+  text-align: center;
+  align-content: center;
+}
+
+</style>
