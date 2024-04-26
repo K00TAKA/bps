@@ -1,6 +1,6 @@
 <div class="container py-5">
   <h2>コメント一覧</h2>
-  コメント数：<%= @company.comments.count %>件
+  <p class="py-2">コメント数：<%= @company.comments.count %>件</p>
   <div><%= flash[:notice] %></div>
 
   <table class="table table-bordered">
@@ -31,3 +31,16 @@
   </table>
   <div><%= paginate @comments %></div>
 </div>
+
+<style>
+h2, p, th, td {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagination {
+  justify-content: center;
+}
+</style>
