@@ -1,13 +1,16 @@
 <% if comment.favorited_by?(current_member) %>
   <p>
-    <%= link_to comment_favorites_path(comment), method: :delete, remote: true do %>
-      <%= comment.favorites.count %> いいね
+    <%= link_to comment_favorites_path(comment), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      ★<%= comment.favorites.count %>いいね
     <% end %>
   </p>
 <% else %>
   <p>
-    <%= link_to comment_favorites_path(comment), method: :post, remote: true do %>
-      <%= comment.favorites.count %> いいね
+    <%= link_to comment_favorites_path(comment), method: :post, remote: true, data: {"turbolinks" => false} do %>
+      ☆<%= comment.favorites.count %> いいね
     <% end %>
   </p>
 <% end %>
+
+<!--link_to内にremote; true を追加することで、HTMLリクエストではなく、JavaScriptのリクエストがfavoritesコントローラに送られる-->
+<!--data: {"turbolinks" => false}turbolinksを限定的に動かないようにするために記入。この記入がないと、リロードしないと反映されなくなる-->

@@ -85,22 +85,25 @@
     <% @comments.each do |comment| %>
     <table class="table table-light table-striped">
       <tr>
-        <td class="col-md-2"></td>
-        <td class="col-md-8"><%= comment.comment %></td>
-        <td class="col-md-2">
-          <% if comment.favorited_by?(current_member) %>
-            <p>
-              <%= link_to comment_favorites_path(comment), method: :delete do %>
-                <%= comment.favorites.count %> いいね
-              <% end %>
-            </p>
-          <% else %>
-            <p>
-              <%= link_to comment_favorites_path(comment), method: :post do %>
-                <%= comment.favorites.count %> いいね
-              <% end %>
-            </p>
-          <% end %>
+        <td class="col-md-1"></td>
+        <td class="col-md-7"><%= comment.comment %></td>
+        <td class="col-md-4">
+          <td id="favorite_buttons_<%= comment.id %>" >
+            <%= render "member/favorites/favorite", comment: comment %>
+          </td>
+          <!--< if comment.favorited_by?(current_member) %>-->
+          <!--  <p>-->
+          <!--    <= link_to comment_favorites_path(comment), method: :delete do %>-->
+          <!--      ★<comment.favorites.count %> いいね-->
+          <!--    < end %>-->
+          <!--  </p>-->
+          <!--< else %>-->
+          <!--  <p>-->
+          <!--    <= link_to comment_favorites_path(comment), method: :post do %>-->
+          <!--      ☆<comment.favorites.count %> いいね-->
+          <!--    < end %>-->
+          <!--  </p>-->
+          <!--< end %>-->
         </td>
       </tr>
     </table>
