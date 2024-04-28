@@ -91,19 +91,6 @@
           <td id="favorite_buttons_<%= comment.id %>" >
             <%= render "member/favorites/favorite", comment: comment %>
           </td>
-          <!--< if comment.favorited_by?(current_member) %>-->
-          <!--  <p>-->
-          <!--    <= link_to comment_favorites_path(comment), method: :delete do %>-->
-          <!--      ★<comment.favorites.count %> いいね-->
-          <!--    < end %>-->
-          <!--  </p>-->
-          <!--< else %>-->
-          <!--  <p>-->
-          <!--    <= link_to comment_favorites_path(comment), method: :post do %>-->
-          <!--      ☆<comment.favorites.count %> いいね-->
-          <!--    < end %>-->
-          <!--  </p>-->
-          <!--< end %>-->
         </td>
       </tr>
     </table>
