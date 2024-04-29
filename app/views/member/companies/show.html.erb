@@ -86,11 +86,9 @@
     <table class="table table-light table-striped">
       <tr>
         <td class="col-md-1"></td>
-        <td class="col-md-7"><%= comment.comment %></td>
-        <td class="col-md-4">
-          <td id="favorite_buttons_<%= comment.id %>" >
-            <%= render "member/favorites/favorite", comment: comment %>
-          </td>
+        <td class="col-md-9"><%= comment.comment %></td>
+        <td class="col-md-2" id="favorite_buttons_<%= comment.id %>">
+          <%= render "member/favorites/favorite", comment: comment %>
         </td>
       </tr>
     </table>

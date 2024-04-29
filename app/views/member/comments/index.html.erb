@@ -16,10 +16,8 @@
         <tr>
           <td class="text-center"><%= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td><%= comment.comment %></td>
-          <td class="text-center">
-            <td id="favorite_buttons_<%= comment.id %>" >
-              <%= render "member/favorites/favorite", comment: comment %>
-            </td>
+          <td class="text-center" id="favorite_buttons_<%= comment.id %>">
+            <%= render "member/favorites/favorite", comment: comment %>
           </td>
         </tr>
       </tbody>
