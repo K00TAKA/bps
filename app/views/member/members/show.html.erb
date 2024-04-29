@@ -3,13 +3,13 @@
     <h2>マイページ</h2>
     <table class="table table-borderless">
       <thead class="thead-info">
-        <th><strong>企業情報</strong></th>
-        <th></th>
+        <th class="col-md-4"><strong>企業情報</strong></th>
+        <th class="col-md-8"></th>
       </thead>
       <tbody class="tbody-info">
         <tr>
-          <th><strong>企業写真</strong></th>
-          <td>
+          <th class="col-md-4"><strong>企業写真</strong></th>
+          <td class="col-md-8">
             <% if @company && @company.image.attached? %>
               <%= image_tag @company.image, size: "200x200" %>
             <% else %>
@@ -18,43 +18,43 @@
           </td>
         </tr>
         <tr>
-          <th><strong>企業名</strong></th>
-          <td><%= @company.company %></td>
+          <th class="col-md-4"><strong>企業名</strong></th>
+          <td class="col-md-8"><%= @company.company %></td>
         </tr>
         <tr>
-          <th><strong>企業名(カナ)</strong></th>
-          <td><%= @company.company_kana %></td>
+          <th class="col-md-4"><strong>(カナ)</strong></th>
+          <td class="col-md-8"><%= @company.company_kana %></td>
         </tr>
         <tr>
-          <th><strong>業種</strong></th>
-          <td><%= @company.genre %></td>
+          <th class="col-md-4"><strong>業種</strong></th>
+          <td class="col-md-8"><%= @company.genre %></td>
         </tr>
         <tr>
-          <th><strong>郵便番号</strong></th>
-          <td><%= @company.post_code %></td>
+          <th class="col-md-4"><strong>郵便番号</strong></th>
+          <td class="col-md-8"><%= @company.post_code %></td>
         </tr>
         <tr>
-          <th><strong>住所</strong></th>
-          <td><%= @company.address %></td>
+          <th class="col-md-4"><strong>住所</strong></th>
+          <td class="col-md-8"><%= @company.address %></td>
         </tr>
         <tr>
-          <th><strong>設立年</strong></th>
-          <td><%= @company.date_of_establishment %></td>
+          <th class="col-md-4"><strong>設立年</strong></th>
+          <td class="col-md-8"><%= @company.date_of_establishment %></td>
         </tr>
         <tr>
-          <th><strong>紹介</strong></th>
-          <td><%= @company.introduction %></td>
+          <th class="col-md-4"><strong>紹介</strong></th>
+          <td class="col-md-8"><%= @company.introduction %></td>
         </tr>
         <tr>
-          <th><strong>電話番号</strong></th>
-          <td><%= @company.tel %></td>
+          <th class="col-md-4"><strong>電話番号</strong></th>
+          <td class="col-md-8"><%= @company.tel %></td>
         </tr>
         <tr>
-          <th><strong>メールアドレス</strong></th>
-          <td><%= @company.email %></td>
+          <th class="col-md-4"><strong>メール</strong></th>
+          <td class="col-md-8"><%= @company.email %></td>
         </tr>
         <tr>
-          <td></td>
+          <td class="col-md-4"></td>
           <td class="box-action">
             <%= link_to "企業情報を編集", edit_company_path(@company.id), class: 'btn btn-warning' %>
             <%= link_to "コメントを見る", comments_path(@company.id), method: :get, class: 'btn btn-primary' %>
@@ -62,23 +62,23 @@
         </tr>
       </tbody>
       <thead class="thead-info">
-        <th><strong>会員情報</strong></th>
-        <th></th>
+        <th class="col-md-4"><strong>会員情報</strong></th>
+        <th class="col-md-8"></th>
       </thead>
       <tbody>
         <tr>
-          <th><strong>名前</strong></th>
-          <td><%= @member.name %></td>
+          <th class="col-md-4"><strong>名前</strong></th>
+          <td class="col-md-8"><%= @member.name %></td>
         </tr>
         <tr>
-          <th><strong>名前(カナ)</strong></th>
-          <td><%= @member.name_kana %></td>
+          <th class="col-md-4"><strong>(カナ)</strong></th>
+          <td class="col-md-8"><%= @member.name_kana %></td>
         </tr>
-          <th><strong>メールアドレス</strong></th>
-          <td><%= @member.email %></td>
+          <th class="col-md-4"><strong>メール</strong></th>
+          <td class="col-md-8"><%= @member.email %></td>
         </tr>
         <tr>
-          <td></td>
+          <td class="col-md-4"></td>
           <td class="box-action"><%= link_to "会員情報を編集", edit_member_path(@member.id), class: 'btn btn-warning' %></td>
         </tr>
       </tbody>
@@ -100,7 +100,7 @@
 }
 
 th, td {
-  text-align: center;
+  text-align: start;
   align-content: center;
 }
 
