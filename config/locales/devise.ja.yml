@@ -18,7 +18,7 @@ ja:
       unconfirmed: '確認メールを確認してください。'
       unknown_format: '無効なリクエストフォーマットです。'
       unverified: 'アカウントが確認されていません。'
-      user_locked: 'アカウントがロックされています。'
+      member_locked: 'アカウントがロックされています。'
     mailer:
       confirmation_instructions:
         subject: 'アカウントの確認メール'

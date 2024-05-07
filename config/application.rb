@@ -11,8 +11,9 @@ module Bps
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Rails アプリケーションを日本語対応させる
     config.i18n.default_locale = :ja
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
     # Configuration for the application, engines, and railties goes here.
     #

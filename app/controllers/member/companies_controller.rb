@@ -25,7 +25,6 @@ class Member::CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    # @comment = Comment.new
     @comments = @company.comments.where(is_active: true)
     @member = @company.member # 会員情報を取得する
     @currentmemberEntry = Entry.where(member_id: current_member.id)

@@ -1,8 +1,15 @@
 <div class="box">
   <div class="box-inner">
     <h3><新規会員登録></h3>
+    <% if @member.errors.any? %>
+      <%= @member.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @member.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= form_with model: @member, url:member_registration_path, method: :post do |f| %>
-      <%= render "member/shared/error_messages", resource: @member %>
       <div class="member_info box-name">
         <strong>名前</strong><br>
         (氏名)<%= f.text_field :name, autofocus: true, :placeholder =>"石川太郎" %>
