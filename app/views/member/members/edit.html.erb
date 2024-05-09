@@ -1,8 +1,14 @@
 <div class="container py-5">
   <h3 class="bg">会員情報編集</h3>
-
+  <% if @member.errors.any? %>
+    <%= @member.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
-    <%= render "member/shared/error_messages", resource: @member %>
     <div class="row py-2">
       <div class="col-md-2"><strong>名前</strong></div>
       <div class="col-offset-1"></div>

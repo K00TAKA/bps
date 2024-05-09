@@ -13,8 +13,11 @@ class Member < ApplicationRecord
   validates :name, presence: true
   validates :name_kana, presence: true
   validates :email, presence: true
-  validates :password, length: { in: 6..140 }, presence: true
-  validates :password_confirmation, length: { in: 6..140 }, presence: true
+
+  with_options on: :create do |create|
+    create.validates :password, length: { in: 6..140 }, presence: true
+    create.validates :password_confirmation, length: { in: 6..140 }, presence: true
+  end
 
   def active_for_authentication?
     super && (is_active == true)
