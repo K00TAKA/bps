@@ -8,6 +8,7 @@ class Member::MembersController < ApplicationController
   end
 
   def edit
+    is_matching_login_member
     @member = Member.find(params[:id])
     @company = current_member.company
   end
@@ -43,6 +44,13 @@ class Member::MembersController < ApplicationController
   end
 
   private
+
+  def is_matching_login_member
+    member = Member.find(params[:id])
+    unless member.id == current_member.id
+      redirect_to member_path(current_member.id)
+    end
+  end
 
   def member_params
   params.require(:member).permit(:name, :name_kana, :email)
