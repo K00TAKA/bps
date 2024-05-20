@@ -1,5 +1,6 @@
-class Member::CompaniesController < ApplicationController
+# frozen_string_literal: true
 
+class Member::CompaniesController < ApplicationController
   before_action :authenticate_member!
 
   def new
@@ -70,9 +71,7 @@ class Member::CompaniesController < ApplicationController
   end
 
   private
-
-  def company_params
-  params.require(:company).permit(:image, :company, :company_kana,:genre, :post_code, :address, :date_of_establishment, :introduction, :tel, :email, :member_id)
-  end
-
+    def company_params
+      params.require(:company).permit(:image, :company, :company_kana, :genre, :post_code, :address, :date_of_establishment, :introduction, :tel, :email, :member_id)
+    end
 end

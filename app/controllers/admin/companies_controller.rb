@@ -1,5 +1,6 @@
-class Admin::CompaniesController < ApplicationController
+# frozen_string_literal: true
 
+class Admin::CompaniesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
@@ -22,9 +23,7 @@ class Admin::CompaniesController < ApplicationController
   end
 
   private
-
-  def company_params
-    params.require(:company).permit(:is_active)
-  end
-
+    def company_params
+      params.require(:company).permit(:is_active)
+    end
 end

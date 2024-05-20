@@ -1,5 +1,6 @@
-class Member::MessagesController < ApplicationController
+# frozen_string_literal: true
 
+class Member::MessagesController < ApplicationController
   before_action :authenticate_member!
 
   def create

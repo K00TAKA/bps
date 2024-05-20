@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCompanyIdToComment < ActiveRecord::Migration[6.1]
   def change
     add_column :comments, :company_id, :integer

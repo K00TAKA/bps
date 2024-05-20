@@ -1,26 +1,24 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  root to: 'homes#top'
-  get 'about' => 'homes#about'
-  #会員用
-  # URL /members/sign_in ...
+Rails.application.routes.draw do
+  root to: "homes#top"
+  get "about" => "homes#about"
+
   devise_for :members, controllers: {
     registrations: "member/registrations",
-    sessions: 'member/sessions'
+    sessions: "member/sessions"
   }
 
   devise_scope :member do
-    get '/members/sign_out' => 'devise/sessions#destroy'
+    get "/members/sign_out" => "devise/sessions#destroy"
   end
 
-  #管理者用
-  # URL /admin/sign_in ...
   devise_for :admins, controllers: {
     sessions: "admin/sessions"
   }
 
   devise_scope :admin do
-    get '/admins/sign_out' => 'devise/sessions#destroy'
+    get "/admins/sign_out" => "devise/sessions#destroy"
   end
 
   namespace :admin do
@@ -31,11 +29,10 @@ Rails.application.routes.draw do
     resources :announcements
   end
 
-  # namespaceを使うとURLにmemberが付くためscopeを使用
   scope module: :member do
     get "search" => "searches#search"
-    get 'members/check' => 'members#check'
-    patch 'members/withdraw' => 'members#withdraw'
+    get "members/check" => "members#check"
+    patch "members/withdraw" => "members#withdraw"
     resources :companies, except: [:destroy] do
       resources :comments, only: [:create, :new]
     end

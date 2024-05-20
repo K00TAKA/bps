@@ -1,5 +1,6 @@
-class Member::CommentsController < ApplicationController
+# frozen_string_literal: true
 
+class Member::CommentsController < ApplicationController
   before_action :authenticate_member!
 
   def index
@@ -28,5 +29,4 @@ class Member::CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment, :company_id)
   end
-
 end

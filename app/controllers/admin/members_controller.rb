@@ -1,5 +1,6 @@
-class Admin::MembersController < ApplicationController
+# frozen_string_literal: true
 
+class Admin::MembersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
@@ -30,9 +31,7 @@ class Admin::MembersController < ApplicationController
   end
 
   private
-
-  def member_params
-    params.require(:member).permit(:is_active)
-  end
-
+    def member_params
+      params.require(:member).permit(:is_active)
+    end
 end

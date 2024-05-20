@@ -1,5 +1,6 @@
-class Member::FavoritesController < ApplicationController
+# frozen_string_literal: true
 
+class Member::FavoritesController < ApplicationController
   before_action :authenticate_member!
 
   def create
@@ -15,5 +16,4 @@ class Member::FavoritesController < ApplicationController
     favorite.destroy
     # redirect_to request.referer
   end
-
 end

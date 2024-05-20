@@ -1,5 +1,6 @@
-class Member::MembersController < ApplicationController
+# frozen_string_literal: true
 
+class Member::MembersController < ApplicationController
   before_action :authenticate_member!
 
   def show
@@ -44,24 +45,22 @@ class Member::MembersController < ApplicationController
   end
 
   private
-
-  def is_matching_login_member
-    member = Member.find(params[:id])
-    unless member.id == current_member.id
-      redirect_to member_path(current_member.id)
+    def is_matching_login_member
+      member = Member.find(params[:id])
+      unless member.id == current_member.id
+        redirect_to member_path(current_member.id)
+      end
     end
-  end
 
-  def member_params
-  params.require(:member).permit(:name, :name_kana, :email)
-  end
+    def member_params
+      params.require(:member).permit(:name, :name_kana, :email)
+    end
 
-  def is_active_changed_to_false?
-    saved_change_to_attribute?(:is_active) && !is_active
-  end
+    def is_active_changed_to_false?
+      saved_change_to_attribute?(:is_active) && !is_active
+    end
 
-  def deactivate_company
-    company.update(is_active: false) if company
-  end
-
+    def deactivate_company
+      company.update(is_active: false) if company
+    end
 end

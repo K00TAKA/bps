@@ -1,5 +1,6 @@
-class Admin::AnnouncementsController < ApplicationController
+# frozen_string_literal: true
 
+class Admin::AnnouncementsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
@@ -22,7 +23,6 @@ class Admin::AnnouncementsController < ApplicationController
       flash[:notice] = "お知らせの登録に失敗しました。"
       render :new
     end
-
   end
 
   def edit
@@ -48,9 +48,7 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   private
-
-  def announcement_params
-    params.require(:announcement).permit(:title, :body, :is_active)
-  end
-
+    def announcement_params
+      params.require(:announcement).permit(:title, :body, :is_active)
+    end
 end

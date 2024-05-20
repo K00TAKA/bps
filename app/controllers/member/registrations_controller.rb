@@ -39,15 +39,14 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+    def after_sign_in_path_for(resource)
+      new_company_path
+    end
 
-  def after_sign_in_path_for(resource)
-    new_company_path
-  end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :post_code, :address, :tel, :email, :is_active, :password_confirmation])
-  end
+    # If you have extra params to permit, append them to the sanitizer.
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :post_code, :address, :tel, :email, :is_active, :password_confirmation])
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -63,6 +62,4 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-
 end

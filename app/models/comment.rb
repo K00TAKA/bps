@@ -1,5 +1,6 @@
-class Comment < ApplicationRecord
+# frozen_string_literal: true
 
+class Comment < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :company
   belongs_to :member
@@ -15,5 +16,4 @@ class Comment < ApplicationRecord
       "非表示"
     end
   end
-
 end

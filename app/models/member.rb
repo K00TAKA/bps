@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -31,5 +33,4 @@ class Member < ApplicationRecord
       "退会済み"
     end
   end
-
 end

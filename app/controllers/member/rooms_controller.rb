@@ -1,5 +1,6 @@
-class Member::RoomsController < ApplicationController
+# frozen_string_literal: true
 
+class Member::RoomsController < ApplicationController
   before_action :authenticate_member!
 
   def create
@@ -16,7 +17,7 @@ class Member::RoomsController < ApplicationController
       @message = Message.new
       @entries = @room.entries
     else
-      redirect_to  room_path(@room.id)
+      redirect_to room_path(@room.id)
     end
   end
 end

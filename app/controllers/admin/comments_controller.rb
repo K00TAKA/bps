@@ -1,5 +1,6 @@
-class Admin::CommentsController < ApplicationController
+# frozen_string_literal: true
 
+class Admin::CommentsController < ApplicationController
   before_action :authenticate_admin!
 
   def show
@@ -19,9 +20,7 @@ class Admin::CommentsController < ApplicationController
   end
 
   private
-
-  def comment_params
-    params.require(:comment).permit(:is_active)
-  end
-
+    def comment_params
+      params.require(:comment).permit(:is_active)
+    end
 end
