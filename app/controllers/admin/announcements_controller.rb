@@ -36,7 +36,7 @@ class Admin::AnnouncementsController < ApplicationController
       flash[:notice] = "更新に成功しました。"
       redirect_to admin_announcements_path
     else
-      flash[:notice] = "更新に成功しました。"
+      flash[:notice] = "更新に失敗しました。"
       render :edit
     end
   end
