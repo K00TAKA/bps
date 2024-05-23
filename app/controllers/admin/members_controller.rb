@@ -15,7 +15,6 @@ class Admin::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      # @company = Company.find(@member.company.id)
       if @member.is_active?
         @member.company.update(is_active: true)
       else
