@@ -13,11 +13,13 @@ class Member < ApplicationRecord
   has_many :entries, dependent: :destroy
 
   validates :name, presence: true
-  validates :name_kana, presence: true
-  validates :email, presence: true
+  validates :name_kana, format: { with: /\p{katakana}/ }, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/i }, presence: true
 
   with_options on: :create do |create|
-    create.validates :password, length: { in: 6..140 }, presence: true
+    create.validates :password, length: { in: 6..140 },
+    format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,
+    message: 'は英数字の混合である必要があります' },on: :create, presence: true
     create.validates :password_confirmation, length: { in: 6..140 }, presence: true
   end
 
