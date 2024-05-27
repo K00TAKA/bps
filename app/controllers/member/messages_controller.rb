@@ -8,18 +8,18 @@ class Member::MessagesController < ApplicationController
       @message = Message.new(message_params)
       if @message.save
         flash[:notice] = "送信しました。"
-        @room = Room.find(params[:message][:room_id]) # 修正
+        @room = Room.find(params[:message][:room_id])
         redirect_to room_path(@room.id)
       end
     else
       flash[:notice] = "送信に失敗しました。"
-      @room = Room.find(params[:message][:room_id]) # 修正
+      @room = Room.find(params[:message][:room_id])
       redirect_to room_path(@room.id)
     end
   end
 
   def destroy
-    message = Message.find(params[:message][:id])  # 修正
+    message = Message.find(params[:message][:id])
     message.destroy
     @room = Room.find(params[:message][:room_id])
     redirect_to room_path(@room.id)

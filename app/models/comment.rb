@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :company
   belongs_to :member
 
-  validates :comment, presence: true, format: { with: /\S/, message: "コメントを入力してください。" }
+  validates :comment, presence: true, format: { with: /\S/ }
 
   def favorited_by?(member)
     favorites.exists?(member_id: member.id)

@@ -15,7 +15,6 @@
             <li class="member-name text-dark text-center">
               <strong>ようこそ<%= current_member.name %>さん！</strong>
             </li>
-          <!--link_toにすることでmethodがgetになる（button_toだとpostになる）-->
             <li class="nav-item">
               <%= link_to "マイページ", member_path(current_member), class: 'nav-link text-dark' %>
             </li>

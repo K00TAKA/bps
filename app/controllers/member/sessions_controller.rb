@@ -25,15 +25,10 @@ class Member::SessionsController < Devise::SessionsController
     end
 
     def member_state
-      # [処理内容1]　入力されたemailからアカウント1件取得
       member = Member.find_by(email: params[:member][:email])
-      # [処理内容2]　アカウントを取得できなかった場合、このメソッドを終了する
       return if member.nil?
-      # [処理内容3]　取得したアカウントのパスワードと入力されたパスワードが一致していない場合、このメソッドを終了する
       return unless member.valid_password?(params[:member][:password])
-      # 【処理内容4】 アクティブでない会員に対する処理
       member.update(is_active: true)
-      # 今回、会員情報を削除せず、is_activeを使ってステータス管理する（trueは入会中、falseは退会済み）
     end
 
   protected
@@ -41,7 +36,6 @@ class Member::SessionsController < Devise::SessionsController
       root_path
     end
 
-    # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
     def reject_member
       @member = Member.find_by(name: params[:member][:name])
       if @member
