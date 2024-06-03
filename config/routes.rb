@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'notifivations/index'
   root to: "homes#top"
   get "about" => "homes#about"
 
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :show]
     resources :announcements
+    resources :notifications, only: [:index]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

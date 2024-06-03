@@ -131,12 +131,14 @@ ActiveRecord::Schema.define(version: 2024_05_30_074624) do
     t.integer "company_id"
     t.integer "comment_id"
     t.integer "room_id"
+    t.integer "message_id"
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["company_id"], name: "index_notifications_on_company_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["room_id"], name: "index_notifications_on_room_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"

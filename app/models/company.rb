@@ -4,6 +4,7 @@ class Company < ApplicationRecord
   belongs_to :member
   has_one_attached :image
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :company, presence: true
   validates :company_kana, format: { with: /\p{katakana}/ }, presence: true

@@ -19,6 +19,9 @@
               <%= link_to "マイページ", member_path(current_member), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
+              <%= link_to "新着通知", notifications_path(current_member), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
               <%= link_to "企業一覧", companies_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">

@@ -1,0 +1,10 @@
+<div class="container py-5">
+  <h2>新着通知</h2>
+  <p>通知数：<%= @notifications.count %>件</p>
+  <% notifications = @notifications.where.not(visitor_id: current_member.id) %>
+  <% if notifications.exists? %>
+    <%= render partial: 'member/notifications/notification', collection: notifications, as: :notification %>
+  <% else %>
+    <p>新着のDM通知はありません</p>
+  <% end %>
+</div>

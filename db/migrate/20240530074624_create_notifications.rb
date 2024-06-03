@@ -6,6 +6,7 @@ class CreateNotifications < ActiveRecord::Migration[6.1]
       t.integer :company_id
       t.integer :comment_id
       t.integer :room_id
+      t.integer :message_id
       t.string :action, default: '', null: false
       t.boolean :checked, default: false, null: false
       t.timestamps
@@ -16,5 +17,6 @@ class CreateNotifications < ActiveRecord::Migration[6.1]
     add_index :notifications, :company_id
     add_index :notifications, :comment_id
     add_index :notifications, :room_id
+    add_index :notifications, :message_id
   end
 end
