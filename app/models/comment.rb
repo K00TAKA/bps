@@ -12,6 +12,18 @@ class Comment < ApplicationRecord
     favorites.exists?(member_id: member.id)
   end
 
+  after_create :create_notification
+
+  private
+
+  def create_notification
+    Notification.create(
+      visitor_id: member_id,
+      visited_id: company.member_id,
+      action: 'comment'
+    )
+  end
+
   def comment_status
     is_active ? "表示" : "非表示"
   end

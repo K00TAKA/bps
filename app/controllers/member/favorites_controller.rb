@@ -1,12 +1,12 @@
-# frozen_string_literal: true
-
 class Member::FavoritesController < ApplicationController
   before_action :authenticate_member!
 
   def create
     @comment = Comment.find(params[:comment_id])
     favorite = current_member.favorites.new(comment_id: @comment.id)
-    favorite.save
+    if favorite.save
+      @comment.create_notification_favorite!(current_member)
+    end
   end
 
   def destroy

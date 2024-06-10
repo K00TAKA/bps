@@ -44,7 +44,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :show]
     resources :announcements
-    resources :notifications, only: [:index]
+    resources :notifications, only: [:index] do
+      member do
+        patch :mark_as_checked
+      end
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

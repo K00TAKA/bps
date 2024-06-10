@@ -6,4 +6,6 @@ class Notification < ApplicationRecord
   belongs_to :message, optional: true
   belongs_to :visitor, class_name: 'Member', foreign_key: 'visitor_id', optional: true
   belongs_to :visited, class_name: 'Member', foreign_key: 'visited_id', optional: true
+
+  enum notification_type: { dm: 0, like: 1 }
 end

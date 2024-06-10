@@ -4,7 +4,11 @@
   <%= link_to company_path(visitor.company) do %>
     <%= visitor.name %>さんが
   <% end %>
-  <% if notification.action == 'message' %>
+  <% case notification.action %>
+  <% when 'message' %>
     あなたにDMを送りました
+  <% when 'comment' %>
+    あなたの会社にコメントしました
+  <% when 'favorite' %>
+    あなたのコメントにいいねしました
   <% end %>
-</div>
