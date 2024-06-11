@@ -24,11 +24,11 @@ class Member::MessagesController < ApplicationController
         flash[:notice] = "送信しました。"
         @room = Room.find(params[:message][:room_id])
         redirect_to room_path(@room.id)
+      else
+        flash[:notice] = "送信に失敗しました。"
+        @room = Room.find(params[:message][:room_id])
+        redirect_to room_path(@room.id)
       end
-    else
-      flash[:notice] = "送信に失敗しました。"
-      @room = Room.find(params[:message][:room_id])
-      redirect_to room_path(@room.id)
     end
   end
 
