@@ -7,7 +7,7 @@ class Member::RoomsController < ApplicationController
     @room = Room.create
     Entry.create(room_id: @room.id, member_id: current_member.id)
     Entry.create(params.require(:entry).permit(:member_id, :room_id).merge(room_id: @room.id))
-    redirect_to room_path(@room.id)
+    # redirect_to room_path(@room.id)
   end
 
   def show
@@ -16,8 +16,6 @@ class Member::RoomsController < ApplicationController
       @messages = @room.messages.order(created_at: :desc)
       @message = Message.new
       @entries = @room.entries
-    else
-      redirect_to room_path(@room.id)
     end
   end
 end
