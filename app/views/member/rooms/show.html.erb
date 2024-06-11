@@ -12,12 +12,14 @@
   <table class="table table-borderless" >
     <tr>
       <th>発言者</th>
+      <th>日時</th>
       <th>メッセージ内容</th>
       <th></th>
     </tr>
     <% @messages.each do |m| %>
     <tr>
       <td><%= m.member.name %>さん</td>
+      <td><%= m.created_at.strftime("%m/%d [%H:%M]") %></td>
       <td><%= m.body %></td>
       <% if m.member_id == current_member.id %>
       <td><%= link_to "削除", message_path(m.id, message: { id: m.id, room_id: @room.id }), method: :delete, class: 'btn btn-danger' %></td>

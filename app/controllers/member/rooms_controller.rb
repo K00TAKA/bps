@@ -13,7 +13,7 @@ class Member::RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     if Entry.where(member_id: current_member.id, room_id: @room.id).present?
-      @messages = @room.messages.all
+      @messages = @room.messages.order(created_at: :desc)
       @message = Message.new
       @entries = @room.entries
     else
