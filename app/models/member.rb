@@ -37,4 +37,8 @@ class Member < ApplicationRecord
       "退会済み"
     end
   end
+
+  def passive_notifications
+    Notification.where(visited_id: id)
+  end
 end

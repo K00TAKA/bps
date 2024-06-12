@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :announcements
     resources :notifications, only: [:index] do
       member do
-        patch :mark_as_checked
+        patch :mark_as_read
       end
     end
   end
