@@ -28,6 +28,7 @@ class Comment < ApplicationRecord
     is_active ? "表示" : "非表示"
   end
 
+  public
   def create_notification_favorite!(current_member)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and comment_id = ? and action = ? ", current_member.id, member_id, id, 'favorite'])
     if temp.blank?
