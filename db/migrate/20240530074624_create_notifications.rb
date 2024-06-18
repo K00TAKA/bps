@@ -18,5 +18,7 @@ class CreateNotifications < ActiveRecord::Migration[6.1]
     add_index :notifications, :comment_id
     add_index :notifications, :room_id
     add_index :notifications, :message_id
+    
+    add_foreign_key :notifications, :messages, column: :message_id
   end
 end

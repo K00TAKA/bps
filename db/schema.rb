@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2024_05_30_074624) do
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -155,4 +156,5 @@ ActiveRecord::Schema.define(version: 2024_05_30_074624) do
   add_foreign_key "entries", "rooms"
   add_foreign_key "messages", "members"
   add_foreign_key "messages", "rooms"
+  add_foreign_key "notifications", "messages"
 end
