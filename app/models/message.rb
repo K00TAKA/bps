@@ -13,7 +13,8 @@ class Message < ApplicationRecord
         room_id: room_id,
         visited_id: entry.member_id,
         visitor_id: member_id,
-        action: 'message'
+        action: 'message',
+        message_id: id
       )
     end
   end

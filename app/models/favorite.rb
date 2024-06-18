@@ -11,7 +11,7 @@ class Favorite < ApplicationRecord
   private
 
   def create_notification
-    notification.create(
+    Notification.create(
       comment_id: comment_id,
       visitor_id: member_id,
       visited_id: comment.member_id,

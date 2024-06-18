@@ -17,7 +17,7 @@ class Comment < ApplicationRecord
   private
 
   def create_notification
-    notification.create(
+    Notification.create(
       visitor_id: member_id,
       visited_id: company.member_id,
       action: 'comment'
