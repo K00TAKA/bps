@@ -12,9 +12,9 @@ class Favorite < ApplicationRecord
 
   def create_notification
     Notification.create(
+      comment_id: comment_id,
       visitor_id: member_id,
       visited_id: comment.member_id,
-      comment_id: comment_id,
       action: 'favorite'
     )
   end

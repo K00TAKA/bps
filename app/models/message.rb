@@ -9,7 +9,7 @@ class Message < ApplicationRecord
 
   def create_notification
     room.entries.where.not(member_id: member_id).each do |entry|
-      notifications.create(
+      Notifications.create(
         room_id: room_id,
         visited_id: entry.member_id,
         visitor_id: member_id,
