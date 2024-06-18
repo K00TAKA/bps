@@ -23,6 +23,7 @@ class Member::MessagesController < ApplicationController
         end
         flash[:notice] = "送信しました。"
       else
+        Rails.logger.error(@message.errors.full_messages.join(', ')) # Add this line to log the error messages
         flash[:notice] = "送信に失敗しました。"
       end
     end
