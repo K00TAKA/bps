@@ -29,6 +29,17 @@ class Member < ApplicationRecord
     super && (is_active == true)
   end
 
+  def self.search_for(content, method)
+    if method == "perfect"
+      where("name = ?", content)
+    elsif method == "forward"
+      where("name LIKE ?", content + "%")
+    elsif method == "backward"
+      where("name LIKE ?", "%" + content)
+    else
+      where("name LIKE ?", "%" + content + "%")
+    end
+  end
 
   def member_status
     if is_active == true

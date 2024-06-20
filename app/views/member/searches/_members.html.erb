@@ -1,0 +1,39 @@
+<div class="container py-3">
+  <table class="table table-border">
+    <tr>
+      <th>会員名</th>
+      <th>会員名カナ</th>
+      <th>メールアドレス</th>
+      <th></th>
+    </tr>
+    <% members.each do |member| %>
+      <% if member.is_active %>
+      <tr>
+        <td><%= member.name %></td>
+        <td><%= member.name_kana %></td>
+        <td><%= member.email %></td>
+        <td><%= link_to "会員詳細へ", company_path(member.id), class: "btn btn-success" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <div><%= paginate members %></div>
+</div>
+
+<style>
+  th {
+    background-color: #191970;
+    color: white;
+    text-align: center;
+    align-content: center;
+  }
+
+  td {
+    text-align: center;
+    align-content: center;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+</style>

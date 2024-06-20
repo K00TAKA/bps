@@ -2,7 +2,7 @@
   <div class="search_form">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :content, placeholder: "検索" %>
-      <%= f.select :model, options_for_select({"企業" => "company"}) %>
+      <%= f.select :model, options_for_select({"企業" => "company", "会員名" => "member"}) %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -10,7 +10,7 @@
   <div class="search_form">
     <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
       <%= f.text_field :content, placeholder: "検索" %>
-      <%= f.select :model, options_for_select({"企業" => "company"}) %>
+      <%= f.select :model, options_for_select({"企業" => "company", "会員名" => "member"}) %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
