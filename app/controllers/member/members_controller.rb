@@ -2,6 +2,7 @@
 
 class Member::MembersController < ApplicationController
   before_action :authenticate_member!
+  before_action :check_member_active, except: [:edit, :update]
 
   def show
     @member = Member.find(params[:id])
@@ -60,5 +61,13 @@ class Member::MembersController < ApplicationController
 
     def deactivate_company
       company.update(is_active: false) if company
+    end
+
+    def check_member_active
+      @member = Member.find(params[:id])
+      unless @member.is_active
+        redirect_to root_path
+        flash[:notice] = "お探しの会員は退会済みです。"
+      end
     end
 end

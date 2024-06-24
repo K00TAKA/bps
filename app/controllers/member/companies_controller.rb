@@ -2,6 +2,7 @@
 
 class Member::CompaniesController < ApplicationController
   before_action :authenticate_member!
+  before_action :check_company_active, except: [:new, :create]
 
   def new
     @company = Company.new
@@ -27,7 +28,7 @@ class Member::CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @comments = @company.comments.where(is_active: true)
-    @member = @company.member 
+    @member = @company.member
     @currentmemberEntry = Entry.where(member_id: current_member.id)
     @memberEntry = Entry.where(member_id: @member.id)
     if @member.id == current_member.id
@@ -73,5 +74,13 @@ class Member::CompaniesController < ApplicationController
   private
     def company_params
       params.require(:company).permit(:image, :company, :company_kana, :genre, :post_code, :address, :date_of_establishment, :introduction, :tel, :email, :member_id)
+    end
+
+    def check_company_active
+      @company = Company.find(params[:id])
+      unless @company.is_active
+        redirect_to root_path
+        flash[:notice] = "お探しの企業は解約済みです。"
+      end
     end
 end
