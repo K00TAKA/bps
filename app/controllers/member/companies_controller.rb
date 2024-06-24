@@ -2,7 +2,7 @@
 
 class Member::CompaniesController < ApplicationController
   before_action :authenticate_member!
-  before_action :check_company_active, except: [:new, :create]
+  before_action :check_company_active, except: [:index, :new, :create]
 
   def new
     @company = Company.new
@@ -23,6 +23,10 @@ class Member::CompaniesController < ApplicationController
 
   def index
     @companies = Company.all.page(params[:page]).per(10)
+    if current_member.company.nil?
+    redirect_to new_company_path
+    flash[:notice] = "企業情報がまだ登録されていません。このまま登録を行ってしてください。"
+    end
   end
 
   def show

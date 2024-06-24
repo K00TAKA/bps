@@ -7,6 +7,10 @@ class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @company = current_member.company
+    if @company.nil?
+    redirect_to new_company_path
+    flash[:notice] = "企業情報がまだ登録されていません。このまま登録を行ってしてください。"
+    end
   end
 
   def edit
