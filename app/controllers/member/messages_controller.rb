@@ -2,9 +2,9 @@
 
 class Member::MessagesController < ApplicationController
   before_action :authenticate_member!
+  before_action :set_room, only: [:create, :destroy]
 
   def create
-    @room = Room.find(params[:message][:room_id])
     if Entry.where(member_id: current_member.id, room_id: @room.id).present?
       @message = Message.new(message_params)
       if @message.save
@@ -20,11 +20,14 @@ class Member::MessagesController < ApplicationController
   def destroy
     message = Message.find(params[:message][:id])
     message.destroy
-    @room = Room.find(params[:message][:room_id])
     redirect_to room_path(@room.id)
   end
 
   private
+    def set_room
+      @room = Room.find(params[:message][:room_id])
+    end
+
     def message_params
       params.require(:message).permit(:member_id, :body, :room_id).merge(member_id: current_member.id)
     end
