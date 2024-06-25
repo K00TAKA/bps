@@ -8,7 +8,12 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    if @company.nil?
+      redirect_to admin_member_path
+      flash[:notice] = "企業情報がまだ登録されていません。"
+    else
+      @company = Company.find(params[:id])
+    end
   end
 
   def update

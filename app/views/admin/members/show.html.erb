@@ -12,7 +12,13 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= @member.id %><br>（ <%= link_to @member.company.id, admin_company_path(@member.company.id) %> ）</td>
+          <td>
+            <% if @member.company.present? %>
+              <%= @member.id %><br>（ <%= link_to @member.company.id, admin_company_path(@member.company.id) %> ）
+            <% else %>
+              未登録
+            <% end %>
+          </td>
           <td>
             <%= @member.name %><br>
             <%= @member.name_kana %>

@@ -7,8 +7,12 @@ class Admin::SearchesController < ApplicationController
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]
-    if @model == "company"
+
+    case @model
+    when "company"
       @records = Company.search_for(@content, @method).page(params[:page]).per(10)
+    when "member"
+      @records = Member.search_for(@content, @method).page(params[:page]).per(10)
     end
   end
 end
